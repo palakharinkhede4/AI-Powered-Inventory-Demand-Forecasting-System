@@ -19,6 +19,8 @@ def load_model_and_data():
     
     df = pd.read_csv(DATA_PATH)
     df['ds'] = pd.to_datetime(df['ds'])
+    return model, df
+
 def get_historical_dataframe():
     """Returns the complete un-logged historical sales dataset."""
     _, df = load_model_and_data()
