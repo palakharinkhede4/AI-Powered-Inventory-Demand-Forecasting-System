@@ -4,6 +4,13 @@ from pydantic import BaseModel, Field
 from typing import List, Dict, Any, Optional
 import pandas as pd
 import numpy as np
+import os
+import sys
+
+# Ensure project root is in sys.path
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
 
 from src.forecast import generate_forecast
 from src.inventory import (
