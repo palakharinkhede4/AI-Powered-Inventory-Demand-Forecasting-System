@@ -3,3 +3,8 @@ numpy
 prophet
 scikit-learn
 streamlit
+fastapi
+uvicorn
+requests
+plotly
+openpyxl
