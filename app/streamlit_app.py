@@ -46,6 +46,16 @@ def load_historical_data():
         cols.append('onpromotion')
     return df[cols]
 
+def get_width_arg(stretch: bool = True):
+    """Provides version-compatible width parameter for Streamlit widgets."""
+    try:
+        ver_parts = [int(p) for p in st.__version__.split('.')[:2]]
+        if ver_parts[0] > 1 or (ver_parts[0] == 1 and ver_parts[1] >= 40):
+            return {"width": "stretch" if stretch else "content"}
+    except Exception:
+        pass
+    return {"use_container_width": stretch}
+
 st.set_page_config(
     page_title="AI Demand Forecasting & Inventory System",
     page_icon="📦",
@@ -363,7 +373,7 @@ with tab_forecast:
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
     )
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, **get_width_arg(True))
     st.caption(f"💡 **Chart Note:** The red dashed baseline represents the **Daily Reorder Rate** (`{int(daily_rop):,} units/day`). The cumulative **{int(lead_time)}-Day Total ROP Threshold** is `{int(metrics['rop']):,} units`.")
 
     with st.expander("📋 View Daily Forecast Breakdown Table"):
@@ -371,7 +381,7 @@ with tab_forecast:
         for c in ['yhat', 'yhat_lower', 'yhat_upper']:
             if c in display_df.columns:
                 display_df[c] = display_df[c].round(2)
-        st.dataframe(display_df, use_container_width=True)
+        st.dataframe(display_df, **get_width_arg(True))
 
 # ----- TAB 2: HISTORICAL DATA EXPLORER -----
 with tab_history:
@@ -392,7 +402,7 @@ with tab_history:
         st.metric("Peak Single-Day Sales", f"{int(hist_full['sales'].max()):,} units")
 
     st.write("### Historical Sales Records Table")
-    st.dataframe(hist_full, use_container_width=True, height=350)
+    st.dataframe(hist_full, height=350, **get_width_arg(True))
 
     # Download CSV button
     csv_data = hist_full.to_csv(index=False).encode('utf-8')
@@ -401,7 +411,7 @@ with tab_history:
         data=csv_data,
         file_name="historical_store_sales.csv",
         mime="text/csv",
-        use_container_width=False
+        **get_width_arg(False)
     )
 
 # ----- TAB 3: PURCHASE ORDER GENERATOR -----
@@ -437,7 +447,7 @@ with tab_po:
         data=po_bytes,
         file_name=f"Purchase_Order_{vendor_name.replace(' ', '_')}.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        use_container_width=True
+        **get_width_arg(True)
     )
 
 # ----- TAB 4: TECHNICAL ARCHITECTURE -----
