@@ -8,7 +8,9 @@ DATA_PATH = os.path.join("data", "processed", "processed.csv")
 
 def load_model_and_data():
     if not os.path.exists(MODEL_PATH):
-        raise FileNotFoundError(f"Model file not found at {MODEL_PATH}. Run 'python src/train_model.py' first.")
+        print(f"⚠️ Model file not found at {MODEL_PATH}. Auto-training model...")
+        from src.train_model import train
+        train()
     if not os.path.exists(DATA_PATH):
         raise FileNotFoundError(f"Processed data file not found at {DATA_PATH}. Run 'python src/preprocess.py' first.")
 
