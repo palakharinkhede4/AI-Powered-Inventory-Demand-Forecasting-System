@@ -13,7 +13,12 @@ ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 
-from src.forecast import generate_forecast, get_historical_dataframe
+from src.forecast import generate_forecast
+try:
+    from src.forecast import get_historical_dataframe
+except ImportError:
+    get_historical_dataframe = None
+
 from src.inventory import (
     calculate_eoq,
     reorder_point,
@@ -23,6 +28,23 @@ from src.inventory import (
 from src.report import create_purchase_order_excel
 
 API_URL = "http://127.0.0.1:8000"
+
+def load_historical_data():
+    """Safely loads historical sales data with fallback."""
+    if get_historical_dataframe is not None:
+        try:
+            return get_historical_dataframe()
+        except Exception:
+            pass
+    # Fallback directly to CSV
+    data_path = os.path.join(ROOT_DIR, "data", "processed", "processed.csv")
+    df = pd.read_csv(data_path)
+    df['sales'] = np.expm1(df['y']).round(2)
+    df['date'] = pd.to_datetime(df['ds']).dt.strftime('%Y-%m-%d')
+    cols = ['date', 'sales']
+    if 'onpromotion' in df.columns:
+        cols.append('onpromotion')
+    return df[cols]
 
 st.set_page_config(
     page_title="AI Demand Forecasting & Inventory System",
@@ -354,7 +376,7 @@ with tab_history:
     st.subheader("📊 Training Dataset Explorer")
     st.write("Examine the historical daily retail store sales dataset used to train the demand forecasting model.")
 
-    hist_full = get_historical_dataframe()
+    hist_full = load_historical_data()
     
     # Dataset Summary Metrics
     c_h1, c_h2, c_h3, c_h4 = st.columns(4)
