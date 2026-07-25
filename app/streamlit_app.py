@@ -343,19 +343,20 @@ with tab_forecast:
         line=dict(color='#34d399', width=3)
     ))
 
-    # Reorder Threshold Line
+    # Daily Reorder Threshold Line (units/day)
+    daily_rop = metrics['rop'] / lead_time if lead_time > 0 else metrics['avg_daily_demand']
     fig.add_trace(go.Scatter(
         x=list(hist_df['ds']) + list(fc_df['ds']),
-        y=[metrics['rop']] * (len(hist_df) + len(fc_df)),
+        y=[daily_rop] * (len(hist_df) + len(fc_df)),
         mode='lines',
-        name=f"Reorder Point Threshold ({int(metrics['rop'])} units)",
+        name=f"Daily Reorder Baseline ({int(daily_rop):,} units/day)",
         line=dict(color='#f87171', width=2, dash='dash')
     ))
 
     fig.update_layout(
         title=f"{days}-Day Demand Forecast with 95% Confidence Bounds",
         xaxis_title="Date",
-        yaxis_title="Units Sold / Demanded",
+        yaxis_title="Units Sold / Demanded per Day",
         template="plotly_dark",
         hovermode="x unified",
         height=480,
@@ -363,6 +364,7 @@ with tab_forecast:
     )
 
     st.plotly_chart(fig, use_container_width=True)
+    st.caption(f"💡 **Chart Note:** The red dashed baseline represents the **Daily Reorder Rate** (`{int(daily_rop):,} units/day`). The cumulative **{int(lead_time)}-Day Total ROP Threshold** is `{int(metrics['rop']):,} units`.")
 
     with st.expander("📋 View Daily Forecast Breakdown Table"):
         display_df = fc_df.copy()
