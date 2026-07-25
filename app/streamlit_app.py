@@ -6,13 +6,14 @@ import requests
 import io
 import os
 import sys
+from datetime import datetime, timedelta
 
-# Ensure project root is in sys.path for Streamlit Cloud execution
+# Ensure project root is in sys.path
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 
-from src.forecast import generate_forecast
+from src.forecast import generate_forecast, get_historical_dataframe
 from src.inventory import (
     calculate_eoq,
     reorder_point,
@@ -24,88 +25,145 @@ from src.report import create_purchase_order_excel
 API_URL = "http://127.0.0.1:8000"
 
 st.set_page_config(
-    page_title="AI Inventory & Demand Forecasting System",
+    page_title="AI Demand Forecasting & Inventory System",
     page_icon="📦",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS styling for polished modern look
+# Custom Styling (Plus Jakarta Sans font + Clean modern UI cards)
 st.markdown("""
     <style>
-    .metric-card {
-        background-color: #1e222d;
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+    
+    html, body, [class*="css"] {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    
+    .main-header {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+    }
+    
+    .sub-header {
+        font-size: 1.05rem;
+        color: #94a3b8;
+        margin-bottom: 1.5rem;
+    }
+
+    .kpi-card {
+        background-color: #1e293b;
+        border-radius: 12px;
+        padding: 20px;
+        border: 1px solid #334155;
+        text-align: center;
+    }
+    
+    .kpi-title {
+        font-size: 0.85rem;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 8px;
+    }
+    
+    .kpi-value {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #f8fafc;
+    }
+    
+    .kpi-sub {
+        font-size: 0.8rem;
+        color: #38bdf8;
+        margin-top: 4px;
+    }
+
+    .status-banner-red {
+        background-color: #451a1a;
+        border-left: 6px solid #ef4444;
+        padding: 18px;
         border-radius: 10px;
-        padding: 15px;
-        border: 1px solid #2e3440;
+        color: #fca5a5;
+        margin-bottom: 20px;
     }
-    .status-card-red {
-        background-color: #3b181c;
-        border-left: 6px solid #ff4b4b;
-        padding: 15px;
-        border-radius: 6px;
-        color: #ffa1a1;
+    .status-banner-yellow {
+        background-color: #422006;
+        border-left: 6px solid #f59e0b;
+        padding: 18px;
+        border-radius: 10px;
+        color: #fde68a;
+        margin-bottom: 20px;
     }
-    .status-card-yellow {
-        background-color: #3b3018;
-        border-left: 6px solid #ffa100;
-        padding: 15px;
-        border-radius: 6px;
-        color: #ffdfa1;
+    .status-banner-green {
+        background-color: #064e3b;
+        border-left: 6px solid #10b981;
+        padding: 18px;
+        border-radius: 10px;
+        color: #a7f3d0;
+        margin-bottom: 20px;
     }
-    .status-card-green {
-        background-color: #183b24;
-        border-left: 6px solid #00c853;
-        padding: 15px;
-        border-radius: 6px;
-        color: #a1ffc4;
-    }
-    .status-card-blue {
-        background-color: #182a3b;
-        border-left: 6px solid #29b6f6;
-        padding: 15px;
-        border-radius: 6px;
-        color: #a1e5ff;
+    .status-banner-blue {
+        background-color: #172554;
+        border-left: 6px solid #3b82f6;
+        padding: 18px;
+        border-radius: 10px;
+        color: #bfdbfe;
+        margin-bottom: 20px;
     }
     </style>
 """, unsafe_allow_html=True)
 
-st.title("📦 AI Inventory & Demand Forecasting System")
-st.caption("Decoupled MLOps Architecture: FastAPI Backend | Prophet Uncertainty Forecasting | Inventory Optimization")
+# ---------------- HEADER ----------------
+st.markdown('<div class="main-header">📦 AI Inventory & Demand Forecasting Engine</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub-header">Predict future sales demand, prevent costly stockouts, and automate supplier order replenishment.</div>', unsafe_allow_html=True)
 
-# Check FastAPI health status
+# Real-World Value Expander
+with st.expander("💡 Why Use This System? (Real-World Business Impact)"):
+    st.markdown("""
+    * **The Problem:** Global retailers lose over **$1.1 Trillion annually** due to overstocking (capital tied up in excess inventory and storage fees) and stockouts (lost sales revenue and customer churn).
+    * **The Solution:** This system uses machine learning time-series forecasting to answer three vital daily operational questions:
+      1. 📈 **How much will customers buy in the next 7 to 60 days?** (Demand Forecasting)
+      2. ⚠️ **Do we have enough inventory, or when will we run out?** (Stockout Risk Alert)
+      3. 📦 **How many units should we order right now to minimize holding & shipping costs?** (EOQ Reorder Calculation)
+    """)
+
+# ---------------- SIDEBAR (SIMPLIFIED TO 4 INPUTS) ----------------
+st.sidebar.header("⚙️ Operational Controls")
+
+days = st.sidebar.slider("🗓️ Forecast Horizon (Days)", min_value=7, max_value=60, value=30, step=1)
+current_stock = st.sidebar.number_input("📦 Current Stock Level (Units)", min_value=0, value=5000, step=100)
+lead_time = st.sidebar.number_input("🚚 Supplier Lead Time (Days)", min_value=1, max_value=30, value=5, step=1)
+
+promo_choice = st.sidebar.selectbox(
+    "📣 Promotional Event Scenario",
+    options=["Normal Demand (No Promo)", "Moderate Promo (+15% Demand)", "Major Flash Sale (+35% Demand)"]
+)
+
+promo_boost_map = {
+    "Normal Demand (No Promo)": 0.0,
+    "Moderate Promo (+15% Demand)": 15.0,
+    "Major Flash Sale (+35% Demand)": 35.0
+}
+promo_boost = promo_boost_map[promo_choice]
+
+# Hidden Advanced Parameters in Expander (for power users)
+with st.sidebar.expander("🛠️ Advanced Cost Parameters"):
+    ordering_cost = st.number_input("Ordering Cost S (₹/order)", value=50.0, min_value=1.0)
+    holding_cost = st.number_input("Holding Cost H (₹/unit/year)", value=2.0, min_value=0.1)
+    safety_stock = st.number_input("Safety Stock Buffer (Units)", value=500, min_value=0)
+
+# Check API health status
 api_online = False
 try:
-    health_resp = requests.get(f"{API_URL}/health", timeout=1.5)
+    health_resp = requests.get(f"{API_URL}/health", timeout=1.0)
     if health_resp.status_code == 200:
         api_online = True
 except Exception:
     api_online = False
 
-if api_online:
-    st.sidebar.success("⚡ REST API: Online (Connected to FastAPI)")
-else:
-    st.sidebar.info("💡 Mode: Embedded Engine (FastAPI offline at port 8000)")
-
-# ---------------- SIDEBAR ----------------
-st.sidebar.header("⚙️ Forecasting & Inventory Inputs")
-
-days = st.sidebar.slider("Forecast Horizon (Days)", 7, 60, 30)
-promo_boost = st.sidebar.slider("Promotional Scenario Boost (%)", -50, 100, 0)
-
-st.sidebar.subheader("📦 Inventory Parameters")
-current_stock = st.sidebar.number_input("Current Stock (Units)", value=5000, min_value=0)
-lead_time = st.sidebar.number_input("Supplier Lead Time (Days)", value=5, min_value=1)
-ordering_cost = st.sidebar.number_input("Ordering Cost S (₹/order)", value=50.0, min_value=0.0)
-holding_cost = st.sidebar.number_input("Holding Cost H (₹/unit/year)", value=2.0, min_value=0.1)
-safety_stock = st.sidebar.number_input("Safety Stock Buffer (Units)", value=500, min_value=0)
-
-st.sidebar.subheader("🏭 Supplier & PO Details")
-vendor_name = st.sidebar.text_input("Supplier Name", value="Global Logistics Supply")
-item_name = st.sidebar.text_input("Item Description", value="Store #1 Aggregated SKU")
-unit_cost = st.sidebar.number_input("Unit Cost (₹)", value=25.0, min_value=0.1)
-
-# Fetch forecast data (from REST API if online, else local engine)
+# Fetch forecast data
 if api_online:
     try:
         payload = {
@@ -122,8 +180,7 @@ if api_online:
         status_info = res["status_info"]
         hist_df = pd.DataFrame(res["historical"])
         fc_df = pd.DataFrame(res["forecast"])
-    except Exception as e:
-        st.error(f"API Error: {e}. Falling back to embedded engine.")
+    except Exception:
         api_online = False
 
 if not api_online:
@@ -149,44 +206,78 @@ if not api_online:
         "recommended_reorder_qty": int(reorder_qty)
     }
 
-# ---------------- METRICS ROW ----------------
-m1, m2, m3, m4 = st.columns(4)
+# Calculate Days of Stock Remaining
+avg_daily = metrics["avg_daily_demand"]
+days_remaining = round(current_stock / avg_daily, 1) if avg_daily > 0 else 999
+stockout_date = (datetime.now() + timedelta(days=days_remaining)).strftime("%b %d, %Y") if days_remaining < 365 else "N/A"
 
-with m1:
-    st.metric("Total Projected Demand", f"{int(metrics['total_expected_demand']):,} units")
-with m2:
-    st.metric("Avg Daily Demand", f"{int(metrics['avg_daily_demand']):,} units/day")
-with m3:
-    st.metric("Optimal EOQ", f"{int(metrics['eoq']):,} units")
-with m4:
-    st.metric("Reorder Point (ROP)", f"{int(metrics['rop']):,} units")
+# ---------------- TOP KPI CARDS ----------------
+k1, k2, k3, k4 = st.columns(4)
 
-st.divider()
+with k1:
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-title">Projected {days}-Day Demand</div>
+        <div class="kpi-value">{int(metrics['total_expected_demand']):,}</div>
+        <div class="kpi-sub">Units needed</div>
+    </div>
+    """, unsafe_allow_html=True)
 
-# ---------------- INVENTORY HEALTH GRID ----------------
-st.subheader("🎯 Inventory Health Status Grid")
+with k2:
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-title">Avg Daily Sales Rate</div>
+        <div class="kpi-value">{int(metrics['avg_daily_demand']):,}</div>
+        <div class="kpi-sub">Units / day</div>
+    </div>
+    """, unsafe_allow_html=True)
 
-level = status_info.get("level", "Green")
+with k3:
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-title">Stock Runway</div>
+        <div class="kpi-value">{days_remaining} Days</div>
+        <div class="kpi-sub">Runs out ~ {stockout_date}</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with k4:
+    st.markdown(f"""
+    <div class="kpi-card">
+        <div class="kpi-title">Optimal Order Size (EOQ)</div>
+        <div class="kpi-value">{int(metrics['eoq']):,}</div>
+        <div class="kpi-sub">Units per batch</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.write("")
+
+# ---------------- INVENTORY HEALTH STATUS BANNER ----------------
+level = status_info.get("level", "Green").lower()
 icon = status_info.get("icon", "🟢")
 title = status_info.get("title", "")
 msg = status_info.get("message", "")
 reorder_qty = metrics["recommended_reorder_qty"]
 
-card_css = f"status-card-{level.lower()}"
+banner_class = f"status-banner-{level}"
 st.markdown(f"""
-    <div class="{card_css}">
-        <h3>{icon} {title} (Status: {level.upper()})</h3>
-        <p>{msg}</p>
-        <p><b>Current Stock:</b> {current_stock:,} units | <b>Reorder Threshold:</b> {int(metrics['rop']):,} units | <b>Recommended Reorder:</b> {reorder_qty:,} units</p>
+    <div class="{banner_class}">
+        <h3 style="margin:0; padding-bottom:6px; font-weight:700;">{icon} Inventory Status: {title.upper()}</h3>
+        <p style="margin:0; padding-bottom:8px; font-size:0.95rem;">{msg}</p>
+        <span style="font-weight:600;">Current Inventory: {current_stock:,} units | Reorder Threshold (ROP): {int(metrics['rop']):,} units | Recommended Reorder Order: {reorder_qty:,} units</span>
     </div>
 """, unsafe_allow_html=True)
 
-st.write("")
+# ---------------- MAIN APP TABS ----------------
+tab_forecast, tab_history, tab_po, tab_tech = st.tabs([
+    "📈 Demand Forecast & Visuals",
+    "📊 Historical Data Explorer",
+    "📝 Purchase Order Generator",
+    "🛠️ Technical Architecture"
+])
 
-# ---------------- VISUALIZATIONS (PLOTLY) ----------------
-tab1, tab2, tab3 = st.tabs(["📈 Demand Forecast & Uncertainty Bands", "📋 Forecast Data Table", "📊 Trend & Seasonal Components"])
-
-with tab1:
+# ----- TAB 1: DEMAND FORECAST -----
+with tab_forecast:
     fig = go.Figure()
 
     # Historical Actual Sales
@@ -196,10 +287,10 @@ with tab1:
             y=hist_df['y'],
             mode='lines',
             name='Historical Sales',
-            line=dict(color='#8884d8', width=2)
+            line=dict(color='#818cf8', width=2)
         ))
 
-    # Upper Bound (for Shaded Uncertainty Area)
+    # Uncertainty Upper Bound
     fig.add_trace(go.Scatter(
         x=fc_df['ds'],
         y=fc_df['yhat_upper'],
@@ -209,137 +300,157 @@ with tab1:
         hoverinfo='skip'
     ))
 
-    # Lower Bound & Shading
+    # Uncertainty Lower Bound & Shading
     fig.add_trace(go.Scatter(
         x=fc_df['ds'],
         y=fc_df['yhat_lower'],
         mode='lines',
         line=dict(width=0),
         fill='tonexty',
-        fillcolor='rgba(0, 184, 212, 0.2)',
-        name='95% Confidence Interval',
+        fillcolor='rgba(56, 189, 248, 0.18)',
+        name='95% Demand Uncertainty Range',
         hoverinfo='skip'
     ))
 
-    # Forecast Centerline (yhat)
+    # Forecast Centerline
     fig.add_trace(go.Scatter(
         x=fc_df['ds'],
         y=fc_df['yhat'],
         mode='lines+markers',
-        name='Predicted Demand (yhat)',
-        line=dict(color='#00e676', width=3)
+        name='Predicted Demand Centerline',
+        line=dict(color='#34d399', width=3)
     ))
 
-    # Reorder Point Baseline
+    # Reorder Threshold Line
     fig.add_trace(go.Scatter(
         x=list(hist_df['ds']) + list(fc_df['ds']),
         y=[metrics['rop']] * (len(hist_df) + len(fc_df)),
         mode='lines',
-        name=f"Reorder Point ({int(metrics['rop'])} units)",
-        line=dict(color='#ff1744', width=2, dash='dash')
+        name=f"Reorder Point Threshold ({int(metrics['rop'])} units)",
+        line=dict(color='#f87171', width=2, dash='dash')
     ))
 
     fig.update_layout(
-        title=f"{days}-Day AI Demand Forecast with 95% Uncertainty Bands",
+        title=f"{days}-Day Demand Forecast with 95% Confidence Bounds",
         xaxis_title="Date",
         yaxis_title="Units Sold / Demanded",
         template="plotly_dark",
         hovermode="x unified",
-        height=500,
+        height=480,
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
     )
 
     st.plotly_chart(fig, use_container_width=True)
 
-with tab2:
-    st.write("### Detailed Daily Predictions")
-    display_df = fc_df.copy()
-    for c in ['yhat', 'yhat_lower', 'yhat_upper']:
-        if c in display_df.columns:
-            display_df[c] = display_df[c].round(2)
-    st.dataframe(display_df, use_container_width=True)
+    with st.expander("📋 View Daily Forecast Breakdown Table"):
+        display_df = fc_df.copy()
+        for c in ['yhat', 'yhat_lower', 'yhat_upper']:
+            if c in display_df.columns:
+                display_df[c] = display_df[c].round(2)
+        st.dataframe(display_df, use_container_width=True)
 
-with tab3:
-    st.write("### Underlying Trend Component")
-    if 'trend' in fc_df.columns:
-        fig_trend = go.Figure()
-        fig_trend.add_trace(go.Scatter(
-            x=fc_df['ds'],
-            y=fc_df['trend'],
-            mode='lines',
-            name='Trend',
-            line=dict(color='#ffab40', width=2)
-        ))
-        fig_trend.update_layout(
-            title="Baseline Trend Curve",
-            xaxis_title="Date",
-            yaxis_title="Baseline Sales Trend",
-            template="plotly_dark",
-            height=400
-        )
-        st.plotly_chart(fig_trend, use_container_width=True)
+# ----- TAB 2: HISTORICAL DATA EXPLORER -----
+with tab_history:
+    st.subheader("📊 Training Dataset Explorer")
+    st.write("Examine the historical daily retail store sales dataset used to train the demand forecasting model.")
 
-st.divider()
+    hist_full = get_historical_dataframe()
+    
+    # Dataset Summary Metrics
+    c_h1, c_h2, c_h3, c_h4 = st.columns(4)
+    with c_h1:
+        st.metric("Total Days Recorded", f"{len(hist_full):,} days")
+    with c_h2:
+        st.metric("Historical Date Range", f"{hist_full['date'].min()} to {hist_full['date'].max()}")
+    with c_h3:
+        st.metric("Average Daily Sales", f"{int(hist_full['sales'].mean()):,} units")
+    with c_h4:
+        st.metric("Peak Single-Day Sales", f"{int(hist_full['sales'].max()):,} units")
 
-# ---------------- ONE-CLICK PURCHASE ORDER GENERATOR ----------------
-st.subheader("📝 One-Click Automated Purchase Order Generator")
-st.write("Generate and download a formal, supplier-ready Purchase Order (PO) Excel spreadsheet based on current inventory metrics.")
+    st.write("### Historical Sales Records Table")
+    st.dataframe(hist_full, use_container_width=True, height=350)
 
-c_po1, c_po2 = st.columns([2, 1])
+    # Download CSV button
+    csv_data = hist_full.to_csv(index=False).encode('utf-8')
+    st.download_button(
+        label="📥 Download Historical Dataset (CSV)",
+        data=csv_data,
+        file_name="historical_store_sales.csv",
+        mime="text/csv",
+        use_container_width=False
+    )
 
-with c_po1:
-    st.markdown(f"""
-    * **Vendor:** {vendor_name}
-    * **Item:** {item_name}
-    * **Recommended Order Qty:** `{reorder_qty:,} units`
-    * **Unit Price:** `₹{unit_cost:,.2f}`
-    * **Estimated Total Order Cost:** `₹{reorder_qty * unit_cost:,.2f}`
-    """)
+# ----- TAB 3: PURCHASE ORDER GENERATOR -----
+with tab_po:
+    st.subheader("📝 Automated Supplier Purchase Order Generator")
+    st.write("Generate a formal, supplier-ready Excel Purchase Order (.xlsx) based on current AI inventory recommendations.")
 
-with c_po2:
-    if api_online:
-        try:
-            po_payload = {
-                "vendor_name": vendor_name,
-                "item_name": item_name,
-                "current_stock": current_stock,
-                "rop": metrics['rop'],
-                "eoq": metrics['eoq'],
-                "recommended_qty": reorder_qty,
-                "unit_cost": unit_cost,
-                "avg_daily_demand": metrics['avg_daily_demand'],
-                "lead_time_days": int(lead_time)
-            }
-            po_bytes = requests.post(f"{API_URL}/api/v1/generate-po", json=po_payload).content
-        except Exception:
-            po_bytes = create_purchase_order_excel(
-                vendor_name=vendor_name,
-                item_name=item_name,
-                current_stock=current_stock,
-                rop=metrics['rop'],
-                eoq=metrics['eoq'],
-                recommended_qty=reorder_qty,
-                unit_cost=unit_cost,
-                avg_daily_demand=metrics['avg_daily_demand'],
-                lead_time_days=int(lead_time)
-            )
-    else:
-        po_bytes = create_purchase_order_excel(
-            vendor_name=vendor_name,
-            item_name=item_name,
-            current_stock=current_stock,
-            rop=metrics['rop'],
-            eoq=metrics['eoq'],
-            recommended_qty=reorder_qty,
-            unit_cost=unit_cost,
-            avg_daily_demand=metrics['avg_daily_demand'],
-            lead_time_days=int(lead_time)
-        )
+    po_c1, po_c2 = st.columns(2)
+    with po_c1:
+        vendor_name = st.text_input("Supplier / Vendor Name", value="Global Logistics Supply Ltd")
+        item_name = st.text_input("Item / Product Name", value="Aggregated Retail SKU #1")
+    with po_c2:
+        unit_cost = st.number_input("Unit Purchase Price (₹)", value=25.0, min_value=0.1)
+        est_total_cost = reorder_qty * unit_cost
+        st.write(f"**Total Estimated Purchase Order Value:** `₹{est_total_cost:,.2f}`")
+
+    st.divider()
+
+    po_bytes = create_purchase_order_excel(
+        vendor_name=vendor_name,
+        item_name=item_name,
+        current_stock=current_stock,
+        rop=metrics['rop'],
+        eoq=metrics['eoq'],
+        recommended_qty=reorder_qty,
+        unit_cost=unit_cost,
+        avg_daily_demand=metrics['avg_daily_demand'],
+        lead_time_days=int(lead_time)
+    )
 
     st.download_button(
-        label="📥 Download Purchase Order (.xlsx)",
+        label="📥 Download Official Purchase Order (.xlsx)",
         data=po_bytes,
-        file_name=f"PO_{vendor_name.replace(' ', '_')}.xlsx",
+        file_name=f"Purchase_Order_{vendor_name.replace(' ', '_')}.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         use_container_width=True
     )
+
+# ----- TAB 4: TECHNICAL ARCHITECTURE -----
+with tab_tech:
+    st.subheader("🛠️ Technical Architecture & System Flow")
+    st.markdown("""
+    ### 🏗️ Decoupled MLOps System Flow
+    
+    ```
+    ┌─────────────────────────┐         HTTP REST          ┌──────────────────────────┐
+    │   Streamlit Frontend    │ ────────────────────────► │   FastAPI Backend Server │
+    │ (UI & Plotly Charts)    │ ◄──────────────────────── │   (Port 8000)            │
+    └─────────────────────────┘      JSON Payload          └────────────┬─────────────┘
+                                                                        │
+                                                    ┌───────────────────┼───────────────────┐
+                                                    ▼                   ▼                   ▼
+                                            ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+                                            │ Prophet ML   │    │ Inventory    │    │ Purchase     │
+                                            │ Forecast     │    │ Optimization │    │ Order Export │
+                                            └──────────────┘    └──────────────┘    └──────────────┘
+    ```
+    
+    ### 🔬 Machine Learning & Optimization Logic:
+    1. **Demand Forecasting Engine**:
+       - Model: **Log-Transformed Meta Prophet** (`yearly_seasonality=True`, `weekly_seasonality=True`, `multiplicative`).
+       - Features: Promotional regressor (`onpromotion`) + multiplicative seasonal decomposition.
+       - Uncertainty Estimation: Generates 95% confidence bounds (`yhat_lower` and `yhat_upper`).
+    
+    2. **Inventory Optimization Formulas**:
+       - **Economic Order Quantity (EOQ)**: Calculates batch size minimizing holding and ordering costs:
+         $$\\text{EOQ} = \\sqrt{\\frac{2 \\cdot D \\cdot S}{H}}$$
+       - **Reorder Point (ROP)**: Determines stock level triggering a new purchase order:
+         $$\\text{ROP} = (d \\cdot L) + SS$$
+       - Where: $D$ = Total Demand, $S$ = Ordering Cost, $H$ = Holding Cost, $d$ = Daily Demand, $L$ = Lead Time, $SS$ = Safety Stock.
+    
+    3. **REST API Endpoints**:
+       - `GET /health` — Service health check.
+       - `POST /api/v1/forecast` — Executes model inference & inventory status classification.
+       - `POST /api/v1/generate-po` — Streams formatted Excel Purchase Orders.
+    """)

@@ -19,7 +19,16 @@ def load_model_and_data():
     
     df = pd.read_csv(DATA_PATH)
     df['ds'] = pd.to_datetime(df['ds'])
-    return model, df
+def get_historical_dataframe():
+    """Returns the complete un-logged historical sales dataset."""
+    _, df = load_model_and_data()
+    hist = df.copy()
+    hist['sales'] = np.expm1(hist['y']).round(2)
+    hist['date'] = hist['ds'].dt.strftime('%Y-%m-%d')
+    cols = ['date', 'sales']
+    if 'onpromotion' in hist.columns:
+        cols.append('onpromotion')
+    return hist[cols]
 
 def generate_forecast(days: int = 30, promo_boost_pct: float = 0.0):
     """Generates demand forecast with uncertainty intervals and seasonal components.
