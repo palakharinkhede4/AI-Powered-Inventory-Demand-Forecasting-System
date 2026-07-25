@@ -246,7 +246,7 @@ with tab1:
         template="plotly_dark",
         hovermode="x unified",
         height=500,
-        legend=dict(orient="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
     )
 
     st.plotly_chart(fig, use_container_width=True)
