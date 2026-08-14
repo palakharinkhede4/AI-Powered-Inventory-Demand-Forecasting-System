@@ -4,27 +4,26 @@ import React, { useState, useEffect, useMemo } from 'react';
 import {
   TrendingUp,
   Package,
-  Calendar,
+  Clock,
+  Activity,
   AlertTriangle,
   CheckCircle2,
   AlertCircle,
   Info,
   Download,
   FileSpreadsheet,
-  Layers,
-  Activity,
   Sliders,
-  RefreshCw,
-  Clock,
-  ArrowRight,
-  Database,
-  Building2,
-  FileText,
-  Cpu,
+  RotateCcw,
   Search,
   ChevronLeft,
   ChevronRight,
-  ShieldCheck
+  Sun,
+  Moon,
+  Laptop,
+  ArrowUpRight,
+  Database,
+  FileText,
+  HelpCircle,
 } from 'lucide-react';
 import {
   ResponsiveContainer,
@@ -36,13 +35,66 @@ import {
   Tooltip,
   Legend,
   CartesianGrid,
-  ReferenceLine
 } from 'recharts';
 import * as XLSX from 'xlsx';
-import { ForecastRequest, ForecastResponse, HistoricalRecord, StatusInfo } from '@/lib/types';
+import { ForecastRequest, ForecastResponse, StatusInfo } from '@/lib/types';
 import { runForecastSimulation, getHistoricalData } from '@/lib/forecastEngine';
 
+type ThemeMode = 'light' | 'dark' | 'system';
+
 export default function Dashboard() {
+  // Theme State
+  const [theme, setTheme] = useState<ThemeMode>('system');
+  const [isDark, setIsDark] = useState<boolean>(false);
+
+  // Initialize theme from localStorage or system preference
+  useEffect(() => {
+    try {
+      const savedTheme = (localStorage.getItem('stockpulse_theme') as ThemeMode) || 'system';
+      setTheme(savedTheme);
+      applyTheme(savedTheme);
+    } catch (_) {}
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleSystemChange = (e: MediaQueryListEvent) => {
+      const currentSaved = localStorage.getItem('stockpulse_theme') as ThemeMode;
+      if (!currentSaved || currentSaved === 'system') {
+        if (e.matches) {
+          document.documentElement.classList.add('dark');
+          setIsDark(true);
+        } else {
+          document.documentElement.classList.remove('dark');
+          setIsDark(false);
+        }
+      }
+    };
+
+    mediaQuery.addEventListener('change', handleSystemChange);
+    return () => mediaQuery.removeEventListener('change', handleSystemChange);
+  }, []);
+
+  const applyTheme = (newTheme: ThemeMode) => {
+    try {
+      localStorage.setItem('stockpulse_theme', newTheme);
+    } catch (_) {}
+
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldBeDark = newTheme === 'dark' || (newTheme === 'system' && prefersDark);
+
+    if (shouldBeDark) {
+      document.documentElement.classList.add('dark');
+      setIsDark(true);
+    } else {
+      document.documentElement.classList.remove('dark');
+      setIsDark(false);
+    }
+  };
+
+  const handleThemeToggle = (newTheme: ThemeMode) => {
+    setTheme(newTheme);
+    applyTheme(newTheme);
+  };
+
   // Operational Parameters State
   const [days, setDays] = useState<number>(30);
   const [currentStock, setCurrentStock] = useState<number>(5000);
@@ -53,11 +105,9 @@ export default function Dashboard() {
   const [safetyStock, setSafetyStock] = useState<number>(500);
 
   // UI State
-  const [activeTab, setActiveTab] = useState<'forecast' | 'history' | 'po' | 'architecture'>('forecast');
+  const [activeTab, setActiveTab] = useState<'forecast' | 'history' | 'po' | 'methodology'>('forecast');
   const [showAdvanced, setShowAdvanced] = useState<boolean>(false);
-  const [showValueExpander, setShowValueExpander] = useState<boolean>(false);
   const [showForecastTable, setShowForecastTable] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   // PO Generator Form State
   const [vendorName, setVendorName] = useState<string>('Global Logistics Supply Ltd');
@@ -68,7 +118,7 @@ export default function Dashboard() {
   // Historical Data Table State
   const [histSearch, setHistSearch] = useState<string>('');
   const [histPage, setHistPage] = useState<number>(1);
-  const rowsPerPage = 15;
+  const rowsPerPage = 12;
 
   // Run calculation simulation
   const result: ForecastResponse = useMemo(() => {
@@ -107,87 +157,83 @@ export default function Dashboard() {
     return filteredHistorical.slice(start, start + rowsPerPage);
   }, [filteredHistorical, histPage]);
 
-  // Combine historical tail and forecast for seamless Recharts visualization
+  // Combine historical tail and forecast for Recharts
   const chartData = useMemo(() => {
     const combined: any[] = [];
     const dailyRopBaseline = leadTime > 0 ? Math.round(metrics.rop / leadTime) : metrics.avg_daily_demand;
 
-    // Historical data points
     historicalTail.forEach((item) => {
       combined.push({
         date: item.ds,
         historicalSales: Math.round(item.y),
         forecastDemand: null,
-        uncertaintyLower: null,
         uncertaintyUpper: null,
+        uncertaintyLower: null,
         dailyRop: dailyRopBaseline,
       });
     });
 
-    // Bridge point connecting last historical to first forecast
-    if (historicalTail.length > 0 && forecastData.length > 0) {
-      const lastHist = historicalTail[historicalTail.length - 1];
-      // Forecast data points
-      forecastData.forEach((item) => {
-        combined.push({
-          date: item.ds,
-          historicalSales: null,
-          forecastDemand: item.yhat,
-          uncertaintyLower: item.yhat_lower,
-          uncertaintyRange: [item.yhat_lower, item.yhat_upper],
-          uncertaintyUpper: item.yhat_upper,
-          dailyRop: dailyRopBaseline,
-        });
+    forecastData.forEach((item) => {
+      combined.push({
+        date: item.ds,
+        historicalSales: null,
+        forecastDemand: item.yhat,
+        uncertaintyUpper: item.yhat_upper,
+        uncertaintyLower: item.yhat_lower,
+        dailyRop: dailyRopBaseline,
       });
-    }
+    });
 
     return combined;
   }, [historicalTail, forecastData, metrics.rop, leadTime, metrics.avg_daily_demand]);
 
-  // Status Styling mappings
-  const statusStyles = {
+  // Status Styling mapping (Clean, muted, non-aggressive)
+  const statusConfig = {
     Red: {
-      border: 'border-rose-500/40',
-      bg: 'bg-rose-950/30',
-      text: 'text-rose-300',
-      badge: 'bg-rose-500/20 text-rose-300 border-rose-500/30',
+      border: 'border-rose-200 dark:border-rose-900/60',
+      bg: 'bg-rose-50/70 dark:bg-rose-950/20',
+      text: 'text-rose-900 dark:text-rose-200',
+      badge: 'bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-300',
       icon: AlertCircle,
+      iconColor: 'text-rose-600 dark:text-rose-400',
     },
     Yellow: {
-      border: 'border-amber-500/40',
-      bg: 'bg-amber-950/30',
-      text: 'text-amber-300',
-      badge: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
+      border: 'border-amber-200 dark:border-amber-900/60',
+      bg: 'bg-amber-50/70 dark:bg-amber-950/20',
+      text: 'text-amber-900 dark:text-amber-200',
+      badge: 'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300',
       icon: AlertTriangle,
+      iconColor: 'text-amber-600 dark:text-amber-400',
     },
     Green: {
-      border: 'border-emerald-500/40',
-      bg: 'bg-emerald-950/30',
-      text: 'text-emerald-300',
-      badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
+      border: 'border-emerald-200 dark:border-emerald-900/60',
+      bg: 'bg-emerald-50/70 dark:bg-emerald-950/20',
+      text: 'text-emerald-900 dark:text-emerald-200',
+      badge: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300',
       icon: CheckCircle2,
+      iconColor: 'text-emerald-600 dark:text-emerald-400',
     },
     Blue: {
-      border: 'border-sky-500/40',
-      bg: 'bg-sky-950/30',
-      text: 'text-sky-300',
-      badge: 'bg-sky-500/20 text-sky-300 border-sky-500/30',
+      border: 'border-sky-200 dark:border-sky-900/60',
+      bg: 'bg-sky-50/70 dark:bg-sky-950/20',
+      text: 'text-sky-900 dark:text-sky-200',
+      badge: 'bg-sky-100 text-sky-800 dark:bg-sky-900/40 dark:text-sky-300',
       icon: Info,
+      iconColor: 'text-sky-600 dark:text-sky-400',
     },
   };
 
-  const currentStatusStyle = statusStyles[statusInfo.level] || statusStyles.Green;
-  const StatusIcon = currentStatusStyle.icon;
+  const currentStatus = statusConfig[statusInfo.level] || statusConfig.Green;
+  const StatusIcon = currentStatus.icon;
 
   // Download Historical CSV
   const handleDownloadHistoricalCSV = () => {
     const csvContent =
       'data:text/csv;charset=utf-8,' +
       ['date,sales,onpromotion', ...allHistorical.map((r) => `${r.date},${r.sales},${r.onpromotion || 0}`)].join('\n');
-    const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
-    link.setAttribute('href', encodedUri);
-    link.setAttribute('download', 'historical_store_sales.csv');
+    link.href = encodeURI(csvContent);
+    link.download = 'historical_sales.csv';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -197,13 +243,12 @@ export default function Dashboard() {
   const handleDownloadForecastCSV = () => {
     const csvContent =
       'data:text/csv;charset=utf-8,' +
-      ['date,predicted_demand,lower_bound_95,upper_bound_95,trend',
+      ['date,predicted_demand,lower_95,upper_95,trend',
         ...forecastData.map((f) => `${f.ds},${f.yhat},${f.yhat_lower},${f.yhat_upper},${f.trend}`)
       ].join('\n');
-    const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
-    link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `forecast_${days}days.csv`);
+    link.href = encodeURI(csvContent);
+    link.download = `forecast_${days}d.csv`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -242,10 +287,9 @@ export default function Dashboard() {
         window.URL.revokeObjectURL(url);
         document.body.removeChild(a);
       } else {
-        // Client-side fallback with xlsx
         downloadPOClientFallback();
       }
-    } catch (err) {
+    } catch (_) {
       downloadPOClientFallback();
     } finally {
       setIsDownloadingPO(false);
@@ -253,23 +297,18 @@ export default function Dashboard() {
   };
 
   const downloadPOClientFallback = () => {
-    const poNumber = `PO-${Date.now().toString().slice(-8)}`;
+    const poNumber = `PO-${Date.now().toString().slice(-6)}`;
     const poDate = new Date().toISOString().split('T')[0];
     const totalCost = metrics.recommended_reorder_qty * unitCost;
 
     const wb = XLSX.utils.book_new();
     const sheetData = [
-      ['ENTERPRISE PURCHASE ORDER', '', '', '', ''],
-      ['', '', '', '', ''],
+      ['PURCHASE ORDER', '', '', '', ''],
       ['PO Number:', poNumber, '', 'Date:', poDate],
-      ['Vendor / Supplier:', vendorName, '', 'Lead Time:', `${leadTime} Days`],
-      ['Order Status:', 'APPROVED / PENDING TRANSMISSION', '', 'Generated By:', 'StockPulse Engine'],
+      ['Vendor:', vendorName, '', 'Lead Time:', `${leadTime} Days`],
       ['', '', '', '', ''],
-      ['LINE ITEMS & INVENTORY METRICS', '', '', '', ''],
-      ['Item Description', 'Current Stock', 'ROP Threshold', 'EOQ Batch', 'Daily Demand', 'Order Qty', 'Unit Price (INR)', 'Subtotal (INR)'],
+      ['Item Description', 'Current Stock', 'ROP', 'EOQ', 'Daily Demand', 'Order Qty', 'Unit Price', 'Total'],
       [itemName, currentStock, metrics.rop, metrics.eoq, metrics.avg_daily_demand, metrics.recommended_reorder_qty, unitCost, totalCost],
-      ['', '', '', '', '', '', '', ''],
-      ['Total Units Ordered:', metrics.recommended_reorder_qty, '', '', '', '', 'Total Order Cost (INR):', totalCost],
     ];
 
     const ws = XLSX.utils.aoa_to_sheet(sheetData);
@@ -278,189 +317,150 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
-      {/* Header Bar */}
-      <header className="border-b border-slate-800/80 bg-slate-900/60 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="p-2 bg-indigo-600/20 border border-indigo-500/30 rounded-lg text-indigo-400">
-              <Layers className="w-5 h-5" />
+    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 flex flex-col font-sans transition-colors duration-150">
+      {/* Clean Minimalist Header */}
+      <header className="border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+          <div className="flex items-center space-x-2.5">
+            <div className="p-1.5 bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 rounded-md">
+              <TrendingUp className="w-4 h-4" />
             </div>
             <div>
-              <div className="flex items-center space-x-2">
-                <span className="font-bold text-base tracking-tight text-white">StockPulse AI</span>
-                <span className="text-xs px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-medium">
-                  v2.0 Enterprise
-                </span>
-              </div>
-              <p className="text-xs text-slate-400 hidden sm:block">
-                Time-Series Demand Forecasting & Replenishment Optimizer
-              </p>
+              <span className="font-semibold text-sm tracking-tight text-zinc-900 dark:text-zinc-100">
+                StockPulse
+              </span>
+              <span className="text-zinc-400 dark:text-zinc-500 text-xs ml-2 hidden sm:inline">
+                Demand & Inventory Planning
+              </span>
             </div>
           </div>
 
-          <div className="flex items-center space-x-4">
-            <div className="hidden md:flex items-center space-x-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span className="text-slate-300 font-medium">Vercel Edge Active (24/7 Uptime)</span>
+          {/* Header Controls: Theme Switcher & Action */}
+          <div className="flex items-center space-x-3">
+            {/* Theme Toggle Button Group */}
+            <div className="flex items-center p-0.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200/80 dark:border-zinc-700/80 text-xs">
+              <button
+                onClick={() => handleThemeToggle('light')}
+                className={`p-1.5 rounded-md transition-all ${
+                  theme === 'light'
+                    ? 'bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-sm'
+                    : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
+                }`}
+                title="Light mode"
+              >
+                <Sun className="w-3.5 h-3.5" />
+              </button>
+              <button
+                onClick={() => handleThemeToggle('dark')}
+                className={`p-1.5 rounded-md transition-all ${
+                  theme === 'dark'
+                    ? 'bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-sm'
+                    : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
+                }`}
+                title="Dark mode"
+              >
+                <Moon className="w-3.5 h-3.5" />
+              </button>
+              <button
+                onClick={() => handleThemeToggle('system')}
+                className={`p-1.5 rounded-md transition-all ${
+                  theme === 'system'
+                    ? 'bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-sm'
+                    : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
+                }`}
+                title="System default"
+              >
+                <Laptop className="w-3.5 h-3.5" />
+              </button>
             </div>
+
             <button
               onClick={() => setActiveTab('po')}
-              className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-sm transition-all"
+              className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-md bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-zinc-100 dark:text-zinc-900 text-xs font-medium transition-colors shadow-sm"
             >
               <FileSpreadsheet className="w-3.5 h-3.5" />
-              <span>Generate PO</span>
+              <span>Create PO</span>
             </button>
           </div>
         </div>
       </header>
 
-      {/* Main Container */}
+      {/* Main Content */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
-        {/* Business Value Collapsible Card */}
-        <div className="rounded-xl border border-slate-800/80 bg-slate-900/40 p-4 transition-all">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="p-1.5 bg-slate-800 rounded text-indigo-400">
-                <Activity className="w-4 h-4" />
-              </div>
-              <div>
-                <h3 className="text-sm font-semibold text-slate-200">System Purpose & Business Impact</h3>
-                <p className="text-xs text-slate-400">
-                  Preventing costly retail stockouts and optimizing working capital holding costs.
-                </p>
-              </div>
+        {/* KPI Metric Strip */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+            <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium block">
+              Forecasted {days}-Day Demand
+            </span>
+            <div className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mt-1 tabular-nums">
+              {metrics.total_expected_demand.toLocaleString()}
             </div>
-            <button
-              onClick={() => setShowValueExpander(!showValueExpander)}
-              className="text-xs text-indigo-400 hover:text-indigo-300 font-medium underline-offset-4 hover:underline"
-            >
-              {showValueExpander ? 'Collapse' : 'Learn More'}
-            </button>
+            <span className="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5 block">
+              Units across planning horizon
+            </span>
           </div>
 
-          {showValueExpander && (
-            <div className="mt-4 pt-4 border-t border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-300">
-              <div className="p-3 bg-slate-900/70 rounded-lg border border-slate-800/60">
-                <span className="font-semibold text-indigo-300 block mb-1">1. Demand Forecasting</span>
-                Predicts daily customer sales volume for 7 to 60 days ahead with 95% confidence intervals using decomposed seasonality and promotional regressor modeling.
-              </div>
-              <div className="p-3 bg-slate-900/70 rounded-lg border border-slate-800/60">
-                <span className="font-semibold text-amber-300 block mb-1">2. Stockout Risk Alert</span>
-                Monitors warehouse burn rate against supplier lead time to establish real-time Reorder Points (ROP), eliminating lost sales revenue.
-              </div>
-              <div className="p-3 bg-slate-900/70 rounded-lg border border-slate-800/60">
-                <span className="font-semibold text-emerald-300 block mb-1">3. Automated Replenishment</span>
-                Computes Economic Order Quantity (EOQ) to minimize carrying and freight expenses, then generates formal supplier purchase orders.
-              </div>
+          <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+            <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium block">
+              Daily Sales Velocity
+            </span>
+            <div className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mt-1 tabular-nums">
+              {metrics.avg_daily_demand.toLocaleString()}
             </div>
-          )}
-        </div>
-
-        {/* Top 4 KPI Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="glass-card rounded-xl p-5 border border-slate-800/80 flex flex-col justify-between">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                Projected {days}-Day Demand
-              </span>
-              <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-                <TrendingUp className="w-4 h-4" />
-              </div>
-            </div>
-            <div className="mt-3">
-              <div className="text-2xl sm:text-3xl font-bold tracking-tight text-white tabular-nums">
-                {metrics.total_expected_demand.toLocaleString()}
-              </div>
-              <div className="text-xs text-indigo-400 mt-1 font-medium flex items-center space-x-1">
-                <span>Cumulative expected units</span>
-              </div>
-            </div>
+            <span className="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5 block">
+              Units demanded per day
+            </span>
           </div>
 
-          <div className="glass-card rounded-xl p-5 border border-slate-800/80 flex flex-col justify-between">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                Daily Sales Velocity
-              </span>
-              <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                <Activity className="w-4 h-4" />
-              </div>
+          <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+            <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium block">
+              Stock Runway
+            </span>
+            <div className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mt-1 tabular-nums">
+              {metrics.days_remaining} Days
             </div>
-            <div className="mt-3">
-              <div className="text-2xl sm:text-3xl font-bold tracking-tight text-white tabular-nums">
-                {metrics.avg_daily_demand.toLocaleString()}
-              </div>
-              <div className="text-xs text-emerald-400 mt-1 font-medium">
-                Units demanded per day
-              </div>
-            </div>
+            <span className="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5 block truncate">
+              Est. stockout {metrics.stockout_date}
+            </span>
           </div>
 
-          <div className="glass-card rounded-xl p-5 border border-slate-800/80 flex flex-col justify-between">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                Stock Runway
-              </span>
-              <div className="p-2 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                <Clock className="w-4 h-4" />
-              </div>
+          <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+            <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium block">
+              Optimal Order Batch (EOQ)
+            </span>
+            <div className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mt-1 tabular-nums">
+              {metrics.eoq.toLocaleString()}
             </div>
-            <div className="mt-3">
-              <div className="text-2xl sm:text-3xl font-bold tracking-tight text-white tabular-nums">
-                {metrics.days_remaining} Days
-              </div>
-              <div className="text-xs text-amber-400 mt-1 font-medium truncate">
-                Estimated stockout: {metrics.stockout_date}
-              </div>
-            </div>
-          </div>
-
-          <div className="glass-card rounded-xl p-5 border border-slate-800/80 flex flex-col justify-between">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                Optimal Order Size (EOQ)
-              </span>
-              <div className="p-2 rounded-lg bg-sky-500/10 text-sky-400 border border-sky-500/20">
-                <Package className="w-4 h-4" />
-              </div>
-            </div>
-            <div className="mt-3">
-              <div className="text-2xl sm:text-3xl font-bold tracking-tight text-white tabular-nums">
-                {metrics.eoq.toLocaleString()}
-              </div>
-              <div className="text-xs text-sky-400 mt-1 font-medium">
-                Units per replenishment batch
-              </div>
-            </div>
+            <span className="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5 block">
+              Units to minimize carrying cost
+            </span>
           </div>
         </div>
 
-        {/* Inventory Status Banner */}
-        <div className={`rounded-xl border p-4 sm:p-5 ${currentStatusStyle.border} ${currentStatusStyle.bg} transition-all`}>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-start space-x-3.5">
-              <div className={`p-2 rounded-lg ${currentStatusStyle.badge} shrink-0 mt-0.5`}>
-                <StatusIcon className="w-5 h-5" />
-              </div>
+        {/* Clean Status Alert Banner */}
+        <div className={`rounded-lg border p-3.5 sm:p-4 ${currentStatus.border} ${currentStatus.bg} transition-colors`}>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-start space-x-3">
+              <StatusIcon className={`w-5 h-5 shrink-0 mt-0.5 ${currentStatus.iconColor}`} />
               <div>
                 <div className="flex items-center space-x-2">
-                  <h4 className="text-base font-semibold text-white tracking-tight">
-                    Inventory Status: {statusInfo.title}
-                  </h4>
-                  <span className={`text-xs px-2 py-0.5 rounded font-medium ${currentStatusStyle.badge}`}>
-                    {statusInfo.level} Tier
+                  <span className="text-xs font-semibold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">
+                    {statusInfo.title}
+                  </span>
+                  <span className={`text-[10px] px-2 py-0.2 rounded font-medium ${currentStatus.badge}`}>
+                    {statusInfo.level}
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-300 mt-1">
+                <p className="text-xs text-zinc-600 dark:text-zinc-300 mt-0.5">
                   {statusInfo.message}
                 </p>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-xs text-slate-400">
-                  <span>Current Inventory: <strong className="text-slate-200">{currentStock.toLocaleString()} units</strong></span>
+                <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                  <span>Current: <strong>{currentStock.toLocaleString()} units</strong></span>
                   <span>•</span>
-                  <span>Reorder Point (ROP): <strong className="text-slate-200">{metrics.rop.toLocaleString()} units</strong></span>
+                  <span>Reorder Point (ROP): <strong>{metrics.rop.toLocaleString()} units</strong></span>
                   <span>•</span>
-                  <span>Recommended Order: <strong className="text-slate-200">{metrics.recommended_reorder_qty.toLocaleString()} units</strong></span>
+                  <span>Recommended Order: <strong>{metrics.recommended_reorder_qty.toLocaleString()} units</strong></span>
                 </div>
               </div>
             </div>
@@ -468,25 +468,24 @@ export default function Dashboard() {
             {metrics.recommended_reorder_qty > 0 && (
               <button
                 onClick={() => setActiveTab('po')}
-                className="shrink-0 inline-flex items-center justify-center space-x-2 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-sm transition-all"
+                className="shrink-0 text-xs font-medium text-zinc-900 dark:text-zinc-100 hover:underline flex items-center space-x-1"
               >
                 <span>Draft Purchase Order</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
             )}
           </div>
         </div>
 
-        {/* Main Workspace Layout (Sidebar Controls + Main Tabbed Content) */}
+        {/* Two-Column Clean Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left Column: Operational Controls Panel */}
-          <div className="lg:col-span-4 space-y-5">
-            <div className="glass-card rounded-xl p-5 border border-slate-800/80 space-y-5">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                <div className="flex items-center space-x-2">
-                  <Sliders className="w-4 h-4 text-indigo-400" />
-                  <h3 className="text-sm font-semibold text-white">Operational Controls</h3>
-                </div>
+          {/* Left: Operational Parameters Panel */}
+          <div className="lg:col-span-4 space-y-4">
+            <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-5 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-4">
+              <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-3">
+                <span className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wide">
+                  Parameters
+                </span>
                 <button
                   onClick={() => {
                     setDays(30);
@@ -497,297 +496,250 @@ export default function Dashboard() {
                     setHoldingCost(2);
                     setSafetyStock(500);
                   }}
-                  className="text-xs text-slate-400 hover:text-slate-200 flex items-center space-x-1"
-                  title="Reset to defaults"
+                  className="text-xs text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 flex items-center space-x-1"
+                  title="Reset to default values"
                 >
-                  <RefreshCw className="w-3 h-3" />
+                  <RotateCcw className="w-3 h-3" />
                   <span>Reset</span>
                 </button>
               </div>
 
-              {/* Forecast Horizon Slider */}
+              {/* Horizon Segmented Options */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-xs">
-                  <label htmlFor="horizon-slider" className="font-medium text-slate-300">
-                    Forecast Horizon
-                  </label>
-                  <span className="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-semibold tabular-nums">
-                    {days} Days
-                  </span>
+                  <span className="text-zinc-600 dark:text-zinc-300 font-medium">Forecast Horizon</span>
+                  <span className="font-semibold text-zinc-900 dark:text-zinc-100">{days} Days</span>
+                </div>
+                <div className="grid grid-cols-4 gap-1.5 p-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-xs text-center">
+                  {[7, 14, 30, 60].map((d) => (
+                    <button
+                      key={d}
+                      onClick={() => setDays(d)}
+                      className={`py-1 rounded font-medium transition-all ${
+                        days === d
+                          ? 'bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-xs'
+                          : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
+                      }`}
+                    >
+                      {d}D
+                    </button>
+                  ))}
                 </div>
                 <input
-                  id="horizon-slider"
                   type="range"
                   min={7}
                   max={60}
                   step={1}
                   value={days}
                   onChange={(e) => setDays(Number(e.target.value))}
-                  className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
+                  className="w-full h-1 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-zinc-900 dark:accent-zinc-100"
                 />
-                <div className="flex justify-between text-[10px] text-slate-500 px-0.5">
-                  <span>7 Days</span>
-                  <span>14 Days</span>
-                  <span>30 Days</span>
-                  <span>60 Days</span>
-                </div>
               </div>
 
               {/* Current Stock Input */}
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between text-xs">
-                  <label htmlFor="stock-input" className="font-medium text-slate-300">
-                    Current Stock Level
-                  </label>
-                  <span className="text-[11px] text-slate-400">Units on hand</span>
-                </div>
-                <div className="relative">
-                  <input
-                    id="stock-input"
-                    type="number"
-                    min={0}
-                    step={100}
-                    value={currentStock}
-                    onChange={(e) => setCurrentStock(Math.max(0, Number(e.target.value)))}
-                    className="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
-                  />
-                  <div className="absolute right-2.5 top-2.5 text-xs text-slate-500">units</div>
-                </div>
+              <div className="space-y-1">
+                <label className="text-xs text-zinc-600 dark:text-zinc-300 font-medium block">
+                  Current Stock Level (Units)
+                </label>
+                <input
+                  type="number"
+                  min={0}
+                  step={100}
+                  value={currentStock}
+                  onChange={(e) => setCurrentStock(Math.max(0, Number(e.target.value)))}
+                  className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded-md px-3 py-1.5 text-xs text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-500"
+                />
               </div>
 
-              {/* Lead Time Input */}
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between text-xs">
-                  <label htmlFor="lead-time-input" className="font-medium text-slate-300">
-                    Supplier Lead Time
-                  </label>
-                  <span className="text-[11px] text-slate-400">Order to delivery</span>
-                </div>
-                <div className="relative">
-                  <input
-                    id="lead-time-input"
-                    type="number"
-                    min={1}
-                    max={30}
-                    step={1}
-                    value={leadTime}
-                    onChange={(e) => setLeadTime(Math.max(1, Number(e.target.value)))}
-                    className="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
-                  />
-                  <div className="absolute right-2.5 top-2.5 text-xs text-slate-500">days</div>
-                </div>
+              {/* Supplier Lead Time Input */}
+              <div className="space-y-1">
+                <label className="text-xs text-zinc-600 dark:text-zinc-300 font-medium block">
+                  Supplier Lead Time (Days)
+                </label>
+                <input
+                  type="number"
+                  min={1}
+                  max={30}
+                  step={1}
+                  value={leadTime}
+                  onChange={(e) => setLeadTime(Math.max(1, Number(e.target.value)))}
+                  className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded-md px-3 py-1.5 text-xs text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-500"
+                />
               </div>
 
-              {/* Promotional Scenario Selector */}
-              <div className="space-y-1.5">
-                <label htmlFor="promo-select" className="text-xs font-medium text-slate-300 block">
+              {/* Promotional Scenario */}
+              <div className="space-y-1">
+                <label className="text-xs text-zinc-600 dark:text-zinc-300 font-medium block">
                   Promotional Event Scenario
                 </label>
                 <select
-                  id="promo-select"
                   value={promoScenario}
                   onChange={(e) => setPromoScenario(Number(e.target.value))}
-                  className="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                  className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded-md px-3 py-1.5 text-xs text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-500"
                 >
                   <option value={0}>Baseline Demand (No Promotion)</option>
-                  <option value={15}>Seasonal Promotion (+15% Demand)</option>
-                  <option value={35}>Major Flash Campaign (+35% Demand)</option>
+                  <option value={15}>Seasonal Campaign (+15% Demand)</option>
+                  <option value={35}>Flash Sale (+35% Demand)</option>
                 </select>
               </div>
 
-              {/* Advanced Parameters Accordion */}
-              <div className="border-t border-slate-800/80 pt-3">
+              {/* Advanced Parameters */}
+              <div className="border-t border-zinc-100 dark:border-zinc-800 pt-3">
                 <button
                   type="button"
                   onClick={() => setShowAdvanced(!showAdvanced)}
-                  className="w-full flex items-center justify-between text-xs text-slate-400 hover:text-slate-200 transition-colors py-1"
+                  className="w-full flex items-center justify-between text-xs text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
                 >
-                  <span className="font-medium">Advanced Cost & Buffer Parameters</span>
-                  <span className="text-slate-500">{showAdvanced ? '▲' : '▼'}</span>
+                  <span>Advanced Parameters</span>
+                  <span>{showAdvanced ? '−' : '+'}</span>
                 </button>
 
                 {showAdvanced && (
-                  <div className="space-y-3 mt-3 pt-3 border-t border-slate-850">
+                  <div className="space-y-3 mt-3 pt-2">
                     <div>
-                      <label className="text-[11px] font-medium text-slate-400 block mb-1">
-                        Ordering Cost S (INR / order)
-                      </label>
+                      <span className="text-[11px] text-zinc-500 block mb-1">Ordering Cost S (INR / order)</span>
                       <input
                         type="number"
                         min={1}
                         value={orderingCost}
                         onChange={(e) => setOrderingCost(Math.max(1, Number(e.target.value)))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500"
+                        className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded px-2.5 py-1 text-xs text-zinc-900 dark:text-zinc-100"
                       />
                     </div>
                     <div>
-                      <label className="text-[11px] font-medium text-slate-400 block mb-1">
-                        Holding Cost H (INR / unit / year)
-                      </label>
+                      <span className="text-[11px] text-zinc-500 block mb-1">Holding Cost H (INR / unit / year)</span>
                       <input
                         type="number"
                         min={0.1}
                         step={0.5}
                         value={holdingCost}
                         onChange={(e) => setHoldingCost(Math.max(0.1, Number(e.target.value)))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500"
+                        className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded px-2.5 py-1 text-xs text-zinc-900 dark:text-zinc-100"
                       />
                     </div>
                     <div>
-                      <label className="text-[11px] font-medium text-slate-400 block mb-1">
-                        Safety Stock Buffer (Units)
-                      </label>
+                      <span className="text-[11px] text-zinc-500 block mb-1">Safety Stock Buffer (Units)</span>
                       <input
                         type="number"
                         min={0}
                         step={50}
                         value={safetyStock}
                         onChange={(e) => setSafetyStock(Math.max(0, Number(e.target.value)))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500"
+                        className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded px-2.5 py-1 text-xs text-zinc-900 dark:text-zinc-100"
                       />
                     </div>
                   </div>
                 )}
               </div>
             </div>
-
-            {/* Quick Metrics Summary Card */}
-            <div className="glass-card rounded-xl p-5 border border-slate-800/80 space-y-3">
-              <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                Reorder Threshold Summary
-              </h4>
-              <div className="space-y-2 text-xs">
-                <div className="flex justify-between py-1 border-b border-slate-800/60">
-                  <span className="text-slate-400">Reorder Point (ROP)</span>
-                  <span className="font-semibold text-white tabular-nums">{metrics.rop.toLocaleString()} units</span>
-                </div>
-                <div className="flex justify-between py-1 border-b border-slate-800/60">
-                  <span className="text-slate-400">Economic Order Qty (EOQ)</span>
-                  <span className="font-semibold text-white tabular-nums">{metrics.eoq.toLocaleString()} units</span>
-                </div>
-                <div className="flex justify-between py-1 border-b border-slate-800/60">
-                  <span className="text-slate-400">Current Deficit / Buffer</span>
-                  <span className={`font-semibold tabular-nums ${currentStock <= metrics.rop ? 'text-rose-400' : 'text-emerald-400'}`}>
-                    {(currentStock - metrics.rop).toLocaleString()} units
-                  </span>
-                </div>
-                <div className="flex justify-between py-1">
-                  <span className="text-slate-400">Recommended Replenishment</span>
-                  <span className="font-bold text-indigo-400 tabular-nums">
-                    {metrics.recommended_reorder_qty.toLocaleString()} units
-                  </span>
-                </div>
-              </div>
-            </div>
           </div>
 
-          {/* Right Column: Interactive Tabs Container */}
+          {/* Right: Tabbed Workspace */}
           <div className="lg:col-span-8 space-y-4">
-            {/* Navigation Tabs Header */}
-            <div className="flex border-b border-slate-800 overflow-x-auto scrollbar-none space-x-2">
+            {/* Clean Tab Switcher */}
+            <div className="flex border-b border-zinc-200 dark:border-zinc-800 space-x-1 sm:space-x-4 overflow-x-auto text-xs font-medium">
               <button
                 onClick={() => setActiveTab('forecast')}
-                className={`flex items-center space-x-2 px-4 py-3 text-xs font-semibold border-b-2 transition-all whitespace-nowrap ${
+                className={`py-2.5 px-3 border-b-2 transition-all whitespace-nowrap ${
                   activeTab === 'forecast'
-                    ? 'border-indigo-500 text-indigo-400 bg-indigo-500/5'
-                    : 'border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                    ? 'border-zinc-900 dark:border-zinc-100 text-zinc-900 dark:text-zinc-100'
+                    : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
                 }`}
               >
-                <TrendingUp className="w-3.5 h-3.5" />
-                <span>Demand Forecast & Analytics</span>
-              </button>
-
-              <button
-                onClick={() => setActiveTab('history')}
-                className={`flex items-center space-x-2 px-4 py-3 text-xs font-semibold border-b-2 transition-all whitespace-nowrap ${
-                  activeTab === 'history'
-                    ? 'border-indigo-500 text-indigo-400 bg-indigo-500/5'
-                    : 'border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-700'
-                }`}
-              >
-                <Database className="w-3.5 h-3.5" />
-                <span>Historical Sales Explorer</span>
+                Demand Forecast
               </button>
 
               <button
                 onClick={() => setActiveTab('po')}
-                className={`flex items-center space-x-2 px-4 py-3 text-xs font-semibold border-b-2 transition-all whitespace-nowrap ${
+                className={`py-2.5 px-3 border-b-2 transition-all whitespace-nowrap ${
                   activeTab === 'po'
-                    ? 'border-indigo-500 text-indigo-400 bg-indigo-500/5'
-                    : 'border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                    ? 'border-zinc-900 dark:border-zinc-100 text-zinc-900 dark:text-zinc-100'
+                    : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
                 }`}
               >
-                <FileText className="w-3.5 h-3.5" />
-                <span>Purchase Order Generator</span>
+                Purchase Order
               </button>
 
               <button
-                onClick={() => setActiveTab('architecture')}
-                className={`flex items-center space-x-2 px-4 py-3 text-xs font-semibold border-b-2 transition-all whitespace-nowrap ${
-                  activeTab === 'architecture'
-                    ? 'border-indigo-500 text-indigo-400 bg-indigo-500/5'
-                    : 'border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                onClick={() => setActiveTab('history')}
+                className={`py-2.5 px-3 border-b-2 transition-all whitespace-nowrap ${
+                  activeTab === 'history'
+                    ? 'border-zinc-900 dark:border-zinc-100 text-zinc-900 dark:text-zinc-100'
+                    : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
                 }`}
               >
-                <Cpu className="w-3.5 h-3.5" />
-                <span>System Architecture</span>
+                Historical Data
+              </button>
+
+              <button
+                onClick={() => setActiveTab('methodology')}
+                className={`py-2.5 px-3 border-b-2 transition-all whitespace-nowrap ${
+                  activeTab === 'methodology'
+                    ? 'border-zinc-900 dark:border-zinc-100 text-zinc-900 dark:text-zinc-100'
+                    : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
+                }`}
+              >
+                Model & Methodology
               </button>
             </div>
 
-            {/* TAB 1: DEMAND FORECAST & VISUALS */}
+            {/* TAB 1: DEMAND FORECAST */}
             {activeTab === 'forecast' && (
-              <div className="glass-card rounded-xl p-5 border border-slate-800/80 space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4">
+              <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-5 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-5">
+                <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-sm font-semibold text-white flex items-center space-x-2">
-                      <span>Demand Forecast & 95% Confidence Interval</span>
+                    <h3 className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wide">
+                      Demand Trajectory & Uncertainty
                     </h3>
-                    <p className="text-xs text-slate-400">
-                      Log-transformed multiplicative Prophet forecast with historical training tail (last 90 days).
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                      Log-transformed Prophet model with 95% confidence intervals and historical actuals.
                     </p>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <button
-                      onClick={handleDownloadForecastCSV}
-                      className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-850 border border-slate-800 text-xs text-slate-300 transition-colors"
-                    >
-                      <Download className="w-3.5 h-3.5 text-slate-400" />
-                      <span>Export CSV</span>
-                    </button>
-                  </div>
+                  <button
+                    onClick={handleDownloadForecastCSV}
+                    className="inline-flex items-center space-x-1 px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 text-xs font-medium transition-colors"
+                  >
+                    <Download className="w-3 h-3" />
+                    <span>Export CSV</span>
+                  </button>
                 </div>
 
-                {/* Recharts Visualizer */}
-                <div className="h-80 w-full">
+                {/* Recharts Component */}
+                <div className="h-72 w-full">
                   <ResponsiveContainer width="100%" height="100%">
-                    <ComposedChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                    <ComposedChart data={chartData} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
                       <defs>
                         <linearGradient id="uncertaintyFill" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor="#6366f1" stopOpacity={0.25} />
-                          <stop offset="95%" stopColor="#6366f1" stopOpacity={0.02} />
+                          <stop offset="5%" stopColor={isDark ? '#6366f1' : '#818cf8'} stopOpacity={0.2} />
+                          <stop offset="95%" stopColor={isDark ? '#6366f1' : '#818cf8'} stopOpacity={0.02} />
                         </linearGradient>
                       </defs>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
+                      <CartesianGrid
+                        strokeDasharray="3 3"
+                        stroke={isDark ? '#27272a' : '#e4e4e7'}
+                        vertical={false}
+                      />
                       <XAxis
                         dataKey="date"
-                        stroke="#64748b"
+                        stroke={isDark ? '#71717a' : '#a1a1aa'}
                         fontSize={11}
                         tickLine={false}
-                        minTickGap={40}
+                        minTickGap={35}
                       />
                       <YAxis
-                        stroke="#64748b"
+                        stroke={isDark ? '#71717a' : '#a1a1aa'}
                         fontSize={11}
                         tickLine={false}
                         tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`}
                       />
                       <Tooltip
                         contentStyle={{
-                          backgroundColor: '#0f172a',
-                          borderColor: '#334155',
-                          borderRadius: '8px',
-                          fontSize: '12px',
-                          color: '#f8fafc',
+                          backgroundColor: isDark ? '#18181b' : '#ffffff',
+                          borderColor: isDark ? '#27272a' : '#e4e4e7',
+                          borderRadius: '6px',
+                          fontSize: '11px',
+                          color: isDark ? '#f4f4f5' : '#09090b',
+                          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
                         }}
                         formatter={(value: any, name: string) => {
                           if (value === null || value === undefined) return ['--', name];
@@ -795,57 +747,52 @@ export default function Dashboard() {
                           if (name === 'Historical Sales') return [`${num.toLocaleString()} units`, name];
                           if (name === 'Predicted Demand') return [`${num.toLocaleString()} units`, name];
                           if (name === 'Daily ROP Baseline') return [`${num.toLocaleString()} units/day`, name];
-                          if (name === 'Upper 95% Bound') return [`${num.toLocaleString()} units`, name];
-                          if (name === 'Lower 95% Bound') return [`${num.toLocaleString()} units`, name];
+                          if (name === '95% Upper Bound') return [`${num.toLocaleString()} units`, name];
                           return [num.toLocaleString(), name];
                         }}
                       />
                       <Legend
                         verticalAlign="top"
-                        height={36}
+                        height={32}
                         iconType="circle"
-                        wrapperStyle={{ fontSize: '11px', color: '#94a3b8' }}
+                        wrapperStyle={{ fontSize: '11px', color: isDark ? '#a1a1aa' : '#71717a' }}
                       />
 
-                      {/* Confidence Envelope Upper */}
                       <Area
                         type="monotone"
                         dataKey="uncertaintyUpper"
                         stroke="none"
                         fill="url(#uncertaintyFill)"
-                        name="Upper 95% Bound"
+                        name="95% Upper Bound"
                         connectNulls
                       />
 
-                      {/* Historical Sales Trace */}
                       <Line
                         type="monotone"
                         dataKey="historicalSales"
-                        stroke="#818cf8"
-                        strokeWidth={2}
+                        stroke="#6366f1"
+                        strokeWidth={1.8}
                         dot={false}
                         name="Historical Sales"
                         connectNulls
                       />
 
-                      {/* Forecast Demand Centerline */}
                       <Line
                         type="monotone"
                         dataKey="forecastDemand"
-                        stroke="#34d399"
-                        strokeWidth={2.5}
-                        dot={{ r: 2, fill: '#34d399' }}
+                        stroke="#10b981"
+                        strokeWidth={2}
+                        dot={{ r: 2, fill: '#10b981' }}
                         name="Predicted Demand"
                         connectNulls
                       />
 
-                      {/* Daily ROP Baseline */}
                       <Line
                         type="monotone"
                         dataKey="dailyRop"
-                        stroke="#f87171"
+                        stroke="#f43f5e"
                         strokeWidth={1.5}
-                        strokeDasharray="4 4"
+                        strokeDasharray="3 3"
                         dot={false}
                         name="Daily ROP Baseline"
                       />
@@ -853,100 +800,150 @@ export default function Dashboard() {
                   </ResponsiveContainer>
                 </div>
 
-                <div className="p-3 bg-slate-900/60 rounded-lg border border-slate-800/60 text-xs text-slate-400 space-y-1">
-                  <p>
-                    <strong className="text-slate-300">Chart Interpretation:</strong> The red dashed line represents the <strong>Daily Reorder Rate</strong> ({Math.round(metrics.rop / leadTime).toLocaleString()} units/day).
-                    The total cumulative <strong>{leadTime}-Day ROP Threshold</strong> is <strong>{metrics.rop.toLocaleString()} units</strong>.
-                  </p>
-                </div>
-
-                {/* Collapsible Daily Forecast Table */}
-                <div className="border-t border-slate-800 pt-4">
+                <div className="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400 pt-2 border-t border-zinc-100 dark:border-zinc-800">
+                  <span>Daily ROP: <strong>{Math.round(metrics.rop / leadTime).toLocaleString()} units/day</strong></span>
                   <button
                     onClick={() => setShowForecastTable(!showForecastTable)}
-                    className="flex items-center justify-between w-full text-xs font-semibold text-slate-300 hover:text-white"
+                    className="text-zinc-700 dark:text-zinc-300 hover:underline"
                   >
-                    <span>View Tabular Forecast Values ({forecastData.length} Records)</span>
-                    <span className="text-slate-500">{showForecastTable ? 'Hide Table' : 'Show Table'}</span>
+                    {showForecastTable ? 'Hide Table' : 'Show Breakdown Table'}
                   </button>
-
-                  {showForecastTable && (
-                    <div className="mt-3 overflow-x-auto rounded-lg border border-slate-800">
-                      <table className="w-full text-left text-xs">
-                        <thead className="bg-slate-900/90 text-slate-400 border-b border-slate-800">
-                          <tr>
-                            <th className="p-2.5 font-medium">Date</th>
-                            <th className="p-2.5 font-medium">Predicted Demand (yhat)</th>
-                            <th className="p-2.5 font-medium">Lower 95% Bound</th>
-                            <th className="p-2.5 font-medium">Upper 95% Bound</th>
-                            <th className="p-2.5 font-medium">Underlying Trend</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y divide-slate-850 text-slate-300 font-mono text-[11px]">
-                          {forecastData.map((row, idx) => (
-                            <tr key={idx} className="hover:bg-slate-900/50">
-                              <td className="p-2.5 font-sans text-slate-200">{row.ds}</td>
-                              <td className="p-2.5 font-semibold text-emerald-400">{row.yhat.toLocaleString()}</td>
-                              <td className="p-2.5 text-slate-400">{row.yhat_lower.toLocaleString()}</td>
-                              <td className="p-2.5 text-slate-400">{row.yhat_upper.toLocaleString()}</td>
-                              <td className="p-2.5 text-slate-400">{row.trend.toLocaleString()}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  )}
                 </div>
+
+                {showForecastTable && (
+                  <div className="overflow-x-auto rounded border border-zinc-200 dark:border-zinc-800">
+                    <table className="w-full text-left text-xs">
+                      <thead className="bg-zinc-50 dark:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800">
+                        <tr>
+                          <th className="p-2 font-medium">Date</th>
+                          <th className="p-2 font-medium">Predicted (yhat)</th>
+                          <th className="p-2 font-medium">Lower 95%</th>
+                          <th className="p-2 font-medium">Upper 95%</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800 text-zinc-700 dark:text-zinc-300 tabular-nums">
+                        {forecastData.map((row, idx) => (
+                          <tr key={idx} className="hover:bg-zinc-50 dark:hover:bg-zinc-800/40">
+                            <td className="p-2">{row.ds}</td>
+                            <td className="p-2 font-medium text-emerald-600 dark:text-emerald-400">{row.yhat.toLocaleString()}</td>
+                            <td className="p-2 text-zinc-500">{row.yhat_lower.toLocaleString()}</td>
+                            <td className="p-2 text-zinc-500">{row.yhat_upper.toLocaleString()}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
               </div>
             )}
 
-            {/* TAB 2: HISTORICAL DATA EXPLORER */}
-            {activeTab === 'history' && (
-              <div className="glass-card rounded-xl p-5 border border-slate-800/80 space-y-5">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+            {/* TAB 2: PURCHASE ORDER */}
+            {activeTab === 'po' && (
+              <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-5 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-5">
+                <div>
+                  <h3 className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wide">
+                    Supplier Purchase Order
+                  </h3>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                    Generate an official supplier Excel spreadsheet based on current inventory recommendations.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div>
-                    <h3 className="text-sm font-semibold text-white">Historical Sales Dataset</h3>
-                    <p className="text-xs text-slate-400">
-                      Examining 1,684 daily retail sales observations (2013-2017) utilized to fit the predictive model.
+                    <span className="text-xs text-zinc-500 block mb-1">Supplier / Vendor</span>
+                    <input
+                      type="text"
+                      value={vendorName}
+                      onChange={(e) => setVendorName(e.target.value)}
+                      className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded px-2.5 py-1.5 text-xs text-zinc-900 dark:text-zinc-100"
+                    />
+                  </div>
+                  <div>
+                    <span className="text-xs text-zinc-500 block mb-1">Item Description</span>
+                    <input
+                      type="text"
+                      value={itemName}
+                      onChange={(e) => setItemName(e.target.value)}
+                      className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded px-2.5 py-1.5 text-xs text-zinc-900 dark:text-zinc-100"
+                    />
+                  </div>
+                  <div>
+                    <span className="text-xs text-zinc-500 block mb-1">Unit Price (INR)</span>
+                    <input
+                      type="number"
+                      min={0.1}
+                      value={unitCost}
+                      onChange={(e) => setUnitCost(Math.max(0.1, Number(e.target.value)))}
+                      className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded px-2.5 py-1.5 text-xs text-zinc-900 dark:text-zinc-100"
+                    />
+                  </div>
+                </div>
+
+                {/* PO Document Preview Box */}
+                <div className="rounded border border-zinc-200 dark:border-zinc-800 p-4 space-y-3 bg-zinc-50/50 dark:bg-zinc-950/40 text-xs">
+                  <div className="flex justify-between items-center border-b border-zinc-200 dark:border-zinc-800 pb-2">
+                    <span className="font-semibold text-zinc-900 dark:text-zinc-100">PO Document Preview</span>
+                    <span className="text-emerald-700 dark:text-emerald-400 font-medium">Ready for Transmission</span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-zinc-600 dark:text-zinc-300">
+                    <div>
+                      <span className="text-zinc-400 block text-[11px]">Vendor</span>
+                      <span className="font-medium text-zinc-900 dark:text-zinc-100">{vendorName}</span>
+                    </div>
+                    <div>
+                      <span className="text-zinc-400 block text-[11px]">Lead Time</span>
+                      <span className="font-medium text-zinc-900 dark:text-zinc-100">{leadTime} Days</span>
+                    </div>
+                    <div>
+                      <span className="text-zinc-400 block text-[11px]">Reorder Qty</span>
+                      <span className="font-bold text-zinc-900 dark:text-zinc-100">{metrics.recommended_reorder_qty.toLocaleString()} units</span>
+                    </div>
+                    <div>
+                      <span className="text-zinc-400 block text-[11px]">Estimated Cost</span>
+                      <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                        ₹{(metrics.recommended_reorder_qty * unitCost).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  onClick={handleDownloadPO}
+                  disabled={isDownloadingPO}
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-1.5 px-4 py-2 rounded-md bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-zinc-100 dark:text-zinc-900 text-xs font-medium transition-colors shadow-sm"
+                >
+                  <FileSpreadsheet className="w-3.5 h-3.5" />
+                  <span>{isDownloadingPO ? 'Generating Excel...' : 'Download Official Purchase Order (.xlsx)'}</span>
+                </button>
+              </div>
+            )}
+
+            {/* TAB 3: HISTORICAL DATA */}
+            {activeTab === 'history' && (
+              <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-5 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wide">
+                      Historical Sales Records
+                    </h3>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                      1,684 daily store observations (2013–2017) used for model calibration.
                     </p>
                   </div>
                   <button
                     onClick={handleDownloadHistoricalCSV}
-                    className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-sm transition-colors"
+                    className="inline-flex items-center space-x-1 px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 text-xs font-medium transition-colors"
                   >
-                    <Download className="w-3.5 h-3.5" />
-                    <span>Download Full CSV</span>
+                    <Download className="w-3 h-3" />
+                    <span>Download CSV</span>
                   </button>
                 </div>
 
-                {/* Dataset Aggregate Metrics */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  <div className="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                    <span className="text-[11px] text-slate-400 block">Total Records</span>
-                    <span className="text-base font-bold text-white tabular-nums">{allHistorical.length.toLocaleString()} Days</span>
-                  </div>
-                  <div className="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                    <span className="text-[11px] text-slate-400 block">Date Range</span>
-                    <span className="text-xs font-bold text-slate-200">2013-01 to 2017-08</span>
-                  </div>
-                  <div className="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                    <span className="text-[11px] text-slate-400 block">Daily Average Volume</span>
-                    <span className="text-base font-bold text-indigo-400 tabular-nums">
-                      {Math.round(allHistorical.reduce((a, c) => a + c.sales, 0) / allHistorical.length).toLocaleString()} units
-                    </span>
-                  </div>
-                  <div className="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                    <span className="text-[11px] text-slate-400 block">Peak Daily Volume</span>
-                    <span className="text-base font-bold text-emerald-400 tabular-nums">
-                      {Math.max(...allHistorical.map((r) => r.sales)).toLocaleString()} units
-                    </span>
-                  </div>
-                </div>
-
-                {/* Search / Filter Bar */}
-                <div className="flex items-center justify-between gap-4">
-                  <div className="relative flex-1 max-w-sm">
-                    <Search className="w-4 h-4 text-slate-500 absolute left-3 top-2.5" />
+                {/* Filter and Table */}
+                <div className="flex items-center justify-between gap-3">
+                  <div className="relative flex-1 max-w-xs">
+                    <Search className="w-3.5 h-3.5 text-zinc-400 absolute left-2.5 top-2" />
                     <input
                       type="text"
                       placeholder="Filter by date (e.g. 2017-05)..."
@@ -955,36 +952,35 @@ export default function Dashboard() {
                         setHistSearch(e.target.value);
                         setHistPage(1);
                       }}
-                      className="w-full bg-slate-900 border border-slate-800 rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+                      className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded pl-8 pr-2 py-1 text-xs text-zinc-900 dark:text-zinc-100 focus:outline-none"
                     />
                   </div>
-                  <span className="text-xs text-slate-400">
-                    Showing {pagedHistorical.length} of {filteredHistorical.length} rows
+                  <span className="text-xs text-zinc-400">
+                    {filteredHistorical.length} Records
                   </span>
                 </div>
 
-                {/* Paginated Historical Table */}
-                <div className="overflow-x-auto rounded-lg border border-slate-800">
+                <div className="overflow-x-auto rounded border border-zinc-200 dark:border-zinc-800">
                   <table className="w-full text-left text-xs">
-                    <thead className="bg-slate-900/90 text-slate-400 border-b border-slate-800">
+                    <thead className="bg-zinc-50 dark:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800">
                       <tr>
-                        <th className="p-2.5 font-medium">Record Date</th>
-                        <th className="p-2.5 font-medium">Sales Volume (Units)</th>
-                        <th className="p-2.5 font-medium">Promotional Event</th>
+                        <th className="p-2 font-medium">Date</th>
+                        <th className="p-2 font-medium">Sales (Units)</th>
+                        <th className="p-2 font-medium">Promotion Status</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-850 text-slate-300 font-mono text-[11px]">
+                    <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800 text-zinc-700 dark:text-zinc-300 tabular-nums">
                       {pagedHistorical.map((row, idx) => (
-                        <tr key={idx} className="hover:bg-slate-900/50">
-                          <td className="p-2.5 font-sans text-slate-200">{row.date}</td>
-                          <td className="p-2.5 font-semibold text-white">{row.sales.toLocaleString()}</td>
-                          <td className="p-2.5 font-sans">
+                        <tr key={idx} className="hover:bg-zinc-50 dark:hover:bg-zinc-800/40">
+                          <td className="p-2">{row.date}</td>
+                          <td className="p-2 font-medium text-zinc-900 dark:text-zinc-100">{row.sales.toLocaleString()}</td>
+                          <td className="p-2">
                             {row.onpromotion && row.onpromotion > 0 ? (
-                              <span className="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 text-[10px] font-medium border border-indigo-500/30">
-                                Active Promotion ({row.onpromotion})
+                              <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-medium">
+                                Active ({row.onpromotion})
                               </span>
                             ) : (
-                              <span className="text-slate-500 text-[10px]">Standard Day</span>
+                              <span className="text-zinc-400 text-[11px]">Normal</span>
                             )}
                           </td>
                         </tr>
@@ -993,226 +989,64 @@ export default function Dashboard() {
                   </table>
                 </div>
 
-                {/* Pagination Controls */}
-                <div className="flex items-center justify-between text-xs text-slate-400 pt-2">
+                {/* Pagination */}
+                <div className="flex items-center justify-between text-xs text-zinc-500 pt-1">
                   <span>Page {histPage} of {totalHistPages}</span>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-1">
                     <button
                       onClick={() => setHistPage((p) => Math.max(1, p - 1))}
                       disabled={histPage === 1}
-                      className="p-1.5 rounded bg-slate-900 border border-slate-800 hover:bg-slate-850 disabled:opacity-40 disabled:cursor-not-allowed"
+                      className="p-1 rounded border border-zinc-200 dark:border-zinc-800 disabled:opacity-40"
                     >
-                      <ChevronLeft className="w-4 h-4" />
+                      <ChevronLeft className="w-3.5 h-3.5" />
                     </button>
                     <button
                       onClick={() => setHistPage((p) => Math.min(totalHistPages, p + 1))}
                       disabled={histPage === totalHistPages}
-                      className="p-1.5 rounded bg-slate-900 border border-slate-800 hover:bg-slate-850 disabled:opacity-40 disabled:cursor-not-allowed"
+                      className="p-1 rounded border border-zinc-200 dark:border-zinc-800 disabled:opacity-40"
                     >
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
               </div>
             )}
 
-            {/* TAB 3: PURCHASE ORDER GENERATOR */}
-            {activeTab === 'po' && (
-              <div className="glass-card rounded-xl p-5 border border-slate-800/80 space-y-6">
-                <div className="border-b border-slate-800 pb-4">
-                  <h3 className="text-sm font-semibold text-white">Automated Supplier Purchase Order Generator</h3>
-                  <p className="text-xs text-slate-400">
-                    Instantly export formal, supplier-ready Excel spreadsheets (.xlsx) based on AI inventory optimization parameters.
+            {/* TAB 4: MODEL & METHODOLOGY */}
+            {activeTab === 'methodology' && (
+              <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-5 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-4 text-xs">
+                <div>
+                  <h3 className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wide">
+                    Optimization Formulations
+                  </h3>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                    Mathematical definitions powering replenishment and batch ordering.
                   </p>
                 </div>
 
-                {/* Form Controls */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-xs font-medium text-slate-300 block mb-1.5">Supplier / Vendor Name</label>
-                    <input
-                      type="text"
-                      value={vendorName}
-                      onChange={(e) => setVendorName(e.target.value)}
-                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-xs font-medium text-slate-300 block mb-1.5">Item / SKU Description</label>
-                    <input
-                      type="text"
-                      value={itemName}
-                      onChange={(e) => setItemName(e.target.value)}
-                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-xs font-medium text-slate-300 block mb-1.5">Unit Purchase Cost (INR)</label>
-                    <input
-                      type="number"
-                      min={0.1}
-                      step={1}
-                      value={unitCost}
-                      onChange={(e) => setUnitCost(Math.max(0.1, Number(e.target.value)))}
-                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500"
-                    />
-                  </div>
-                  <div className="p-3 bg-slate-900 rounded-lg border border-slate-800 flex flex-col justify-center">
-                    <span className="text-[11px] text-slate-400">Estimated Total Order Value</span>
-                    <span className="text-lg font-bold text-emerald-400">
-                      ₹{(metrics.recommended_reorder_qty * unitCost).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                  <div className="p-3.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-950/40 space-y-1.5">
+                    <span className="font-semibold text-zinc-900 dark:text-zinc-100 block">
+                      Economic Order Quantity (EOQ)
                     </span>
-                  </div>
-                </div>
-
-                {/* Live PO Document Preview Box */}
-                <div className="rounded-lg border border-slate-800 bg-slate-950/70 p-4 space-y-4">
-                  <div className="flex items-center justify-between border-b border-slate-850 pb-3">
-                    <div>
-                      <span className="text-xs font-bold text-slate-300 uppercase tracking-wide">Purchase Order Document Preview</span>
-                      <p className="text-[11px] text-slate-500">Document formatted for automated Excel transmission</p>
-                    </div>
-                    <span className="text-xs px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 font-medium">
-                      APPROVED
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-                    <div>
-                      <span className="text-slate-500 block text-[11px]">Vendor:</span>
-                      <span className="font-semibold text-slate-200">{vendorName}</span>
-                    </div>
-                    <div>
-                      <span className="text-slate-500 block text-[11px]">Lead Time:</span>
-                      <span className="font-semibold text-slate-200">{leadTime} Days</span>
-                    </div>
-                    <div>
-                      <span className="text-slate-500 block text-[11px]">Item Name:</span>
-                      <span className="font-semibold text-slate-200">{itemName}</span>
-                    </div>
-                    <div>
-                      <span className="text-slate-500 block text-[11px]">Reorder Qty:</span>
-                      <span className="font-bold text-indigo-400">{metrics.recommended_reorder_qty.toLocaleString()} units</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Download Actions */}
-                <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
-                  <button
-                    onClick={handleDownloadPO}
-                    disabled={isDownloadingPO}
-                    className="w-full sm:w-auto flex-1 inline-flex items-center justify-center space-x-2 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold shadow-sm transition-all disabled:opacity-50"
-                  >
-                    <FileSpreadsheet className="w-4 h-4" />
-                    <span>{isDownloadingPO ? 'Generating Excel...' : 'Download Official Purchase Order (.xlsx)'}</span>
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* TAB 4: SYSTEM ARCHITECTURE & METHODOLOGY */}
-            {activeTab === 'architecture' && (
-              <div className="glass-card rounded-xl p-5 border border-slate-800/80 space-y-6">
-                <div className="border-b border-slate-800 pb-4">
-                  <h3 className="text-sm font-semibold text-white">Technical Architecture & Mathematical Methodology</h3>
-                  <p className="text-xs text-slate-400">
-                    Detailed system flow, time-series forecasting formulation, and replenishment optimization mechanics.
-                  </p>
-                </div>
-
-                {/* Architecture Flow Box */}
-                <div className="space-y-3">
-                  <h4 className="text-xs font-semibold text-indigo-300 uppercase tracking-wider">
-                    Decoupled Edge / Serverless Architecture
-                  </h4>
-                  <div className="p-4 rounded-lg bg-slate-900/90 border border-slate-800 font-mono text-[11px] text-slate-300 overflow-x-auto leading-relaxed">
-                    {`┌───────────────────────────┐      REST API      ┌─────────────────────────────┐
-│  Next.js Modern Dashboard │ ─────────────────► │  Vercel Edge API Routes     │
-│  (TypeScript, Tailwind)   │ ◄───────────────── │  (/api/forecast, /api/po)   │
-└───────────────────────────┘    JSON Payload    └──────────────┬──────────────┘
-                                                                │
-                                        ┌───────────────────────┼───────────────────────┐
-                                        ▼                       ▼                       ▼
-                                ┌──────────────┐        ┌──────────────┐        ┌──────────────┐
-                                │ Decomposed   │        │ Inventory    │        │ Excel Sheet  │
-                                │ Meta Prophet │        │ Optimization │        │ Generator    │
-                                │ Inference    │        │ (EOQ & ROP)  │        │ (SheetJS)    │
-                                └──────────────┘        └──────────────┘        └──────────────┘`}
-                  </div>
-                </div>
-
-                {/* Mathematical Formulas */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                  <div className="p-4 rounded-lg bg-slate-900/70 border border-slate-800 space-y-2">
-                    <h5 className="font-semibold text-white flex items-center space-x-1.5">
-                      <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                      <span>Economic Order Quantity (EOQ)</span>
-                    </h5>
-                    <p className="text-slate-400 text-[11px]">
-                      Calculates the batch order size that minimizes the sum of inventory carrying costs and purchase order setup fees:
+                    <p className="text-zinc-500 text-[11px]">
+                      Minimizes the sum of fixed order placement fees and inventory holding expenses:
                     </p>
-                    <div className="p-2 rounded bg-slate-950 font-mono text-emerald-300 text-center font-semibold">
+                    <div className="p-2 bg-white dark:bg-zinc-900 rounded font-mono text-center font-medium text-zinc-900 dark:text-zinc-100">
                       EOQ = √ ( (2 · D · S) / H )
                     </div>
-                    <p className="text-[10px] text-slate-500">
-                      Where D = Total forecasted demand, S = Ordering fixed cost, H = Unit holding cost per period.
-                    </p>
                   </div>
 
-                  <div className="p-4 rounded-lg bg-slate-900/70 border border-slate-800 space-y-2">
-                    <h5 className="font-semibold text-white flex items-center space-x-1.5">
-                      <AlertCircle className="w-4 h-4 text-amber-400" />
-                      <span>Reorder Point (ROP)</span>
-                    </h5>
-                    <p className="text-slate-400 text-[11px]">
-                      Establishes the minimum stock trigger level ensuring operations never breach safety buffer during supplier lead time:
+                  <div className="p-3.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-950/40 space-y-1.5">
+                    <span className="font-semibold text-zinc-900 dark:text-zinc-100 block">
+                      Reorder Point (ROP)
+                    </span>
+                    <p className="text-zinc-500 text-[11px]">
+                      Establishes the minimum stock trigger level ensuring operations never breach safety buffer:
                     </p>
-                    <div className="p-2 rounded bg-slate-950 font-mono text-amber-300 text-center font-semibold">
+                    <div className="p-2 bg-white dark:bg-zinc-900 rounded font-mono text-center font-medium text-zinc-900 dark:text-zinc-100">
                       ROP = (d · L) + SS
                     </div>
-                    <p className="text-[10px] text-slate-500">
-                      Where d = Daily demand velocity, L = Lead time in days, SS = Safety stock buffer.
-                    </p>
-                  </div>
-                </div>
-
-                {/* API Specs Table */}
-                <div className="space-y-3">
-                  <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
-                    Serverless API Endpoints
-                  </h4>
-                  <div className="overflow-x-auto rounded-lg border border-slate-800">
-                    <table className="w-full text-left text-xs">
-                      <thead className="bg-slate-900/90 text-slate-400 border-b border-slate-800">
-                        <tr>
-                          <th className="p-2.5 font-medium">Endpoint</th>
-                          <th className="p-2.5 font-medium">Method</th>
-                          <th className="p-2.5 font-medium">Payload / Parameters</th>
-                          <th className="p-2.5 font-medium">Response Format</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-slate-850 text-slate-300 text-[11px]">
-                        <tr>
-                          <td className="p-2.5 font-mono text-indigo-300">/api/forecast</td>
-                          <td className="p-2.5"><span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-bold">POST</span></td>
-                          <td className="p-2.5 font-mono text-slate-400">&#123; days, current_stock, lead_time, ... &#125;</td>
-                          <td className="p-2.5 text-slate-300">JSON (Metrics, Forecast Array, ROP/EOQ Status)</td>
-                        </tr>
-                        <tr>
-                          <td className="p-2.5 font-mono text-indigo-300">/api/po</td>
-                          <td className="p-2.5"><span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-bold">POST</span></td>
-                          <td className="p-2.5 font-mono text-slate-400">&#123; vendor_name, item_name, unit_cost, ... &#125;</td>
-                          <td className="p-2.5 text-slate-300">Binary Stream (.xlsx Excel spreadsheet)</td>
-                        </tr>
-                        <tr>
-                          <td className="p-2.5 font-mono text-indigo-300">/api/history</td>
-                          <td className="p-2.5"><span className="px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 text-[10px] font-bold">GET</span></td>
-                          <td className="p-2.5 font-mono text-slate-400">None</td>
-                          <td className="p-2.5 text-slate-300">JSON (1,684 Historical Observations)</td>
-                        </tr>
-                      </tbody>
-                    </table>
                   </div>
                 </div>
               </div>
@@ -1221,9 +1055,9 @@ export default function Dashboard() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-850 mt-12 py-6 text-center text-xs text-slate-500">
-        <p>StockPulse AI • Enterprise Demand Forecasting & Supply Chain Replenishment Engine</p>
+      {/* Clean Minimalist Footer */}
+      <footer className="border-t border-zinc-200 dark:border-zinc-800 py-4 text-center text-xs text-zinc-400 dark:text-zinc-600">
+        <span>StockPulse • Demand Forecasting & Inventory Optimizer</span>
       </footer>
     </div>
   );
