@@ -1,0 +1,9508 @@
+{
+  "historical": [
+    {
+      "date": "2013-01-01",
+      "sales": 0.0,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-02",
+      "sales": 7417.15,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-03",
+      "sales": 5873.24,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-04",
+      "sales": 5919.88,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-05",
+      "sales": 6318.79,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-06",
+      "sales": 2199.09,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-07",
+      "sales": 6150.92,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-08",
+      "sales": 5597.18,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-09",
+      "sales": 6808.58,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-10",
+      "sales": 4757.72,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-11",
+      "sales": 5494.02,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-12",
+      "sales": 5467.78,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-13",
+      "sales": 2693.88,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-14",
+      "sales": 5651.69,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-15",
+      "sales": 5204.17,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-16",
+      "sales": 6733.6,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-17",
+      "sales": 4942.47,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-18",
+      "sales": 5923.12,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-19",
+      "sales": 5895.15,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-20",
+      "sales": 2371.13,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-21",
+      "sales": 5227.6,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-22",
+      "sales": 5298.99,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-23",
+      "sales": 6259.35,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-24",
+      "sales": 4861.52,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-25",
+      "sales": 5577.7,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-26",
+      "sales": 5290.33,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-27",
+      "sales": 2439.38,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-28",
+      "sales": 4976.81,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-29",
+      "sales": 4681.51,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-30",
+      "sales": 6118.89,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-01-31",
+      "sales": 4712.58,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-01",
+      "sales": 5782.78,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-02",
+      "sales": 5706.92,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-03",
+      "sales": 2267.98,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-04",
+      "sales": 5574.04,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-05",
+      "sales": 5080.79,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-06",
+      "sales": 6107.43,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-07",
+      "sales": 4452.24,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-08",
+      "sales": 5593.81,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-09",
+      "sales": 4435.57,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-10",
+      "sales": 1199.14,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-11",
+      "sales": 1344.75,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-12",
+      "sales": 1852.02,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-13",
+      "sales": 6121.73,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-14",
+      "sales": 4999.19,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-15",
+      "sales": 5387.79,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-16",
+      "sales": 5625.38,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-17",
+      "sales": 1747.08,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-18",
+      "sales": 5343.78,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-19",
+      "sales": 5229.72,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-20",
+      "sales": 6024.07,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-21",
+      "sales": 5325.73,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-22",
+      "sales": 5781.51,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-23",
+      "sales": 5426.99,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-24",
+      "sales": 2295.71,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-25",
+      "sales": 5333.27,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-26",
+      "sales": 4710.28,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-27",
+      "sales": 6054.94,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-02-28",
+      "sales": 5009.69,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-01",
+      "sales": 5940.56,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-02",
+      "sales": 5817.47,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-03",
+      "sales": 2436.83,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-04",
+      "sales": 6094.49,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-05",
+      "sales": 4968.63,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-06",
+      "sales": 6845.54,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-07",
+      "sales": 5199.07,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-08",
+      "sales": 6010.68,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-09",
+      "sales": 5665.51,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-10",
+      "sales": 2601.4,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-11",
+      "sales": 5504.9,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-12",
+      "sales": 4965.08,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-13",
+      "sales": 6077.78,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-14",
+      "sales": 4557.17,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-15",
+      "sales": 5638.48,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-16",
+      "sales": 5799.48,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-17",
+      "sales": 2258.61,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-18",
+      "sales": 5161.34,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-19",
+      "sales": 4942.25,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-20",
+      "sales": 6195.92,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-21",
+      "sales": 5097.21,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-22",
+      "sales": 5795.07,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-23",
+      "sales": 5518.6,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-24",
+      "sales": 2056.88,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-25",
+      "sales": 5233.41,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-26",
+      "sales": 4812.28,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-27",
+      "sales": 6387.46,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-28",
+      "sales": 5686.71,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-29",
+      "sales": 2001.73,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-30",
+      "sales": 4353.33,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-03-31",
+      "sales": 2042.37,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-01",
+      "sales": 6144.88,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-02",
+      "sales": 5774.18,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-03",
+      "sales": 7074.95,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-04",
+      "sales": 4896.5,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-05",
+      "sales": 6304.93,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-06",
+      "sales": 5594.09,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-07",
+      "sales": 2363.74,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-08",
+      "sales": 5378.18,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-09",
+      "sales": 4803.33,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-10",
+      "sales": 6835.49,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-11",
+      "sales": 4701.46,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-12",
+      "sales": 6212.33,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-13",
+      "sales": 5493.95,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-14",
+      "sales": 2209.92,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-15",
+      "sales": 5462.56,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-16",
+      "sales": 5367.81,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-17",
+      "sales": 6207.24,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-18",
+      "sales": 5004.65,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-19",
+      "sales": 5339.9,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-20",
+      "sales": 5759.57,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-21",
+      "sales": 2449.28,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-22",
+      "sales": 5504.77,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-23",
+      "sales": 5085.24,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-24",
+      "sales": 7112.2,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-25",
+      "sales": 4722.56,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-26",
+      "sales": 6316.56,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-27",
+      "sales": 5334.14,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-28",
+      "sales": 2427.34,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-29",
+      "sales": 4488.66,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-04-30",
+      "sales": 5478.08,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-01",
+      "sales": 2677.93,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-02",
+      "sales": 5648.43,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-03",
+      "sales": 7051.15,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-04",
+      "sales": 5797.94,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-05",
+      "sales": 2723.9,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-06",
+      "sales": 5813.94,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-07",
+      "sales": 5586.96,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-08",
+      "sales": 6351.42,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-09",
+      "sales": 5049.36,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-10",
+      "sales": 6135.39,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-11",
+      "sales": 6289.38,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-12",
+      "sales": 1904.55,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-13",
+      "sales": 5637.61,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-14",
+      "sales": 5528.38,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-15",
+      "sales": 5901.74,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-16",
+      "sales": 5459.33,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-17",
+      "sales": 6021.05,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-18",
+      "sales": 5681.29,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-19",
+      "sales": 2037.13,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-20",
+      "sales": 5221.56,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-21",
+      "sales": 4932.97,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-22",
+      "sales": 5896.85,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-23",
+      "sales": 5426.11,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-24",
+      "sales": 2195.22,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-25",
+      "sales": 4255.78,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-26",
+      "sales": 1621.78,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-27",
+      "sales": 5194.11,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-28",
+      "sales": 5133.56,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-29",
+      "sales": 6685.57,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-30",
+      "sales": 4949.26,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-05-31",
+      "sales": 6155.99,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-01",
+      "sales": 6180.5,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-02",
+      "sales": 1729.61,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-03",
+      "sales": 6302.14,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-04",
+      "sales": 5893.59,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-05",
+      "sales": 7261.88,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-06",
+      "sales": 5565.63,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-07",
+      "sales": 6704.61,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-08",
+      "sales": 5537.82,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-09",
+      "sales": 2331.65,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-10",
+      "sales": 5703.61,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-11",
+      "sales": 5368.14,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-12",
+      "sales": 6200.1,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-13",
+      "sales": 4737.13,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-14",
+      "sales": 6056.95,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-15",
+      "sales": 5452.69,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-16",
+      "sales": 1983.07,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-17",
+      "sales": 5964.64,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-18",
+      "sales": 5096.6,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-19",
+      "sales": 6747.89,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-20",
+      "sales": 4725.84,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-21",
+      "sales": 5608.44,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-22",
+      "sales": 5257.66,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-23",
+      "sales": 2207.97,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-24",
+      "sales": 5225.46,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-25",
+      "sales": 5698.11,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-26",
+      "sales": 5962.69,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-27",
+      "sales": 4822.81,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-28",
+      "sales": 6044.44,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-29",
+      "sales": 5525.24,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-06-30",
+      "sales": 2154.5,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-01",
+      "sales": 5837.52,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-02",
+      "sales": 5787.71,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-03",
+      "sales": 6671.41,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-04",
+      "sales": 5126.39,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-05",
+      "sales": 5998.66,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-06",
+      "sales": 5157.27,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-07",
+      "sales": 2257.25,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-08",
+      "sales": 5785.95,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-09",
+      "sales": 5276.9,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-10",
+      "sales": 6142.59,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-11",
+      "sales": 4929.23,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-12",
+      "sales": 5600.98,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-13",
+      "sales": 5136.32,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-14",
+      "sales": 1841.98,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-15",
+      "sales": 5314.5,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-16",
+      "sales": 5756.53,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-17",
+      "sales": 5843.33,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-18",
+      "sales": 4763.81,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-19",
+      "sales": 6212.65,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-20",
+      "sales": 5084.12,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-21",
+      "sales": 1905.67,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-22",
+      "sales": 5047.6,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-23",
+      "sales": 5644.17,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-24",
+      "sales": 5855.49,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-25",
+      "sales": 5112.66,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-26",
+      "sales": 5635.06,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-27",
+      "sales": 5003.34,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-28",
+      "sales": 1795.15,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-29",
+      "sales": 5769.13,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-30",
+      "sales": 4467.5,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-07-31",
+      "sales": 5996.35,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-01",
+      "sales": 6136.87,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-02",
+      "sales": 5517.76,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-03",
+      "sales": 5394.98,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-04",
+      "sales": 1837.98,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-05",
+      "sales": 5594.29,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-06",
+      "sales": 5130.63,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-07",
+      "sales": 5952.39,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-08",
+      "sales": 4739.29,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-09",
+      "sales": 5630.46,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-10",
+      "sales": 3537.35,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-11",
+      "sales": 1862.64,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-12",
+      "sales": 5528.93,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-13",
+      "sales": 4613.63,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-14",
+      "sales": 5701.06,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-15",
+      "sales": 4974.4,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-16",
+      "sales": 5719.5,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-17",
+      "sales": 4919.99,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-18",
+      "sales": 1843.36,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-19",
+      "sales": 5127.27,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-20",
+      "sales": 4658.07,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-21",
+      "sales": 5531.86,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-22",
+      "sales": 4568.64,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-23",
+      "sales": 5678.17,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-24",
+      "sales": 4615.95,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-25",
+      "sales": 2079.3,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-26",
+      "sales": 5323.87,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-27",
+      "sales": 5163.91,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-28",
+      "sales": 5864.24,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-29",
+      "sales": 4654.19,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-30",
+      "sales": 5969.39,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-08-31",
+      "sales": 5312.93,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-01",
+      "sales": 2604.82,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-02",
+      "sales": 5619.51,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-03",
+      "sales": 5457.17,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-04",
+      "sales": 6430.78,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-05",
+      "sales": 5171.71,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-06",
+      "sales": 6155.61,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-07",
+      "sales": 5474.83,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-08",
+      "sales": 2208.75,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-09",
+      "sales": 5344.08,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-10",
+      "sales": 4829.32,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-11",
+      "sales": 6098.9,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-12",
+      "sales": 5374.13,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-13",
+      "sales": 5906.8,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-14",
+      "sales": 5351.6,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-15",
+      "sales": 2554.65,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-16",
+      "sales": 6000.16,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-17",
+      "sales": 5010.84,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-18",
+      "sales": 5642.8,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-19",
+      "sales": 5064.12,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-20",
+      "sales": 5621.11,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-21",
+      "sales": 5573.48,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-22",
+      "sales": 2216.21,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-23",
+      "sales": 5487.17,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-24",
+      "sales": 5622.48,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-25",
+      "sales": 6198.48,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-26",
+      "sales": 5245.92,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-27",
+      "sales": 6130.22,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-28",
+      "sales": 5268.83,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-29",
+      "sales": 2694.2,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-09-30",
+      "sales": 5716.81,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-01",
+      "sales": 6542.96,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-02",
+      "sales": 7378.66,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-03",
+      "sales": 5434.26,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-04",
+      "sales": 6844.98,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-05",
+      "sales": 5555.95,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-06",
+      "sales": 2523.41,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-07",
+      "sales": 5765.59,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-08",
+      "sales": 5732.35,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-09",
+      "sales": 6104.37,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-10",
+      "sales": 5369.69,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-11",
+      "sales": 4216.15,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-12",
+      "sales": 4028.24,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-13",
+      "sales": 2329.07,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-14",
+      "sales": 5285.17,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-15",
+      "sales": 5423.21,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-16",
+      "sales": 6121.04,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-17",
+      "sales": 5657.76,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-18",
+      "sales": 6565.25,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-19",
+      "sales": 5723.31,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-20",
+      "sales": 2550.31,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-21",
+      "sales": 5879.46,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-22",
+      "sales": 5429.21,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-23",
+      "sales": 6429.41,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-24",
+      "sales": 4811.8,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-25",
+      "sales": 6262.03,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-26",
+      "sales": 5558.93,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-27",
+      "sales": 2676.08,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-28",
+      "sales": 5494.16,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-29",
+      "sales": 5739.28,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-30",
+      "sales": 5845.98,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-10-31",
+      "sales": 5137.65,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-01",
+      "sales": 7045.11,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-02",
+      "sales": 5140.71,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-03",
+      "sales": 2613.71,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-04",
+      "sales": 5930.2,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-05",
+      "sales": 6376.74,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-06",
+      "sales": 6596.11,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-07",
+      "sales": 5574.36,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-08",
+      "sales": 7560.18,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-09",
+      "sales": 5711.29,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-10",
+      "sales": 2787.44,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-11",
+      "sales": 5828.92,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-12",
+      "sales": 5235.32,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-13",
+      "sales": 7397.8,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-14",
+      "sales": 5834.1,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-15",
+      "sales": 6829.48,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-16",
+      "sales": 5812.26,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-17",
+      "sales": 2389.14,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-18",
+      "sales": 6396.04,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-19",
+      "sales": 6475.07,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-20",
+      "sales": 7099.56,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-21",
+      "sales": 5481.08,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-22",
+      "sales": 6937.85,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-23",
+      "sales": 5538.41,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-24",
+      "sales": 2329.67,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-25",
+      "sales": 6508.04,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-26",
+      "sales": 5917.11,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-27",
+      "sales": 6767.22,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-28",
+      "sales": 5409.57,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-29",
+      "sales": 6520.26,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-11-30",
+      "sales": 6046.88,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-01",
+      "sales": 2846.62,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-02",
+      "sales": 6691.94,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-03",
+      "sales": 6333.2,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-04",
+      "sales": 9158.64,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-05",
+      "sales": 5920.25,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-06",
+      "sales": 3094.04,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-07",
+      "sales": 5387.65,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-08",
+      "sales": 2435.63,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-09",
+      "sales": 6442.1,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-10",
+      "sales": 7488.41,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-11",
+      "sales": 8486.09,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-12",
+      "sales": 7966.51,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-13",
+      "sales": 7629.72,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-14",
+      "sales": 7158.15,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-15",
+      "sales": 3157.15,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-16",
+      "sales": 7651.49,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-17",
+      "sales": 6812.79,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-18",
+      "sales": 9382.84,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-19",
+      "sales": 7930.99,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-20",
+      "sales": 10906.78,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-21",
+      "sales": 8320.06,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-22",
+      "sales": 5450.85,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-23",
+      "sales": 11476.88,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-24",
+      "sales": 8536.05,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-26",
+      "sales": 6151.6,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-27",
+      "sales": 7440.18,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-28",
+      "sales": 4532.44,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-29",
+      "sales": 1819.25,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-30",
+      "sales": 5754.39,
+      "onpromotion": 0
+    },
+    {
+      "date": "2013-12-31",
+      "sales": 4618.15,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-01",
+      "sales": 0.0,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-02",
+      "sales": 12034.86,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-03",
+      "sales": 11700.45,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-04",
+      "sales": 10863.58,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-05",
+      "sales": 4634.57,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-06",
+      "sales": 10766.98,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-07",
+      "sales": 9582.61,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-08",
+      "sales": 13372.52,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-09",
+      "sales": 9817.64,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-10",
+      "sales": 10688.56,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-11",
+      "sales": 10123.37,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-12",
+      "sales": 4477.64,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-13",
+      "sales": 10587.84,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-14",
+      "sales": 9212.4,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-15",
+      "sales": 12945.32,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-16",
+      "sales": 8728.83,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-17",
+      "sales": 11014.49,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-18",
+      "sales": 10084.04,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-19",
+      "sales": 4611.47,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-20",
+      "sales": 9262.3,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-21",
+      "sales": 10658.4,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-22",
+      "sales": 12343.0,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-23",
+      "sales": 9154.48,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-24",
+      "sales": 11079.89,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-25",
+      "sales": 8688.38,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-26",
+      "sales": 4675.99,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-27",
+      "sales": 9643.9,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-28",
+      "sales": 8987.66,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-29",
+      "sales": 12354.57,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-30",
+      "sales": 8977.84,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-01-31",
+      "sales": 10591.19,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-01",
+      "sales": 6642.35,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-02",
+      "sales": 2490.67,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-03",
+      "sales": 6181.27,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-04",
+      "sales": 5704.71,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-05",
+      "sales": 7413.18,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-06",
+      "sales": 5684.78,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-07",
+      "sales": 6527.88,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-08",
+      "sales": 6081.82,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-09",
+      "sales": 2393.51,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-10",
+      "sales": 5819.1,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-11",
+      "sales": 6135.15,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-12",
+      "sales": 7494.98,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-13",
+      "sales": 5631.58,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-14",
+      "sales": 7060.89,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-15",
+      "sales": 6569.45,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-16",
+      "sales": 2770.95,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-17",
+      "sales": 5684.37,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-18",
+      "sales": 6545.48,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-19",
+      "sales": 6782.93,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-20",
+      "sales": 5634.37,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-21",
+      "sales": 6018.03,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-22",
+      "sales": 6236.95,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-23",
+      "sales": 2334.05,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-24",
+      "sales": 6140.98,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-25",
+      "sales": 5916.79,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-26",
+      "sales": 6044.6,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-27",
+      "sales": 4832.92,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-02-28",
+      "sales": 6684.74,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-01",
+      "sales": 8303.32,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-02",
+      "sales": 2341.38,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-03",
+      "sales": 2960.42,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-04",
+      "sales": 3861.04,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-05",
+      "sales": 13222.92,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-06",
+      "sales": 10616.62,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-07",
+      "sales": 11837.1,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-08",
+      "sales": 9916.47,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-09",
+      "sales": 5084.25,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-10",
+      "sales": 9983.39,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-11",
+      "sales": 9595.98,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-12",
+      "sales": 13517.54,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-13",
+      "sales": 8686.63,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-14",
+      "sales": 10067.93,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-15",
+      "sales": 9029.67,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-16",
+      "sales": 5416.58,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-17",
+      "sales": 10120.12,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-18",
+      "sales": 9722.98,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-19",
+      "sales": 11942.63,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-20",
+      "sales": 8595.95,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-21",
+      "sales": 10828.46,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-22",
+      "sales": 10091.75,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-23",
+      "sales": 4504.29,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-24",
+      "sales": 9187.04,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-25",
+      "sales": 9468.11,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-26",
+      "sales": 11996.32,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-27",
+      "sales": 8356.74,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-28",
+      "sales": 10277.43,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-29",
+      "sales": 10258.32,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-30",
+      "sales": 4553.46,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-03-31",
+      "sales": 9569.72,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-01",
+      "sales": 7030.4,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-02",
+      "sales": 7734.19,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-03",
+      "sales": 5534.84,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-04",
+      "sales": 7955.97,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-05",
+      "sales": 6592.68,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-06",
+      "sales": 3121.13,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-07",
+      "sales": 6745.32,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-08",
+      "sales": 5399.66,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-09",
+      "sales": 7089.19,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-10",
+      "sales": 5723.52,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-11",
+      "sales": 6603.93,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-12",
+      "sales": 6133.68,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-13",
+      "sales": 2462.79,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-14",
+      "sales": 5778.3,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-15",
+      "sales": 5928.37,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-16",
+      "sales": 7022.8,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-17",
+      "sales": 5588.88,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-18",
+      "sales": 2998.2,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-19",
+      "sales": 4332.51,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-20",
+      "sales": 2432.98,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-21",
+      "sales": 6201.18,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-22",
+      "sales": 5553.08,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-23",
+      "sales": 8424.76,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-24",
+      "sales": 5813.09,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-25",
+      "sales": 7112.47,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-26",
+      "sales": 6384.5,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-27",
+      "sales": 2369.78,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-28",
+      "sales": 5777.8,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-29",
+      "sales": 5882.33,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-04-30",
+      "sales": 7410.03,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-01",
+      "sales": 2569.48,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-02",
+      "sales": 7872.44,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-03",
+      "sales": 7047.21,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-04",
+      "sales": 2688.86,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-05",
+      "sales": 4868.71,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-06",
+      "sales": 7284.11,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-07",
+      "sales": 7393.54,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-08",
+      "sales": 5546.68,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-09",
+      "sales": 7596.67,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-10",
+      "sales": 7075.72,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-11",
+      "sales": 2383.42,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-12",
+      "sales": 6006.82,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-13",
+      "sales": 6703.55,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-14",
+      "sales": 6556.99,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-15",
+      "sales": 5704.36,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-16",
+      "sales": 7313.12,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-17",
+      "sales": 6081.56,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-18",
+      "sales": 2589.57,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-19",
+      "sales": 6796.84,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-20",
+      "sales": 6606.28,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-21",
+      "sales": 6795.9,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-22",
+      "sales": 5706.4,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-23",
+      "sales": 6328.56,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-24",
+      "sales": 6006.52,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-25",
+      "sales": 2395.62,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-26",
+      "sales": 6066.19,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-27",
+      "sales": 4984.33,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-28",
+      "sales": 6934.92,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-29",
+      "sales": 5247.0,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-30",
+      "sales": 8215.24,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-05-31",
+      "sales": 6041.63,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-01",
+      "sales": 2802.72,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-02",
+      "sales": 7120.85,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-03",
+      "sales": 6652.41,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-04",
+      "sales": 7473.02,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-05",
+      "sales": 6036.7,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-06",
+      "sales": 7853.18,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-07",
+      "sales": 6007.95,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-08",
+      "sales": 2214.5,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-09",
+      "sales": 6228.62,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-10",
+      "sales": 5886.04,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-11",
+      "sales": 7314.07,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-12",
+      "sales": 5485.54,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-13",
+      "sales": 7256.34,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-14",
+      "sales": 7185.76,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-15",
+      "sales": 1755.37,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-16",
+      "sales": 6469.29,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-17",
+      "sales": 5810.6,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-18",
+      "sales": 6563.05,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-19",
+      "sales": 5595.29,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-20",
+      "sales": 8202.75,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-21",
+      "sales": 6671.71,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-22",
+      "sales": 2449.53,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-23",
+      "sales": 6320.22,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-24",
+      "sales": 5659.71,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-25",
+      "sales": 6971.18,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-26",
+      "sales": 6012.04,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-27",
+      "sales": 8100.36,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-28",
+      "sales": 6084.97,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-29",
+      "sales": 2416.77,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-06-30",
+      "sales": 5970.38,
+      "onpromotion": 0
+    },
+    {
+      "date": "2014-07-01",
+      "sales": 9649.17,
+      "onpromotion": 8
+    },
+    {
+      "date": "2014-07-02",
+      "sales": 14812.35,
+      "onpromotion": 193
+    },
+    {
+      "date": "2014-07-03",
+      "sales": 9593.3,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-07-04",
+      "sales": 11822.02,
+      "onpromotion": 156
+    },
+    {
+      "date": "2014-07-05",
+      "sales": 8368.5,
+      "onpromotion": 8
+    },
+    {
+      "date": "2014-07-06",
+      "sales": 4429.33,
+      "onpromotion": 7
+    },
+    {
+      "date": "2014-07-07",
+      "sales": 10168.35,
+      "onpromotion": 8
+    },
+    {
+      "date": "2014-07-08",
+      "sales": 9100.6,
+      "onpromotion": 10
+    },
+    {
+      "date": "2014-07-09",
+      "sales": 12147.94,
+      "onpromotion": 192
+    },
+    {
+      "date": "2014-07-10",
+      "sales": 9155.3,
+      "onpromotion": 10
+    },
+    {
+      "date": "2014-07-11",
+      "sales": 10780.6,
+      "onpromotion": 164
+    },
+    {
+      "date": "2014-07-12",
+      "sales": 9308.51,
+      "onpromotion": 17
+    },
+    {
+      "date": "2014-07-13",
+      "sales": 4499.21,
+      "onpromotion": 5
+    },
+    {
+      "date": "2014-07-14",
+      "sales": 9980.27,
+      "onpromotion": 6
+    },
+    {
+      "date": "2014-07-15",
+      "sales": 9225.38,
+      "onpromotion": 8
+    },
+    {
+      "date": "2014-07-16",
+      "sales": 11970.11,
+      "onpromotion": 181
+    },
+    {
+      "date": "2014-07-17",
+      "sales": 8708.17,
+      "onpromotion": 12
+    },
+    {
+      "date": "2014-07-18",
+      "sales": 10811.15,
+      "onpromotion": 156
+    },
+    {
+      "date": "2014-07-19",
+      "sales": 9713.06,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-07-20",
+      "sales": 3792.86,
+      "onpromotion": 6
+    },
+    {
+      "date": "2014-07-21",
+      "sales": 10118.51,
+      "onpromotion": 9
+    },
+    {
+      "date": "2014-07-22",
+      "sales": 9679.42,
+      "onpromotion": 14
+    },
+    {
+      "date": "2014-07-23",
+      "sales": 11188.52,
+      "onpromotion": 189
+    },
+    {
+      "date": "2014-07-24",
+      "sales": 8615.95,
+      "onpromotion": 9
+    },
+    {
+      "date": "2014-07-25",
+      "sales": 10000.73,
+      "onpromotion": 155
+    },
+    {
+      "date": "2014-07-26",
+      "sales": 8792.47,
+      "onpromotion": 22
+    },
+    {
+      "date": "2014-07-27",
+      "sales": 3780.81,
+      "onpromotion": 6
+    },
+    {
+      "date": "2014-07-28",
+      "sales": 9018.72,
+      "onpromotion": 6
+    },
+    {
+      "date": "2014-07-29",
+      "sales": 9249.06,
+      "onpromotion": 7
+    },
+    {
+      "date": "2014-07-30",
+      "sales": 10970.34,
+      "onpromotion": 186
+    },
+    {
+      "date": "2014-07-31",
+      "sales": 9305.56,
+      "onpromotion": 12
+    },
+    {
+      "date": "2014-08-01",
+      "sales": 7806.69,
+      "onpromotion": 160
+    },
+    {
+      "date": "2014-08-02",
+      "sales": 6057.59,
+      "onpromotion": 13
+    },
+    {
+      "date": "2014-08-03",
+      "sales": 2353.72,
+      "onpromotion": 4
+    },
+    {
+      "date": "2014-08-04",
+      "sales": 6894.02,
+      "onpromotion": 8
+    },
+    {
+      "date": "2014-08-05",
+      "sales": 6034.11,
+      "onpromotion": 9
+    },
+    {
+      "date": "2014-08-06",
+      "sales": 6307.94,
+      "onpromotion": 15
+    },
+    {
+      "date": "2014-08-07",
+      "sales": 5208.13,
+      "onpromotion": 6
+    },
+    {
+      "date": "2014-08-08",
+      "sales": 7653.31,
+      "onpromotion": 166
+    },
+    {
+      "date": "2014-08-09",
+      "sales": 5666.58,
+      "onpromotion": 16
+    },
+    {
+      "date": "2014-08-10",
+      "sales": 2320.3,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-08-11",
+      "sales": 6019.56,
+      "onpromotion": 7
+    },
+    {
+      "date": "2014-08-12",
+      "sales": 5236.42,
+      "onpromotion": 7
+    },
+    {
+      "date": "2014-08-13",
+      "sales": 7177.14,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-08-14",
+      "sales": 5829.92,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-08-15",
+      "sales": 6912.13,
+      "onpromotion": 162
+    },
+    {
+      "date": "2014-08-16",
+      "sales": 5782.0,
+      "onpromotion": 8
+    },
+    {
+      "date": "2014-08-17",
+      "sales": 2488.34,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-08-18",
+      "sales": 5838.88,
+      "onpromotion": 12
+    },
+    {
+      "date": "2014-08-19",
+      "sales": 5242.3,
+      "onpromotion": 7
+    },
+    {
+      "date": "2014-08-20",
+      "sales": 6880.69,
+      "onpromotion": 14
+    },
+    {
+      "date": "2014-08-21",
+      "sales": 6034.27,
+      "onpromotion": 13
+    },
+    {
+      "date": "2014-08-22",
+      "sales": 6924.62,
+      "onpromotion": 166
+    },
+    {
+      "date": "2014-08-23",
+      "sales": 5699.92,
+      "onpromotion": 13
+    },
+    {
+      "date": "2014-08-24",
+      "sales": 2299.64,
+      "onpromotion": 10
+    },
+    {
+      "date": "2014-08-25",
+      "sales": 5579.97,
+      "onpromotion": 14
+    },
+    {
+      "date": "2014-08-26",
+      "sales": 5542.15,
+      "onpromotion": 14
+    },
+    {
+      "date": "2014-08-27",
+      "sales": 6601.72,
+      "onpromotion": 16
+    },
+    {
+      "date": "2014-08-28",
+      "sales": 4860.7,
+      "onpromotion": 7
+    },
+    {
+      "date": "2014-08-29",
+      "sales": 7610.32,
+      "onpromotion": 161
+    },
+    {
+      "date": "2014-08-30",
+      "sales": 6532.23,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-08-31",
+      "sales": 2912.43,
+      "onpromotion": 3
+    },
+    {
+      "date": "2014-09-01",
+      "sales": 10969.09,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-09-02",
+      "sales": 10751.01,
+      "onpromotion": 12
+    },
+    {
+      "date": "2014-09-03",
+      "sales": 12646.87,
+      "onpromotion": 193
+    },
+    {
+      "date": "2014-09-04",
+      "sales": 8847.57,
+      "onpromotion": 12
+    },
+    {
+      "date": "2014-09-05",
+      "sales": 11518.21,
+      "onpromotion": 178
+    },
+    {
+      "date": "2014-09-06",
+      "sales": 10191.58,
+      "onpromotion": 10
+    },
+    {
+      "date": "2014-09-07",
+      "sales": 4787.52,
+      "onpromotion": 8
+    },
+    {
+      "date": "2014-09-08",
+      "sales": 10839.94,
+      "onpromotion": 13
+    },
+    {
+      "date": "2014-09-09",
+      "sales": 10222.21,
+      "onpromotion": 12
+    },
+    {
+      "date": "2014-09-10",
+      "sales": 12134.2,
+      "onpromotion": 195
+    },
+    {
+      "date": "2014-09-11",
+      "sales": 9783.74,
+      "onpromotion": 10
+    },
+    {
+      "date": "2014-09-12",
+      "sales": 10121.31,
+      "onpromotion": 159
+    },
+    {
+      "date": "2014-09-13",
+      "sales": 9576.45,
+      "onpromotion": 19
+    },
+    {
+      "date": "2014-09-14",
+      "sales": 5032.42,
+      "onpromotion": 5
+    },
+    {
+      "date": "2014-09-15",
+      "sales": 9379.7,
+      "onpromotion": 14
+    },
+    {
+      "date": "2014-09-16",
+      "sales": 9769.91,
+      "onpromotion": 14
+    },
+    {
+      "date": "2014-09-17",
+      "sales": 12013.2,
+      "onpromotion": 190
+    },
+    {
+      "date": "2014-09-18",
+      "sales": 8527.19,
+      "onpromotion": 17
+    },
+    {
+      "date": "2014-09-19",
+      "sales": 10086.33,
+      "onpromotion": 157
+    },
+    {
+      "date": "2014-09-20",
+      "sales": 10740.7,
+      "onpromotion": 26
+    },
+    {
+      "date": "2014-09-21",
+      "sales": 4808.6,
+      "onpromotion": 7
+    },
+    {
+      "date": "2014-09-22",
+      "sales": 8939.85,
+      "onpromotion": 9
+    },
+    {
+      "date": "2014-09-23",
+      "sales": 9219.74,
+      "onpromotion": 9
+    },
+    {
+      "date": "2014-09-24",
+      "sales": 12576.19,
+      "onpromotion": 187
+    },
+    {
+      "date": "2014-09-25",
+      "sales": 9321.84,
+      "onpromotion": 8
+    },
+    {
+      "date": "2014-09-26",
+      "sales": 9878.17,
+      "onpromotion": 153
+    },
+    {
+      "date": "2014-09-27",
+      "sales": 10779.0,
+      "onpromotion": 9
+    },
+    {
+      "date": "2014-09-28",
+      "sales": 4752.11,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-09-29",
+      "sales": 9997.42,
+      "onpromotion": 12
+    },
+    {
+      "date": "2014-09-30",
+      "sales": 9332.83,
+      "onpromotion": 13
+    },
+    {
+      "date": "2014-10-01",
+      "sales": 14093.2,
+      "onpromotion": 196
+    },
+    {
+      "date": "2014-10-02",
+      "sales": 10415.54,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-10-03",
+      "sales": 12998.61,
+      "onpromotion": 174
+    },
+    {
+      "date": "2014-10-04",
+      "sales": 11982.68,
+      "onpromotion": 19
+    },
+    {
+      "date": "2014-10-05",
+      "sales": 4996.58,
+      "onpromotion": 13
+    },
+    {
+      "date": "2014-10-06",
+      "sales": 9985.16,
+      "onpromotion": 21
+    },
+    {
+      "date": "2014-10-07",
+      "sales": 9149.68,
+      "onpromotion": 20
+    },
+    {
+      "date": "2014-10-08",
+      "sales": 12656.04,
+      "onpromotion": 189
+    },
+    {
+      "date": "2014-10-09",
+      "sales": 9144.3,
+      "onpromotion": 10
+    },
+    {
+      "date": "2014-10-10",
+      "sales": 5455.48,
+      "onpromotion": 137
+    },
+    {
+      "date": "2014-10-11",
+      "sales": 8605.3,
+      "onpromotion": 13
+    },
+    {
+      "date": "2014-10-12",
+      "sales": 4161.07,
+      "onpromotion": 3
+    },
+    {
+      "date": "2014-10-13",
+      "sales": 9958.74,
+      "onpromotion": 9
+    },
+    {
+      "date": "2014-10-14",
+      "sales": 10530.82,
+      "onpromotion": 18
+    },
+    {
+      "date": "2014-10-15",
+      "sales": 12210.31,
+      "onpromotion": 192
+    },
+    {
+      "date": "2014-10-16",
+      "sales": 9387.89,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-10-17",
+      "sales": 10479.6,
+      "onpromotion": 164
+    },
+    {
+      "date": "2014-10-18",
+      "sales": 11063.9,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-10-19",
+      "sales": 5440.93,
+      "onpromotion": 7
+    },
+    {
+      "date": "2014-10-20",
+      "sales": 9833.98,
+      "onpromotion": 10
+    },
+    {
+      "date": "2014-10-21",
+      "sales": 8768.16,
+      "onpromotion": 10
+    },
+    {
+      "date": "2014-10-22",
+      "sales": 12626.88,
+      "onpromotion": 201
+    },
+    {
+      "date": "2014-10-23",
+      "sales": 8583.78,
+      "onpromotion": 25
+    },
+    {
+      "date": "2014-10-24",
+      "sales": 10218.46,
+      "onpromotion": 168
+    },
+    {
+      "date": "2014-10-25",
+      "sales": 9671.53,
+      "onpromotion": 17
+    },
+    {
+      "date": "2014-10-26",
+      "sales": 5161.1,
+      "onpromotion": 14
+    },
+    {
+      "date": "2014-10-27",
+      "sales": 10133.55,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-10-28",
+      "sales": 8414.22,
+      "onpromotion": 16
+    },
+    {
+      "date": "2014-10-29",
+      "sales": 12226.11,
+      "onpromotion": 202
+    },
+    {
+      "date": "2014-10-30",
+      "sales": 9255.49,
+      "onpromotion": 5
+    },
+    {
+      "date": "2014-10-31",
+      "sales": 11131.58,
+      "onpromotion": 154
+    },
+    {
+      "date": "2014-11-01",
+      "sales": 7928.99,
+      "onpromotion": 13
+    },
+    {
+      "date": "2014-11-02",
+      "sales": 3242.06,
+      "onpromotion": 18
+    },
+    {
+      "date": "2014-11-03",
+      "sales": 4472.12,
+      "onpromotion": 6
+    },
+    {
+      "date": "2014-11-04",
+      "sales": 10387.53,
+      "onpromotion": 9
+    },
+    {
+      "date": "2014-11-05",
+      "sales": 14717.78,
+      "onpromotion": 200
+    },
+    {
+      "date": "2014-11-06",
+      "sales": 9689.04,
+      "onpromotion": 5
+    },
+    {
+      "date": "2014-11-07",
+      "sales": 10642.42,
+      "onpromotion": 168
+    },
+    {
+      "date": "2014-11-08",
+      "sales": 10069.0,
+      "onpromotion": 14
+    },
+    {
+      "date": "2014-11-09",
+      "sales": 4750.97,
+      "onpromotion": 16
+    },
+    {
+      "date": "2014-11-10",
+      "sales": 9189.82,
+      "onpromotion": 10
+    },
+    {
+      "date": "2014-11-11",
+      "sales": 9717.12,
+      "onpromotion": 8
+    },
+    {
+      "date": "2014-11-12",
+      "sales": 12185.87,
+      "onpromotion": 199
+    },
+    {
+      "date": "2014-11-13",
+      "sales": 9262.55,
+      "onpromotion": 7
+    },
+    {
+      "date": "2014-11-14",
+      "sales": 9809.38,
+      "onpromotion": 162
+    },
+    {
+      "date": "2014-11-15",
+      "sales": 10471.29,
+      "onpromotion": 19
+    },
+    {
+      "date": "2014-11-16",
+      "sales": 5420.28,
+      "onpromotion": 22
+    },
+    {
+      "date": "2014-11-17",
+      "sales": 10206.56,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-11-18",
+      "sales": 10905.22,
+      "onpromotion": 6
+    },
+    {
+      "date": "2014-11-19",
+      "sales": 12583.2,
+      "onpromotion": 197
+    },
+    {
+      "date": "2014-11-20",
+      "sales": 9345.75,
+      "onpromotion": 19
+    },
+    {
+      "date": "2014-11-21",
+      "sales": 10196.28,
+      "onpromotion": 172
+    },
+    {
+      "date": "2014-11-22",
+      "sales": 10008.38,
+      "onpromotion": 12
+    },
+    {
+      "date": "2014-11-23",
+      "sales": 5028.04,
+      "onpromotion": 8
+    },
+    {
+      "date": "2014-11-24",
+      "sales": 9546.54,
+      "onpromotion": 13
+    },
+    {
+      "date": "2014-11-25",
+      "sales": 9275.03,
+      "onpromotion": 16
+    },
+    {
+      "date": "2014-11-26",
+      "sales": 13066.44,
+      "onpromotion": 204
+    },
+    {
+      "date": "2014-11-27",
+      "sales": 8407.38,
+      "onpromotion": 12
+    },
+    {
+      "date": "2014-11-28",
+      "sales": 10104.49,
+      "onpromotion": 165
+    },
+    {
+      "date": "2014-11-29",
+      "sales": 9693.38,
+      "onpromotion": 12
+    },
+    {
+      "date": "2014-11-30",
+      "sales": 4868.09,
+      "onpromotion": 6
+    },
+    {
+      "date": "2014-12-01",
+      "sales": 11009.65,
+      "onpromotion": 13
+    },
+    {
+      "date": "2014-12-02",
+      "sales": 9985.88,
+      "onpromotion": 22
+    },
+    {
+      "date": "2014-12-03",
+      "sales": 13598.77,
+      "onpromotion": 195
+    },
+    {
+      "date": "2014-12-04",
+      "sales": 10817.06,
+      "onpromotion": 16
+    },
+    {
+      "date": "2014-12-05",
+      "sales": 10996.85,
+      "onpromotion": 165
+    },
+    {
+      "date": "2014-12-06",
+      "sales": 8846.29,
+      "onpromotion": 19
+    },
+    {
+      "date": "2014-12-07",
+      "sales": 4674.22,
+      "onpromotion": 20
+    },
+    {
+      "date": "2014-12-08",
+      "sales": 10686.64,
+      "onpromotion": 5
+    },
+    {
+      "date": "2014-12-09",
+      "sales": 10861.78,
+      "onpromotion": 17
+    },
+    {
+      "date": "2014-12-10",
+      "sales": 15642.74,
+      "onpromotion": 204
+    },
+    {
+      "date": "2014-12-11",
+      "sales": 11736.02,
+      "onpromotion": 14
+    },
+    {
+      "date": "2014-12-12",
+      "sales": 10623.04,
+      "onpromotion": 162
+    },
+    {
+      "date": "2014-12-13",
+      "sales": 10683.49,
+      "onpromotion": 17
+    },
+    {
+      "date": "2014-12-14",
+      "sales": 5008.34,
+      "onpromotion": 30
+    },
+    {
+      "date": "2014-12-15",
+      "sales": 11730.24,
+      "onpromotion": 15
+    },
+    {
+      "date": "2014-12-16",
+      "sales": 12286.74,
+      "onpromotion": 11
+    },
+    {
+      "date": "2014-12-17",
+      "sales": 13995.17,
+      "onpromotion": 207
+    },
+    {
+      "date": "2014-12-18",
+      "sales": 11976.34,
+      "onpromotion": 13
+    },
+    {
+      "date": "2014-12-19",
+      "sales": 13083.35,
+      "onpromotion": 170
+    },
+    {
+      "date": "2014-12-20",
+      "sales": 12562.63,
+      "onpromotion": 21
+    },
+    {
+      "date": "2014-12-21",
+      "sales": 7662.18,
+      "onpromotion": 24
+    },
+    {
+      "date": "2014-12-22",
+      "sales": 13743.31,
+      "onpromotion": 15
+    },
+    {
+      "date": "2014-12-23",
+      "sales": 13523.5,
+      "onpromotion": 42
+    },
+    {
+      "date": "2014-12-24",
+      "sales": 12834.1,
+      "onpromotion": 210
+    },
+    {
+      "date": "2014-12-26",
+      "sales": 9701.67,
+      "onpromotion": 151
+    },
+    {
+      "date": "2014-12-27",
+      "sales": 6548.21,
+      "onpromotion": 28
+    },
+    {
+      "date": "2014-12-28",
+      "sales": 2818.98,
+      "onpromotion": 6
+    },
+    {
+      "date": "2014-12-29",
+      "sales": 9580.58,
+      "onpromotion": 37
+    },
+    {
+      "date": "2014-12-30",
+      "sales": 11038.83,
+      "onpromotion": 21
+    },
+    {
+      "date": "2014-12-31",
+      "sales": 10756.99,
+      "onpromotion": 207
+    },
+    {
+      "date": "2015-01-01",
+      "sales": 0.0,
+      "onpromotion": 0
+    },
+    {
+      "date": "2015-01-02",
+      "sales": 4797.8,
+      "onpromotion": 145
+    },
+    {
+      "date": "2015-01-03",
+      "sales": 5270.97,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-01-04",
+      "sales": 3035.15,
+      "onpromotion": 30
+    },
+    {
+      "date": "2015-01-05",
+      "sales": 8494.92,
+      "onpromotion": 29
+    },
+    {
+      "date": "2015-01-06",
+      "sales": 6931.21,
+      "onpromotion": 29
+    },
+    {
+      "date": "2015-01-07",
+      "sales": 8341.81,
+      "onpromotion": 23
+    },
+    {
+      "date": "2015-01-08",
+      "sales": 6301.89,
+      "onpromotion": 14
+    },
+    {
+      "date": "2015-01-09",
+      "sales": 7622.52,
+      "onpromotion": 171
+    },
+    {
+      "date": "2015-01-10",
+      "sales": 7375.16,
+      "onpromotion": 9
+    },
+    {
+      "date": "2015-01-11",
+      "sales": 2930.32,
+      "onpromotion": 8
+    },
+    {
+      "date": "2015-01-12",
+      "sales": 7320.51,
+      "onpromotion": 23
+    },
+    {
+      "date": "2015-01-13",
+      "sales": 7260.77,
+      "onpromotion": 16
+    },
+    {
+      "date": "2015-01-14",
+      "sales": 7455.81,
+      "onpromotion": 42
+    },
+    {
+      "date": "2015-01-15",
+      "sales": 5525.6,
+      "onpromotion": 7
+    },
+    {
+      "date": "2015-01-16",
+      "sales": 7622.98,
+      "onpromotion": 172
+    },
+    {
+      "date": "2015-01-17",
+      "sales": 7521.47,
+      "onpromotion": 9
+    },
+    {
+      "date": "2015-01-18",
+      "sales": 2915.43,
+      "onpromotion": 3
+    },
+    {
+      "date": "2015-01-19",
+      "sales": 7185.96,
+      "onpromotion": 13
+    },
+    {
+      "date": "2015-01-20",
+      "sales": 6244.42,
+      "onpromotion": 10
+    },
+    {
+      "date": "2015-01-21",
+      "sales": 7495.85,
+      "onpromotion": 9
+    },
+    {
+      "date": "2015-01-22",
+      "sales": 6531.59,
+      "onpromotion": 7
+    },
+    {
+      "date": "2015-01-23",
+      "sales": 7298.34,
+      "onpromotion": 166
+    },
+    {
+      "date": "2015-01-24",
+      "sales": 6537.57,
+      "onpromotion": 6
+    },
+    {
+      "date": "2015-01-25",
+      "sales": 2610.26,
+      "onpromotion": 7
+    },
+    {
+      "date": "2015-01-26",
+      "sales": 6404.88,
+      "onpromotion": 7
+    },
+    {
+      "date": "2015-01-27",
+      "sales": 5989.55,
+      "onpromotion": 15
+    },
+    {
+      "date": "2015-01-28",
+      "sales": 7486.48,
+      "onpromotion": 8
+    },
+    {
+      "date": "2015-01-29",
+      "sales": 6773.13,
+      "onpromotion": 14
+    },
+    {
+      "date": "2015-01-30",
+      "sales": 8636.57,
+      "onpromotion": 163
+    },
+    {
+      "date": "2015-01-31",
+      "sales": 7274.06,
+      "onpromotion": 6
+    },
+    {
+      "date": "2015-02-01",
+      "sales": 3249.46,
+      "onpromotion": 9
+    },
+    {
+      "date": "2015-02-02",
+      "sales": 7916.0,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-02-03",
+      "sales": 7162.6,
+      "onpromotion": 12
+    },
+    {
+      "date": "2015-02-04",
+      "sales": 7345.59,
+      "onpromotion": 24
+    },
+    {
+      "date": "2015-02-05",
+      "sales": 5934.15,
+      "onpromotion": 13
+    },
+    {
+      "date": "2015-02-06",
+      "sales": 7519.29,
+      "onpromotion": 183
+    },
+    {
+      "date": "2015-02-07",
+      "sales": 6761.33,
+      "onpromotion": 24
+    },
+    {
+      "date": "2015-02-08",
+      "sales": 3035.29,
+      "onpromotion": 8
+    },
+    {
+      "date": "2015-02-09",
+      "sales": 6558.35,
+      "onpromotion": 11
+    },
+    {
+      "date": "2015-02-10",
+      "sales": 6830.42,
+      "onpromotion": 17
+    },
+    {
+      "date": "2015-02-11",
+      "sales": 6718.37,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-02-12",
+      "sales": 6056.03,
+      "onpromotion": 9
+    },
+    {
+      "date": "2015-02-13",
+      "sales": 7323.95,
+      "onpromotion": 164
+    },
+    {
+      "date": "2015-02-14",
+      "sales": 5419.9,
+      "onpromotion": 11
+    },
+    {
+      "date": "2015-02-15",
+      "sales": 1926.74,
+      "onpromotion": 7
+    },
+    {
+      "date": "2015-02-16",
+      "sales": 2053.52,
+      "onpromotion": 5
+    },
+    {
+      "date": "2015-02-17",
+      "sales": 1858.56,
+      "onpromotion": 18
+    },
+    {
+      "date": "2015-02-18",
+      "sales": 7123.38,
+      "onpromotion": 14
+    },
+    {
+      "date": "2015-02-19",
+      "sales": 5408.49,
+      "onpromotion": 5
+    },
+    {
+      "date": "2015-02-20",
+      "sales": 7950.33,
+      "onpromotion": 169
+    },
+    {
+      "date": "2015-02-21",
+      "sales": 7214.19,
+      "onpromotion": 9
+    },
+    {
+      "date": "2015-02-22",
+      "sales": 2932.08,
+      "onpromotion": 2
+    },
+    {
+      "date": "2015-02-23",
+      "sales": 6769.55,
+      "onpromotion": 6
+    },
+    {
+      "date": "2015-02-24",
+      "sales": 6157.19,
+      "onpromotion": 8
+    },
+    {
+      "date": "2015-02-25",
+      "sales": 7147.01,
+      "onpromotion": 14
+    },
+    {
+      "date": "2015-02-26",
+      "sales": 5764.93,
+      "onpromotion": 8
+    },
+    {
+      "date": "2015-02-27",
+      "sales": 7717.96,
+      "onpromotion": 162
+    },
+    {
+      "date": "2015-02-28",
+      "sales": 6960.8,
+      "onpromotion": 8
+    },
+    {
+      "date": "2015-03-01",
+      "sales": 3324.63,
+      "onpromotion": 10
+    },
+    {
+      "date": "2015-03-02",
+      "sales": 6953.34,
+      "onpromotion": 9
+    },
+    {
+      "date": "2015-03-03",
+      "sales": 7073.35,
+      "onpromotion": 15
+    },
+    {
+      "date": "2015-03-04",
+      "sales": 7540.5,
+      "onpromotion": 17
+    },
+    {
+      "date": "2015-03-05",
+      "sales": 6554.47,
+      "onpromotion": 14
+    },
+    {
+      "date": "2015-03-06",
+      "sales": 7240.66,
+      "onpromotion": 161
+    },
+    {
+      "date": "2015-03-07",
+      "sales": 7828.78,
+      "onpromotion": 8
+    },
+    {
+      "date": "2015-03-08",
+      "sales": 2879.17,
+      "onpromotion": 10
+    },
+    {
+      "date": "2015-03-09",
+      "sales": 8072.94,
+      "onpromotion": 11
+    },
+    {
+      "date": "2015-03-10",
+      "sales": 6833.65,
+      "onpromotion": 11
+    },
+    {
+      "date": "2015-03-11",
+      "sales": 7774.88,
+      "onpromotion": 13
+    },
+    {
+      "date": "2015-03-12",
+      "sales": 5766.17,
+      "onpromotion": 10
+    },
+    {
+      "date": "2015-03-13",
+      "sales": 8347.09,
+      "onpromotion": 169
+    },
+    {
+      "date": "2015-03-14",
+      "sales": 7518.05,
+      "onpromotion": 14
+    },
+    {
+      "date": "2015-03-15",
+      "sales": 2918.19,
+      "onpromotion": 9
+    },
+    {
+      "date": "2015-03-16",
+      "sales": 6853.4,
+      "onpromotion": 10
+    },
+    {
+      "date": "2015-03-17",
+      "sales": 6218.92,
+      "onpromotion": 13
+    },
+    {
+      "date": "2015-03-18",
+      "sales": 6410.73,
+      "onpromotion": 15
+    },
+    {
+      "date": "2015-03-19",
+      "sales": 6548.74,
+      "onpromotion": 15
+    },
+    {
+      "date": "2015-03-20",
+      "sales": 8245.06,
+      "onpromotion": 159
+    },
+    {
+      "date": "2015-03-21",
+      "sales": 7184.04,
+      "onpromotion": 9
+    },
+    {
+      "date": "2015-03-22",
+      "sales": 2979.58,
+      "onpromotion": 12
+    },
+    {
+      "date": "2015-03-23",
+      "sales": 6491.46,
+      "onpromotion": 10
+    },
+    {
+      "date": "2015-03-24",
+      "sales": 6742.71,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-03-25",
+      "sales": 7049.16,
+      "onpromotion": 14
+    },
+    {
+      "date": "2015-03-26",
+      "sales": 5704.2,
+      "onpromotion": 6
+    },
+    {
+      "date": "2015-03-27",
+      "sales": 7472.08,
+      "onpromotion": 163
+    },
+    {
+      "date": "2015-03-28",
+      "sales": 6809.22,
+      "onpromotion": 8
+    },
+    {
+      "date": "2015-03-29",
+      "sales": 2783.5,
+      "onpromotion": 17
+    },
+    {
+      "date": "2015-03-30",
+      "sales": 5858.38,
+      "onpromotion": 19
+    },
+    {
+      "date": "2015-03-31",
+      "sales": 6781.1,
+      "onpromotion": 14
+    },
+    {
+      "date": "2015-04-01",
+      "sales": 8213.82,
+      "onpromotion": 24
+    },
+    {
+      "date": "2015-04-02",
+      "sales": 7032.03,
+      "onpromotion": 11
+    },
+    {
+      "date": "2015-04-03",
+      "sales": 2728.19,
+      "onpromotion": 122
+    },
+    {
+      "date": "2015-04-04",
+      "sales": 5479.48,
+      "onpromotion": 13
+    },
+    {
+      "date": "2015-04-05",
+      "sales": 2643.16,
+      "onpromotion": 10
+    },
+    {
+      "date": "2015-04-06",
+      "sales": 7388.7,
+      "onpromotion": 11
+    },
+    {
+      "date": "2015-04-07",
+      "sales": 7083.31,
+      "onpromotion": 12
+    },
+    {
+      "date": "2015-04-08",
+      "sales": 7925.73,
+      "onpromotion": 14
+    },
+    {
+      "date": "2015-04-09",
+      "sales": 6211.81,
+      "onpromotion": 13
+    },
+    {
+      "date": "2015-04-10",
+      "sales": 7963.01,
+      "onpromotion": 177
+    },
+    {
+      "date": "2015-04-11",
+      "sales": 7054.23,
+      "onpromotion": 14
+    },
+    {
+      "date": "2015-04-12",
+      "sales": 2674.19,
+      "onpromotion": 12
+    },
+    {
+      "date": "2015-04-13",
+      "sales": 6678.79,
+      "onpromotion": 16
+    },
+    {
+      "date": "2015-04-14",
+      "sales": 5800.54,
+      "onpromotion": 7
+    },
+    {
+      "date": "2015-04-15",
+      "sales": 6939.19,
+      "onpromotion": 16
+    },
+    {
+      "date": "2015-04-16",
+      "sales": 6435.69,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-04-17",
+      "sales": 6961.36,
+      "onpromotion": 168
+    },
+    {
+      "date": "2015-04-18",
+      "sales": 7204.22,
+      "onpromotion": 19
+    },
+    {
+      "date": "2015-04-19",
+      "sales": 3230.33,
+      "onpromotion": 19
+    },
+    {
+      "date": "2015-04-20",
+      "sales": 6955.54,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-04-21",
+      "sales": 7215.34,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-04-22",
+      "sales": 9754.94,
+      "onpromotion": 23
+    },
+    {
+      "date": "2015-04-23",
+      "sales": 6407.67,
+      "onpromotion": 24
+    },
+    {
+      "date": "2015-04-24",
+      "sales": 7730.52,
+      "onpromotion": 187
+    },
+    {
+      "date": "2015-04-25",
+      "sales": 6822.64,
+      "onpromotion": 26
+    },
+    {
+      "date": "2015-04-26",
+      "sales": 2857.68,
+      "onpromotion": 38
+    },
+    {
+      "date": "2015-04-27",
+      "sales": 6661.13,
+      "onpromotion": 18
+    },
+    {
+      "date": "2015-04-28",
+      "sales": 5705.07,
+      "onpromotion": 26
+    },
+    {
+      "date": "2015-04-29",
+      "sales": 6987.64,
+      "onpromotion": 28
+    },
+    {
+      "date": "2015-04-30",
+      "sales": 6794.16,
+      "onpromotion": 29
+    },
+    {
+      "date": "2015-05-01",
+      "sales": 2707.4,
+      "onpromotion": 135
+    },
+    {
+      "date": "2015-05-02",
+      "sales": 7231.59,
+      "onpromotion": 15
+    },
+    {
+      "date": "2015-05-03",
+      "sales": 2732.77,
+      "onpromotion": 16
+    },
+    {
+      "date": "2015-05-04",
+      "sales": 7291.05,
+      "onpromotion": 21
+    },
+    {
+      "date": "2015-05-05",
+      "sales": 7244.74,
+      "onpromotion": 26
+    },
+    {
+      "date": "2015-05-06",
+      "sales": 8395.35,
+      "onpromotion": 38
+    },
+    {
+      "date": "2015-05-07",
+      "sales": 6711.38,
+      "onpromotion": 15
+    },
+    {
+      "date": "2015-05-08",
+      "sales": 8748.51,
+      "onpromotion": 174
+    },
+    {
+      "date": "2015-05-09",
+      "sales": 8369.26,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-05-10",
+      "sales": 2382.03,
+      "onpromotion": 13
+    },
+    {
+      "date": "2015-05-11",
+      "sales": 7290.3,
+      "onpromotion": 32
+    },
+    {
+      "date": "2015-05-12",
+      "sales": 7231.06,
+      "onpromotion": 18
+    },
+    {
+      "date": "2015-05-13",
+      "sales": 8133.48,
+      "onpromotion": 21
+    },
+    {
+      "date": "2015-05-14",
+      "sales": 6096.64,
+      "onpromotion": 17
+    },
+    {
+      "date": "2015-05-15",
+      "sales": 7561.87,
+      "onpromotion": 179
+    },
+    {
+      "date": "2015-05-16",
+      "sales": 7289.33,
+      "onpromotion": 29
+    },
+    {
+      "date": "2015-05-17",
+      "sales": 3015.68,
+      "onpromotion": 10
+    },
+    {
+      "date": "2015-05-18",
+      "sales": 7026.32,
+      "onpromotion": 14
+    },
+    {
+      "date": "2015-05-19",
+      "sales": 7511.66,
+      "onpromotion": 10
+    },
+    {
+      "date": "2015-05-20",
+      "sales": 8375.78,
+      "onpromotion": 25
+    },
+    {
+      "date": "2015-05-21",
+      "sales": 6775.16,
+      "onpromotion": 19
+    },
+    {
+      "date": "2015-05-22",
+      "sales": 8283.13,
+      "onpromotion": 173
+    },
+    {
+      "date": "2015-05-23",
+      "sales": 7028.64,
+      "onpromotion": 13
+    },
+    {
+      "date": "2015-05-24",
+      "sales": 3314.92,
+      "onpromotion": 34
+    },
+    {
+      "date": "2015-05-25",
+      "sales": 7800.12,
+      "onpromotion": 18
+    },
+    {
+      "date": "2015-05-26",
+      "sales": 7897.66,
+      "onpromotion": 12
+    },
+    {
+      "date": "2015-05-27",
+      "sales": 8700.2,
+      "onpromotion": 45
+    },
+    {
+      "date": "2015-05-28",
+      "sales": 7361.21,
+      "onpromotion": 13
+    },
+    {
+      "date": "2015-05-29",
+      "sales": 8799.69,
+      "onpromotion": 179
+    },
+    {
+      "date": "2015-05-30",
+      "sales": 8802.47,
+      "onpromotion": 17
+    },
+    {
+      "date": "2015-05-31",
+      "sales": 3854.5,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-06-01",
+      "sales": 10818.65,
+      "onpromotion": 24
+    },
+    {
+      "date": "2015-06-02",
+      "sales": 11220.02,
+      "onpromotion": 10
+    },
+    {
+      "date": "2015-06-03",
+      "sales": 15224.79,
+      "onpromotion": 213
+    },
+    {
+      "date": "2015-06-04",
+      "sales": 9580.32,
+      "onpromotion": 16
+    },
+    {
+      "date": "2015-06-05",
+      "sales": 12002.99,
+      "onpromotion": 177
+    },
+    {
+      "date": "2015-06-06",
+      "sales": 10939.87,
+      "onpromotion": 29
+    },
+    {
+      "date": "2015-06-07",
+      "sales": 3906.41,
+      "onpromotion": 18
+    },
+    {
+      "date": "2015-06-08",
+      "sales": 11190.64,
+      "onpromotion": 13
+    },
+    {
+      "date": "2015-06-09",
+      "sales": 9290.69,
+      "onpromotion": 22
+    },
+    {
+      "date": "2015-06-10",
+      "sales": 12264.94,
+      "onpromotion": 215
+    },
+    {
+      "date": "2015-06-11",
+      "sales": 9291.96,
+      "onpromotion": 17
+    },
+    {
+      "date": "2015-06-12",
+      "sales": 10896.57,
+      "onpromotion": 184
+    },
+    {
+      "date": "2015-06-13",
+      "sales": 10652.52,
+      "onpromotion": 46
+    },
+    {
+      "date": "2015-06-14",
+      "sales": 5093.6,
+      "onpromotion": 6
+    },
+    {
+      "date": "2015-06-15",
+      "sales": 10368.81,
+      "onpromotion": 22
+    },
+    {
+      "date": "2015-06-16",
+      "sales": 10782.22,
+      "onpromotion": 36
+    },
+    {
+      "date": "2015-06-17",
+      "sales": 13632.88,
+      "onpromotion": 229
+    },
+    {
+      "date": "2015-06-18",
+      "sales": 9501.74,
+      "onpromotion": 44
+    },
+    {
+      "date": "2015-06-19",
+      "sales": 11995.3,
+      "onpromotion": 182
+    },
+    {
+      "date": "2015-06-20",
+      "sales": 11892.82,
+      "onpromotion": 47
+    },
+    {
+      "date": "2015-06-21",
+      "sales": 4066.43,
+      "onpromotion": 32
+    },
+    {
+      "date": "2015-06-22",
+      "sales": 10925.37,
+      "onpromotion": 29
+    },
+    {
+      "date": "2015-06-23",
+      "sales": 10133.63,
+      "onpromotion": 31
+    },
+    {
+      "date": "2015-06-24",
+      "sales": 12143.97,
+      "onpromotion": 251
+    },
+    {
+      "date": "2015-06-25",
+      "sales": 9261.52,
+      "onpromotion": 17
+    },
+    {
+      "date": "2015-06-26",
+      "sales": 10684.28,
+      "onpromotion": 165
+    },
+    {
+      "date": "2015-06-27",
+      "sales": 10663.55,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-06-28",
+      "sales": 5360.27,
+      "onpromotion": 7
+    },
+    {
+      "date": "2015-06-29",
+      "sales": 10540.7,
+      "onpromotion": 11
+    },
+    {
+      "date": "2015-06-30",
+      "sales": 10627.11,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-07-01",
+      "sales": 14017.07,
+      "onpromotion": 210
+    },
+    {
+      "date": "2015-07-02",
+      "sales": 10896.19,
+      "onpromotion": 9
+    },
+    {
+      "date": "2015-07-03",
+      "sales": 14673.13,
+      "onpromotion": 179
+    },
+    {
+      "date": "2015-07-04",
+      "sales": 10654.45,
+      "onpromotion": 15
+    },
+    {
+      "date": "2015-07-05",
+      "sales": 3709.09,
+      "onpromotion": 34
+    },
+    {
+      "date": "2015-07-06",
+      "sales": 7419.56,
+      "onpromotion": 10
+    },
+    {
+      "date": "2015-07-07",
+      "sales": 0.0,
+      "onpromotion": 0
+    },
+    {
+      "date": "2015-07-08",
+      "sales": 13489.63,
+      "onpromotion": 210
+    },
+    {
+      "date": "2015-07-09",
+      "sales": 11945.48,
+      "onpromotion": 19
+    },
+    {
+      "date": "2015-07-10",
+      "sales": 11837.58,
+      "onpromotion": 169
+    },
+    {
+      "date": "2015-07-11",
+      "sales": 10827.92,
+      "onpromotion": 14
+    },
+    {
+      "date": "2015-07-12",
+      "sales": 4177.61,
+      "onpromotion": 12
+    },
+    {
+      "date": "2015-07-13",
+      "sales": 10697.79,
+      "onpromotion": 18
+    },
+    {
+      "date": "2015-07-14",
+      "sales": 10799.03,
+      "onpromotion": 17
+    },
+    {
+      "date": "2015-07-15",
+      "sales": 13195.3,
+      "onpromotion": 215
+    },
+    {
+      "date": "2015-07-16",
+      "sales": 9919.05,
+      "onpromotion": 19
+    },
+    {
+      "date": "2015-07-17",
+      "sales": 13125.64,
+      "onpromotion": 180
+    },
+    {
+      "date": "2015-07-18",
+      "sales": 9208.72,
+      "onpromotion": 19
+    },
+    {
+      "date": "2015-07-19",
+      "sales": 3800.27,
+      "onpromotion": 11
+    },
+    {
+      "date": "2015-07-20",
+      "sales": 11011.89,
+      "onpromotion": 31
+    },
+    {
+      "date": "2015-07-21",
+      "sales": 9104.63,
+      "onpromotion": 31
+    },
+    {
+      "date": "2015-07-22",
+      "sales": 11947.51,
+      "onpromotion": 227
+    },
+    {
+      "date": "2015-07-23",
+      "sales": 9161.46,
+      "onpromotion": 22
+    },
+    {
+      "date": "2015-07-24",
+      "sales": 10920.39,
+      "onpromotion": 185
+    },
+    {
+      "date": "2015-07-25",
+      "sales": 9325.05,
+      "onpromotion": 35
+    },
+    {
+      "date": "2015-07-26",
+      "sales": 4316.11,
+      "onpromotion": 27
+    },
+    {
+      "date": "2015-07-27",
+      "sales": 10285.24,
+      "onpromotion": 28
+    },
+    {
+      "date": "2015-07-28",
+      "sales": 10234.32,
+      "onpromotion": 27
+    },
+    {
+      "date": "2015-07-29",
+      "sales": 11816.02,
+      "onpromotion": 224
+    },
+    {
+      "date": "2015-07-30",
+      "sales": 8889.63,
+      "onpromotion": 26
+    },
+    {
+      "date": "2015-07-31",
+      "sales": 11201.1,
+      "onpromotion": 194
+    },
+    {
+      "date": "2015-08-01",
+      "sales": 10732.42,
+      "onpromotion": 19
+    },
+    {
+      "date": "2015-08-02",
+      "sales": 4353.51,
+      "onpromotion": 38
+    },
+    {
+      "date": "2015-08-03",
+      "sales": 11232.44,
+      "onpromotion": 22
+    },
+    {
+      "date": "2015-08-04",
+      "sales": 11271.81,
+      "onpromotion": 26
+    },
+    {
+      "date": "2015-08-05",
+      "sales": 13591.67,
+      "onpromotion": 221
+    },
+    {
+      "date": "2015-08-06",
+      "sales": 9605.14,
+      "onpromotion": 18
+    },
+    {
+      "date": "2015-08-07",
+      "sales": 11324.41,
+      "onpromotion": 183
+    },
+    {
+      "date": "2015-08-08",
+      "sales": 7799.08,
+      "onpromotion": 17
+    },
+    {
+      "date": "2015-08-09",
+      "sales": 3415.93,
+      "onpromotion": 18
+    },
+    {
+      "date": "2015-08-10",
+      "sales": 3297.03,
+      "onpromotion": 12
+    },
+    {
+      "date": "2015-08-11",
+      "sales": 10789.08,
+      "onpromotion": 34
+    },
+    {
+      "date": "2015-08-12",
+      "sales": 12936.0,
+      "onpromotion": 219
+    },
+    {
+      "date": "2015-08-13",
+      "sales": 8779.99,
+      "onpromotion": 24
+    },
+    {
+      "date": "2015-08-14",
+      "sales": 13938.9,
+      "onpromotion": 182
+    },
+    {
+      "date": "2015-08-15",
+      "sales": 12373.52,
+      "onpromotion": 25
+    },
+    {
+      "date": "2015-08-16",
+      "sales": 3926.11,
+      "onpromotion": 14
+    },
+    {
+      "date": "2015-08-17",
+      "sales": 10466.37,
+      "onpromotion": 18
+    },
+    {
+      "date": "2015-08-18",
+      "sales": 9904.44,
+      "onpromotion": 21
+    },
+    {
+      "date": "2015-08-19",
+      "sales": 11504.93,
+      "onpromotion": 214
+    },
+    {
+      "date": "2015-08-20",
+      "sales": 9398.78,
+      "onpromotion": 26
+    },
+    {
+      "date": "2015-08-21",
+      "sales": 11087.34,
+      "onpromotion": 188
+    },
+    {
+      "date": "2015-08-22",
+      "sales": 9964.3,
+      "onpromotion": 34
+    },
+    {
+      "date": "2015-08-23",
+      "sales": 3763.29,
+      "onpromotion": 18
+    },
+    {
+      "date": "2015-08-24",
+      "sales": 10101.54,
+      "onpromotion": 19
+    },
+    {
+      "date": "2015-08-25",
+      "sales": 9781.13,
+      "onpromotion": 26
+    },
+    {
+      "date": "2015-08-26",
+      "sales": 12433.1,
+      "onpromotion": 226
+    },
+    {
+      "date": "2015-08-27",
+      "sales": 9429.45,
+      "onpromotion": 21
+    },
+    {
+      "date": "2015-08-28",
+      "sales": 10835.36,
+      "onpromotion": 181
+    },
+    {
+      "date": "2015-08-29",
+      "sales": 10441.45,
+      "onpromotion": 32
+    },
+    {
+      "date": "2015-08-30",
+      "sales": 4213.56,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-08-31",
+      "sales": 10322.24,
+      "onpromotion": 23
+    },
+    {
+      "date": "2015-09-01",
+      "sales": 10823.67,
+      "onpromotion": 23
+    },
+    {
+      "date": "2015-09-02",
+      "sales": 14177.15,
+      "onpromotion": 213
+    },
+    {
+      "date": "2015-09-03",
+      "sales": 11522.89,
+      "onpromotion": 10
+    },
+    {
+      "date": "2015-09-04",
+      "sales": 12174.21,
+      "onpromotion": 182
+    },
+    {
+      "date": "2015-09-05",
+      "sales": 11078.51,
+      "onpromotion": 33
+    },
+    {
+      "date": "2015-09-06",
+      "sales": 4625.91,
+      "onpromotion": 13
+    },
+    {
+      "date": "2015-09-07",
+      "sales": 10480.78,
+      "onpromotion": 21
+    },
+    {
+      "date": "2015-09-08",
+      "sales": 10211.1,
+      "onpromotion": 25
+    },
+    {
+      "date": "2015-09-09",
+      "sales": 13040.42,
+      "onpromotion": 215
+    },
+    {
+      "date": "2015-09-10",
+      "sales": 8941.56,
+      "onpromotion": 23
+    },
+    {
+      "date": "2015-09-11",
+      "sales": 11486.98,
+      "onpromotion": 192
+    },
+    {
+      "date": "2015-09-12",
+      "sales": 11174.74,
+      "onpromotion": 22
+    },
+    {
+      "date": "2015-09-13",
+      "sales": 4580.31,
+      "onpromotion": 14
+    },
+    {
+      "date": "2015-09-14",
+      "sales": 11033.98,
+      "onpromotion": 21
+    },
+    {
+      "date": "2015-09-15",
+      "sales": 9584.5,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-09-16",
+      "sales": 13039.08,
+      "onpromotion": 218
+    },
+    {
+      "date": "2015-09-17",
+      "sales": 9516.81,
+      "onpromotion": 27
+    },
+    {
+      "date": "2015-09-18",
+      "sales": 11796.21,
+      "onpromotion": 189
+    },
+    {
+      "date": "2015-09-19",
+      "sales": 11620.02,
+      "onpromotion": 21
+    },
+    {
+      "date": "2015-09-20",
+      "sales": 4794.84,
+      "onpromotion": 21
+    },
+    {
+      "date": "2015-09-21",
+      "sales": 10235.09,
+      "onpromotion": 23
+    },
+    {
+      "date": "2015-09-22",
+      "sales": 10459.36,
+      "onpromotion": 28
+    },
+    {
+      "date": "2015-09-23",
+      "sales": 12247.31,
+      "onpromotion": 219
+    },
+    {
+      "date": "2015-09-24",
+      "sales": 9829.34,
+      "onpromotion": 24
+    },
+    {
+      "date": "2015-09-25",
+      "sales": 11487.51,
+      "onpromotion": 187
+    },
+    {
+      "date": "2015-09-26",
+      "sales": 11807.68,
+      "onpromotion": 40
+    },
+    {
+      "date": "2015-09-27",
+      "sales": 5477.67,
+      "onpromotion": 21
+    },
+    {
+      "date": "2015-09-28",
+      "sales": 10526.36,
+      "onpromotion": 21
+    },
+    {
+      "date": "2015-09-29",
+      "sales": 9930.76,
+      "onpromotion": 24
+    },
+    {
+      "date": "2015-09-30",
+      "sales": 13924.85,
+      "onpromotion": 231
+    },
+    {
+      "date": "2015-10-01",
+      "sales": 10349.18,
+      "onpromotion": 27
+    },
+    {
+      "date": "2015-10-02",
+      "sales": 12496.11,
+      "onpromotion": 188
+    },
+    {
+      "date": "2015-10-03",
+      "sales": 13521.37,
+      "onpromotion": 24
+    },
+    {
+      "date": "2015-10-04",
+      "sales": 5665.6,
+      "onpromotion": 11
+    },
+    {
+      "date": "2015-10-05",
+      "sales": 12970.47,
+      "onpromotion": 30
+    },
+    {
+      "date": "2015-10-06",
+      "sales": 10625.6,
+      "onpromotion": 23
+    },
+    {
+      "date": "2015-10-07",
+      "sales": 12806.89,
+      "onpromotion": 224
+    },
+    {
+      "date": "2015-10-08",
+      "sales": 10490.67,
+      "onpromotion": 24
+    },
+    {
+      "date": "2015-10-09",
+      "sales": 5316.31,
+      "onpromotion": 147
+    },
+    {
+      "date": "2015-10-10",
+      "sales": 8891.89,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-10-11",
+      "sales": 4047.96,
+      "onpromotion": 26
+    },
+    {
+      "date": "2015-10-12",
+      "sales": 10893.58,
+      "onpromotion": 24
+    },
+    {
+      "date": "2015-10-13",
+      "sales": 9934.78,
+      "onpromotion": 18
+    },
+    {
+      "date": "2015-10-14",
+      "sales": 12616.06,
+      "onpromotion": 228
+    },
+    {
+      "date": "2015-10-15",
+      "sales": 9524.85,
+      "onpromotion": 19
+    },
+    {
+      "date": "2015-10-16",
+      "sales": 13036.79,
+      "onpromotion": 189
+    },
+    {
+      "date": "2015-10-17",
+      "sales": 12073.71,
+      "onpromotion": 21
+    },
+    {
+      "date": "2015-10-18",
+      "sales": 6190.32,
+      "onpromotion": 17
+    },
+    {
+      "date": "2015-10-19",
+      "sales": 11361.91,
+      "onpromotion": 22
+    },
+    {
+      "date": "2015-10-20",
+      "sales": 10732.54,
+      "onpromotion": 8
+    },
+    {
+      "date": "2015-10-21",
+      "sales": 11876.42,
+      "onpromotion": 211
+    },
+    {
+      "date": "2015-10-22",
+      "sales": 9146.05,
+      "onpromotion": 9
+    },
+    {
+      "date": "2015-10-23",
+      "sales": 11912.93,
+      "onpromotion": 171
+    },
+    {
+      "date": "2015-10-24",
+      "sales": 10840.86,
+      "onpromotion": 9
+    },
+    {
+      "date": "2015-10-25",
+      "sales": 5281.57,
+      "onpromotion": 5
+    },
+    {
+      "date": "2015-10-26",
+      "sales": 10506.74,
+      "onpromotion": 7
+    },
+    {
+      "date": "2015-10-27",
+      "sales": 10108.65,
+      "onpromotion": 5
+    },
+    {
+      "date": "2015-10-28",
+      "sales": 12580.24,
+      "onpromotion": 215
+    },
+    {
+      "date": "2015-10-29",
+      "sales": 9171.84,
+      "onpromotion": 19
+    },
+    {
+      "date": "2015-10-30",
+      "sales": 10831.52,
+      "onpromotion": 194
+    },
+    {
+      "date": "2015-10-31",
+      "sales": 8829.71,
+      "onpromotion": 22
+    },
+    {
+      "date": "2015-11-01",
+      "sales": 2994.41,
+      "onpromotion": 12
+    },
+    {
+      "date": "2015-11-02",
+      "sales": 3036.47,
+      "onpromotion": 12
+    },
+    {
+      "date": "2015-11-03",
+      "sales": 4814.3,
+      "onpromotion": 17
+    },
+    {
+      "date": "2015-11-04",
+      "sales": 14878.46,
+      "onpromotion": 236
+    },
+    {
+      "date": "2015-11-05",
+      "sales": 10880.69,
+      "onpromotion": 33
+    },
+    {
+      "date": "2015-11-06",
+      "sales": 11690.85,
+      "onpromotion": 210
+    },
+    {
+      "date": "2015-11-07",
+      "sales": 11374.56,
+      "onpromotion": 27
+    },
+    {
+      "date": "2015-11-08",
+      "sales": 5886.88,
+      "onpromotion": 20
+    },
+    {
+      "date": "2015-11-09",
+      "sales": 10443.73,
+      "onpromotion": 32
+    },
+    {
+      "date": "2015-11-10",
+      "sales": 9714.44,
+      "onpromotion": 28
+    },
+    {
+      "date": "2015-11-11",
+      "sales": 13168.33,
+      "onpromotion": 236
+    },
+    {
+      "date": "2015-11-12",
+      "sales": 9525.95,
+      "onpromotion": 38
+    },
+    {
+      "date": "2015-11-13",
+      "sales": 11240.86,
+      "onpromotion": 211
+    },
+    {
+      "date": "2015-11-14",
+      "sales": 10718.81,
+      "onpromotion": 36
+    },
+    {
+      "date": "2015-11-15",
+      "sales": 5303.27,
+      "onpromotion": 43
+    },
+    {
+      "date": "2015-11-16",
+      "sales": 10977.74,
+      "onpromotion": 42
+    },
+    {
+      "date": "2015-11-17",
+      "sales": 9994.94,
+      "onpromotion": 36
+    },
+    {
+      "date": "2015-11-18",
+      "sales": 12271.98,
+      "onpromotion": 277
+    },
+    {
+      "date": "2015-11-19",
+      "sales": 10322.62,
+      "onpromotion": 48
+    },
+    {
+      "date": "2015-11-20",
+      "sales": 12022.11,
+      "onpromotion": 207
+    },
+    {
+      "date": "2015-11-21",
+      "sales": 10760.01,
+      "onpromotion": 48
+    },
+    {
+      "date": "2015-11-22",
+      "sales": 5430.13,
+      "onpromotion": 33
+    },
+    {
+      "date": "2015-11-23",
+      "sales": 11290.93,
+      "onpromotion": 36
+    },
+    {
+      "date": "2015-11-24",
+      "sales": 10622.57,
+      "onpromotion": 40
+    },
+    {
+      "date": "2015-11-25",
+      "sales": 12388.64,
+      "onpromotion": 258
+    },
+    {
+      "date": "2015-11-26",
+      "sales": 9986.05,
+      "onpromotion": 33
+    },
+    {
+      "date": "2015-11-27",
+      "sales": 11484.11,
+      "onpromotion": 203
+    },
+    {
+      "date": "2015-11-28",
+      "sales": 10330.69,
+      "onpromotion": 18
+    },
+    {
+      "date": "2015-11-29",
+      "sales": 4798.26,
+      "onpromotion": 24
+    },
+    {
+      "date": "2015-11-30",
+      "sales": 12012.98,
+      "onpromotion": 30
+    },
+    {
+      "date": "2015-12-01",
+      "sales": 12664.0,
+      "onpromotion": 56
+    },
+    {
+      "date": "2015-12-02",
+      "sales": 13733.52,
+      "onpromotion": 259
+    },
+    {
+      "date": "2015-12-03",
+      "sales": 11284.08,
+      "onpromotion": 29
+    },
+    {
+      "date": "2015-12-04",
+      "sales": 12985.97,
+      "onpromotion": 199
+    },
+    {
+      "date": "2015-12-05",
+      "sales": 11084.1,
+      "onpromotion": 25
+    },
+    {
+      "date": "2015-12-06",
+      "sales": 5145.03,
+      "onpromotion": 32
+    },
+    {
+      "date": "2015-12-07",
+      "sales": 12532.27,
+      "onpromotion": 35
+    },
+    {
+      "date": "2015-12-08",
+      "sales": 10711.85,
+      "onpromotion": 31
+    },
+    {
+      "date": "2015-12-09",
+      "sales": 14404.6,
+      "onpromotion": 251
+    },
+    {
+      "date": "2015-12-10",
+      "sales": 11815.34,
+      "onpromotion": 31
+    },
+    {
+      "date": "2015-12-11",
+      "sales": 11765.73,
+      "onpromotion": 197
+    },
+    {
+      "date": "2015-12-12",
+      "sales": 10731.19,
+      "onpromotion": 56
+    },
+    {
+      "date": "2015-12-13",
+      "sales": 5256.0,
+      "onpromotion": 18
+    },
+    {
+      "date": "2015-12-14",
+      "sales": 11772.48,
+      "onpromotion": 27
+    },
+    {
+      "date": "2015-12-15",
+      "sales": 16521.09,
+      "onpromotion": 57
+    },
+    {
+      "date": "2015-12-16",
+      "sales": 15815.48,
+      "onpromotion": 284
+    },
+    {
+      "date": "2015-12-17",
+      "sales": 12218.27,
+      "onpromotion": 41
+    },
+    {
+      "date": "2015-12-18",
+      "sales": 14401.48,
+      "onpromotion": 200
+    },
+    {
+      "date": "2015-12-19",
+      "sales": 13374.58,
+      "onpromotion": 30
+    },
+    {
+      "date": "2015-12-20",
+      "sales": 6992.16,
+      "onpromotion": 53
+    },
+    {
+      "date": "2015-12-21",
+      "sales": 14565.81,
+      "onpromotion": 28
+    },
+    {
+      "date": "2015-12-22",
+      "sales": 14846.07,
+      "onpromotion": 38
+    },
+    {
+      "date": "2015-12-23",
+      "sales": 16290.52,
+      "onpromotion": 249
+    },
+    {
+      "date": "2015-12-24",
+      "sales": 13042.85,
+      "onpromotion": 28
+    },
+    {
+      "date": "2015-12-26",
+      "sales": 8012.84,
+      "onpromotion": 43
+    },
+    {
+      "date": "2015-12-27",
+      "sales": 3182.5,
+      "onpromotion": 22
+    },
+    {
+      "date": "2015-12-28",
+      "sales": 9120.02,
+      "onpromotion": 21
+    },
+    {
+      "date": "2015-12-29",
+      "sales": 9893.2,
+      "onpromotion": 17
+    },
+    {
+      "date": "2015-12-30",
+      "sales": 14354.58,
+      "onpromotion": 253
+    },
+    {
+      "date": "2015-12-31",
+      "sales": 10587.38,
+      "onpromotion": 30
+    },
+    {
+      "date": "2016-01-01",
+      "sales": 0.0,
+      "onpromotion": 0
+    },
+    {
+      "date": "2016-01-02",
+      "sales": 8877.17,
+      "onpromotion": 52
+    },
+    {
+      "date": "2016-01-03",
+      "sales": 5119.28,
+      "onpromotion": 22
+    },
+    {
+      "date": "2016-01-04",
+      "sales": 14619.34,
+      "onpromotion": 21
+    },
+    {
+      "date": "2016-01-05",
+      "sales": 12060.11,
+      "onpromotion": 41
+    },
+    {
+      "date": "2016-01-06",
+      "sales": 15928.65,
+      "onpromotion": 246
+    },
+    {
+      "date": "2016-01-07",
+      "sales": 10556.56,
+      "onpromotion": 14
+    },
+    {
+      "date": "2016-01-08",
+      "sales": 12306.13,
+      "onpromotion": 183
+    },
+    {
+      "date": "2016-01-09",
+      "sales": 11423.13,
+      "onpromotion": 18
+    },
+    {
+      "date": "2016-01-10",
+      "sales": 4931.47,
+      "onpromotion": 33
+    },
+    {
+      "date": "2016-01-11",
+      "sales": 10816.63,
+      "onpromotion": 19
+    },
+    {
+      "date": "2016-01-12",
+      "sales": 11643.16,
+      "onpromotion": 29
+    },
+    {
+      "date": "2016-01-13",
+      "sales": 12719.31,
+      "onpromotion": 256
+    },
+    {
+      "date": "2016-01-14",
+      "sales": 11683.19,
+      "onpromotion": 43
+    },
+    {
+      "date": "2016-01-15",
+      "sales": 10941.23,
+      "onpromotion": 190
+    },
+    {
+      "date": "2016-01-16",
+      "sales": 11930.0,
+      "onpromotion": 34
+    },
+    {
+      "date": "2016-01-17",
+      "sales": 5321.61,
+      "onpromotion": 38
+    },
+    {
+      "date": "2016-01-18",
+      "sales": 11606.99,
+      "onpromotion": 33
+    },
+    {
+      "date": "2016-01-19",
+      "sales": 10171.58,
+      "onpromotion": 52
+    },
+    {
+      "date": "2016-01-20",
+      "sales": 13638.99,
+      "onpromotion": 280
+    },
+    {
+      "date": "2016-01-21",
+      "sales": 8854.23,
+      "onpromotion": 5
+    },
+    {
+      "date": "2016-01-22",
+      "sales": 12126.91,
+      "onpromotion": 178
+    },
+    {
+      "date": "2016-01-23",
+      "sales": 10662.26,
+      "onpromotion": 13
+    },
+    {
+      "date": "2016-01-24",
+      "sales": 4763.88,
+      "onpromotion": 10
+    },
+    {
+      "date": "2016-01-25",
+      "sales": 10930.07,
+      "onpromotion": 7
+    },
+    {
+      "date": "2016-01-26",
+      "sales": 10015.91,
+      "onpromotion": 11
+    },
+    {
+      "date": "2016-01-27",
+      "sales": 12924.73,
+      "onpromotion": 222
+    },
+    {
+      "date": "2016-01-28",
+      "sales": 9381.66,
+      "onpromotion": 61
+    },
+    {
+      "date": "2016-01-29",
+      "sales": 11233.45,
+      "onpromotion": 236
+    },
+    {
+      "date": "2016-01-30",
+      "sales": 11390.7,
+      "onpromotion": 70
+    },
+    {
+      "date": "2016-01-31",
+      "sales": 5120.15,
+      "onpromotion": 52
+    },
+    {
+      "date": "2016-02-01",
+      "sales": 11688.28,
+      "onpromotion": 72
+    },
+    {
+      "date": "2016-02-02",
+      "sales": 10655.79,
+      "onpromotion": 72
+    },
+    {
+      "date": "2016-02-03",
+      "sales": 14724.25,
+      "onpromotion": 299
+    },
+    {
+      "date": "2016-02-04",
+      "sales": 10220.62,
+      "onpromotion": 94
+    },
+    {
+      "date": "2016-02-05",
+      "sales": 11216.75,
+      "onpromotion": 265
+    },
+    {
+      "date": "2016-02-06",
+      "sales": 10244.84,
+      "onpromotion": 108
+    },
+    {
+      "date": "2016-02-07",
+      "sales": 2876.32,
+      "onpromotion": 55
+    },
+    {
+      "date": "2016-02-08",
+      "sales": 3072.81,
+      "onpromotion": 46
+    },
+    {
+      "date": "2016-02-09",
+      "sales": 4195.35,
+      "onpromotion": 62
+    },
+    {
+      "date": "2016-02-10",
+      "sales": 13452.69,
+      "onpromotion": 309
+    },
+    {
+      "date": "2016-02-11",
+      "sales": 10812.94,
+      "onpromotion": 92
+    },
+    {
+      "date": "2016-02-12",
+      "sales": 12557.83,
+      "onpromotion": 257
+    },
+    {
+      "date": "2016-02-13",
+      "sales": 11195.61,
+      "onpromotion": 93
+    },
+    {
+      "date": "2016-02-14",
+      "sales": 4687.69,
+      "onpromotion": 75
+    },
+    {
+      "date": "2016-02-15",
+      "sales": 10982.74,
+      "onpromotion": 92
+    },
+    {
+      "date": "2016-02-16",
+      "sales": 11976.38,
+      "onpromotion": 33
+    },
+    {
+      "date": "2016-02-17",
+      "sales": 13849.12,
+      "onpromotion": 246
+    },
+    {
+      "date": "2016-02-18",
+      "sales": 9562.98,
+      "onpromotion": 39
+    },
+    {
+      "date": "2016-02-19",
+      "sales": 12247.98,
+      "onpromotion": 208
+    },
+    {
+      "date": "2016-02-20",
+      "sales": 12201.81,
+      "onpromotion": 42
+    },
+    {
+      "date": "2016-02-21",
+      "sales": 5360.73,
+      "onpromotion": 23
+    },
+    {
+      "date": "2016-02-22",
+      "sales": 10921.54,
+      "onpromotion": 30
+    },
+    {
+      "date": "2016-02-23",
+      "sales": 10211.3,
+      "onpromotion": 26
+    },
+    {
+      "date": "2016-02-24",
+      "sales": 12944.69,
+      "onpromotion": 255
+    },
+    {
+      "date": "2016-02-25",
+      "sales": 8975.21,
+      "onpromotion": 14
+    },
+    {
+      "date": "2016-02-26",
+      "sales": 11287.46,
+      "onpromotion": 237
+    },
+    {
+      "date": "2016-02-27",
+      "sales": 11155.34,
+      "onpromotion": 75
+    },
+    {
+      "date": "2016-02-28",
+      "sales": 4391.39,
+      "onpromotion": 56
+    },
+    {
+      "date": "2016-02-29",
+      "sales": 10864.04,
+      "onpromotion": 38
+    },
+    {
+      "date": "2016-03-01",
+      "sales": 11442.52,
+      "onpromotion": 43
+    },
+    {
+      "date": "2016-03-02",
+      "sales": 14227.76,
+      "onpromotion": 256
+    },
+    {
+      "date": "2016-03-03",
+      "sales": 9907.66,
+      "onpromotion": 47
+    },
+    {
+      "date": "2016-03-04",
+      "sales": 13024.53,
+      "onpromotion": 223
+    },
+    {
+      "date": "2016-03-05",
+      "sales": 12215.61,
+      "onpromotion": 52
+    },
+    {
+      "date": "2016-03-06",
+      "sales": 5326.9,
+      "onpromotion": 35
+    },
+    {
+      "date": "2016-03-07",
+      "sales": 10398.27,
+      "onpromotion": 47
+    },
+    {
+      "date": "2016-03-08",
+      "sales": 9925.63,
+      "onpromotion": 0
+    },
+    {
+      "date": "2016-03-09",
+      "sales": 13101.24,
+      "onpromotion": 262
+    },
+    {
+      "date": "2016-03-10",
+      "sales": 9478.16,
+      "onpromotion": 37
+    },
+    {
+      "date": "2016-03-11",
+      "sales": 11767.09,
+      "onpromotion": 228
+    },
+    {
+      "date": "2016-03-12",
+      "sales": 11222.85,
+      "onpromotion": 49
+    },
+    {
+      "date": "2016-03-13",
+      "sales": 4875.28,
+      "onpromotion": 35
+    },
+    {
+      "date": "2016-03-14",
+      "sales": 10366.96,
+      "onpromotion": 52
+    },
+    {
+      "date": "2016-03-15",
+      "sales": 10418.36,
+      "onpromotion": 46
+    },
+    {
+      "date": "2016-03-16",
+      "sales": 13500.63,
+      "onpromotion": 261
+    },
+    {
+      "date": "2016-03-17",
+      "sales": 9876.26,
+      "onpromotion": 105
+    },
+    {
+      "date": "2016-03-18",
+      "sales": 11310.9,
+      "onpromotion": 236
+    },
+    {
+      "date": "2016-03-19",
+      "sales": 11322.24,
+      "onpromotion": 76
+    },
+    {
+      "date": "2016-03-20",
+      "sales": 5254.49,
+      "onpromotion": 42
+    },
+    {
+      "date": "2016-03-21",
+      "sales": 10265.37,
+      "onpromotion": 75
+    },
+    {
+      "date": "2016-03-22",
+      "sales": 9954.13,
+      "onpromotion": 57
+    },
+    {
+      "date": "2016-03-23",
+      "sales": 12646.13,
+      "onpromotion": 273
+    },
+    {
+      "date": "2016-03-24",
+      "sales": 12450.44,
+      "onpromotion": 61
+    },
+    {
+      "date": "2016-03-25",
+      "sales": 4112.87,
+      "onpromotion": 140
+    },
+    {
+      "date": "2016-03-26",
+      "sales": 7583.26,
+      "onpromotion": 58
+    },
+    {
+      "date": "2016-03-27",
+      "sales": 4301.59,
+      "onpromotion": 33
+    },
+    {
+      "date": "2016-03-28",
+      "sales": 10090.24,
+      "onpromotion": 58
+    },
+    {
+      "date": "2016-03-29",
+      "sales": 11029.38,
+      "onpromotion": 56
+    },
+    {
+      "date": "2016-03-30",
+      "sales": 12195.65,
+      "onpromotion": 275
+    },
+    {
+      "date": "2016-03-31",
+      "sales": 10097.37,
+      "onpromotion": 57
+    },
+    {
+      "date": "2016-04-01",
+      "sales": 13478.62,
+      "onpromotion": 239
+    },
+    {
+      "date": "2016-04-02",
+      "sales": 12069.15,
+      "onpromotion": 58
+    },
+    {
+      "date": "2016-04-03",
+      "sales": 5694.66,
+      "onpromotion": 39
+    },
+    {
+      "date": "2016-04-04",
+      "sales": 11356.6,
+      "onpromotion": 57
+    },
+    {
+      "date": "2016-04-05",
+      "sales": 10535.97,
+      "onpromotion": 54
+    },
+    {
+      "date": "2016-04-06",
+      "sales": 13216.21,
+      "onpromotion": 286
+    },
+    {
+      "date": "2016-04-07",
+      "sales": 10163.65,
+      "onpromotion": 84
+    },
+    {
+      "date": "2016-04-08",
+      "sales": 11363.35,
+      "onpromotion": 271
+    },
+    {
+      "date": "2016-04-09",
+      "sales": 10749.71,
+      "onpromotion": 100
+    },
+    {
+      "date": "2016-04-10",
+      "sales": 5046.56,
+      "onpromotion": 66
+    },
+    {
+      "date": "2016-04-11",
+      "sales": 10336.69,
+      "onpromotion": 102
+    },
+    {
+      "date": "2016-04-12",
+      "sales": 9775.69,
+      "onpromotion": 94
+    },
+    {
+      "date": "2016-04-13",
+      "sales": 12728.69,
+      "onpromotion": 350
+    },
+    {
+      "date": "2016-04-14",
+      "sales": 9432.01,
+      "onpromotion": 30
+    },
+    {
+      "date": "2016-04-15",
+      "sales": 11725.04,
+      "onpromotion": 202
+    },
+    {
+      "date": "2016-04-16",
+      "sales": 10527.32,
+      "onpromotion": 43
+    },
+    {
+      "date": "2016-04-17",
+      "sales": 7741.66,
+      "onpromotion": 33
+    },
+    {
+      "date": "2016-04-18",
+      "sales": 21788.9,
+      "onpromotion": 32
+    },
+    {
+      "date": "2016-04-19",
+      "sales": 20811.84,
+      "onpromotion": 42
+    },
+    {
+      "date": "2016-04-20",
+      "sales": 18575.06,
+      "onpromotion": 311
+    },
+    {
+      "date": "2016-04-21",
+      "sales": 13637.78,
+      "onpromotion": 108
+    },
+    {
+      "date": "2016-04-22",
+      "sales": 15088.34,
+      "onpromotion": 254
+    },
+    {
+      "date": "2016-04-23",
+      "sales": 11701.44,
+      "onpromotion": 89
+    },
+    {
+      "date": "2016-04-24",
+      "sales": 5721.29,
+      "onpromotion": 103
+    },
+    {
+      "date": "2016-04-25",
+      "sales": 9837.6,
+      "onpromotion": 94
+    },
+    {
+      "date": "2016-04-26",
+      "sales": 10411.15,
+      "onpromotion": 103
+    },
+    {
+      "date": "2016-04-27",
+      "sales": 12491.93,
+      "onpromotion": 325
+    },
+    {
+      "date": "2016-04-28",
+      "sales": 10710.4,
+      "onpromotion": 136
+    },
+    {
+      "date": "2016-04-29",
+      "sales": 12093.11,
+      "onpromotion": 306
+    },
+    {
+      "date": "2016-04-30",
+      "sales": 11891.14,
+      "onpromotion": 160
+    },
+    {
+      "date": "2016-05-01",
+      "sales": 5748.37,
+      "onpromotion": 109
+    },
+    {
+      "date": "2016-05-02",
+      "sales": 11469.48,
+      "onpromotion": 87
+    },
+    {
+      "date": "2016-05-03",
+      "sales": 10635.66,
+      "onpromotion": 93
+    },
+    {
+      "date": "2016-05-04",
+      "sales": 14285.43,
+      "onpromotion": 338
+    },
+    {
+      "date": "2016-05-05",
+      "sales": 10964.97,
+      "onpromotion": 113
+    },
+    {
+      "date": "2016-05-06",
+      "sales": 13110.13,
+      "onpromotion": 267
+    },
+    {
+      "date": "2016-05-07",
+      "sales": 12851.41,
+      "onpromotion": 93
+    },
+    {
+      "date": "2016-05-08",
+      "sales": 4239.27,
+      "onpromotion": 63
+    },
+    {
+      "date": "2016-05-09",
+      "sales": 11749.04,
+      "onpromotion": 104
+    },
+    {
+      "date": "2016-05-10",
+      "sales": 9276.52,
+      "onpromotion": 94
+    },
+    {
+      "date": "2016-05-11",
+      "sales": 13033.33,
+      "onpromotion": 282
+    },
+    {
+      "date": "2016-05-12",
+      "sales": 9427.57,
+      "onpromotion": 74
+    },
+    {
+      "date": "2016-05-13",
+      "sales": 11462.11,
+      "onpromotion": 235
+    },
+    {
+      "date": "2016-05-14",
+      "sales": 11160.27,
+      "onpromotion": 77
+    },
+    {
+      "date": "2016-05-15",
+      "sales": 5386.16,
+      "onpromotion": 41
+    },
+    {
+      "date": "2016-05-16",
+      "sales": 12300.92,
+      "onpromotion": 85
+    },
+    {
+      "date": "2016-05-17",
+      "sales": 10884.85,
+      "onpromotion": 74
+    },
+    {
+      "date": "2016-05-18",
+      "sales": 12762.79,
+      "onpromotion": 297
+    },
+    {
+      "date": "2016-05-19",
+      "sales": 9360.16,
+      "onpromotion": 70
+    },
+    {
+      "date": "2016-05-20",
+      "sales": 12091.84,
+      "onpromotion": 271
+    },
+    {
+      "date": "2016-05-21",
+      "sales": 11420.77,
+      "onpromotion": 70
+    },
+    {
+      "date": "2016-05-22",
+      "sales": 4919.23,
+      "onpromotion": 46
+    },
+    {
+      "date": "2016-05-23",
+      "sales": 10053.38,
+      "onpromotion": 77
+    },
+    {
+      "date": "2016-05-24",
+      "sales": 9161.78,
+      "onpromotion": 75
+    },
+    {
+      "date": "2016-05-25",
+      "sales": 12181.12,
+      "onpromotion": 290
+    },
+    {
+      "date": "2016-05-26",
+      "sales": 10560.15,
+      "onpromotion": 133
+    },
+    {
+      "date": "2016-05-27",
+      "sales": 5733.47,
+      "onpromotion": 232
+    },
+    {
+      "date": "2016-05-28",
+      "sales": 8369.98,
+      "onpromotion": 122
+    },
+    {
+      "date": "2016-05-29",
+      "sales": 4427.09,
+      "onpromotion": 89
+    },
+    {
+      "date": "2016-05-30",
+      "sales": 10979.74,
+      "onpromotion": 125
+    },
+    {
+      "date": "2016-05-31",
+      "sales": 12266.42,
+      "onpromotion": 161
+    },
+    {
+      "date": "2016-06-01",
+      "sales": 14458.38,
+      "onpromotion": 363
+    },
+    {
+      "date": "2016-06-02",
+      "sales": 9705.67,
+      "onpromotion": 135
+    },
+    {
+      "date": "2016-06-03",
+      "sales": 13409.15,
+      "onpromotion": 267
+    },
+    {
+      "date": "2016-06-04",
+      "sales": 11465.81,
+      "onpromotion": 118
+    },
+    {
+      "date": "2016-06-05",
+      "sales": 4929.35,
+      "onpromotion": 71
+    },
+    {
+      "date": "2016-06-06",
+      "sales": 11100.49,
+      "onpromotion": 113
+    },
+    {
+      "date": "2016-06-07",
+      "sales": 10283.34,
+      "onpromotion": 101
+    },
+    {
+      "date": "2016-06-08",
+      "sales": 13536.55,
+      "onpromotion": 341
+    },
+    {
+      "date": "2016-06-09",
+      "sales": 8121.01,
+      "onpromotion": 100
+    },
+    {
+      "date": "2016-06-10",
+      "sales": 12087.85,
+      "onpromotion": 286
+    },
+    {
+      "date": "2016-06-11",
+      "sales": 10788.66,
+      "onpromotion": 109
+    },
+    {
+      "date": "2016-06-12",
+      "sales": 4864.93,
+      "onpromotion": 75
+    },
+    {
+      "date": "2016-06-13",
+      "sales": 10556.53,
+      "onpromotion": 112
+    },
+    {
+      "date": "2016-06-14",
+      "sales": 9464.09,
+      "onpromotion": 98
+    },
+    {
+      "date": "2016-06-15",
+      "sales": 13223.44,
+      "onpromotion": 358
+    },
+    {
+      "date": "2016-06-16",
+      "sales": 9832.85,
+      "onpromotion": 100
+    },
+    {
+      "date": "2016-06-17",
+      "sales": 11649.69,
+      "onpromotion": 288
+    },
+    {
+      "date": "2016-06-18",
+      "sales": 11453.53,
+      "onpromotion": 115
+    },
+    {
+      "date": "2016-06-19",
+      "sales": 4765.49,
+      "onpromotion": 83
+    },
+    {
+      "date": "2016-06-20",
+      "sales": 10805.31,
+      "onpromotion": 115
+    },
+    {
+      "date": "2016-06-21",
+      "sales": 9622.35,
+      "onpromotion": 122
+    },
+    {
+      "date": "2016-06-22",
+      "sales": 13056.31,
+      "onpromotion": 352
+    },
+    {
+      "date": "2016-06-23",
+      "sales": 9335.04,
+      "onpromotion": 105
+    },
+    {
+      "date": "2016-06-24",
+      "sales": 10689.32,
+      "onpromotion": 280
+    },
+    {
+      "date": "2016-06-25",
+      "sales": 10858.35,
+      "onpromotion": 120
+    },
+    {
+      "date": "2016-06-26",
+      "sales": 5208.75,
+      "onpromotion": 100
+    },
+    {
+      "date": "2016-06-27",
+      "sales": 10682.92,
+      "onpromotion": 122
+    },
+    {
+      "date": "2016-06-28",
+      "sales": 10853.04,
+      "onpromotion": 105
+    },
+    {
+      "date": "2016-06-29",
+      "sales": 11766.3,
+      "onpromotion": 315
+    },
+    {
+      "date": "2016-06-30",
+      "sales": 9096.68,
+      "onpromotion": 107
+    },
+    {
+      "date": "2016-07-01",
+      "sales": 13323.12,
+      "onpromotion": 273
+    },
+    {
+      "date": "2016-07-02",
+      "sales": 11189.01,
+      "onpromotion": 95
+    },
+    {
+      "date": "2016-07-03",
+      "sales": 5190.03,
+      "onpromotion": 86
+    },
+    {
+      "date": "2016-07-04",
+      "sales": 11803.01,
+      "onpromotion": 117
+    },
+    {
+      "date": "2016-07-05",
+      "sales": 10130.96,
+      "onpromotion": 111
+    },
+    {
+      "date": "2016-07-06",
+      "sales": 13442.46,
+      "onpromotion": 431
+    },
+    {
+      "date": "2016-07-07",
+      "sales": 9581.65,
+      "onpromotion": 139
+    },
+    {
+      "date": "2016-07-08",
+      "sales": 12255.99,
+      "onpromotion": 304
+    },
+    {
+      "date": "2016-07-09",
+      "sales": 10081.31,
+      "onpromotion": 121
+    },
+    {
+      "date": "2016-07-10",
+      "sales": 4455.01,
+      "onpromotion": 99
+    },
+    {
+      "date": "2016-07-11",
+      "sales": 9984.04,
+      "onpromotion": 156
+    },
+    {
+      "date": "2016-07-12",
+      "sales": 9085.75,
+      "onpromotion": 138
+    },
+    {
+      "date": "2016-07-13",
+      "sales": 13147.68,
+      "onpromotion": 322
+    },
+    {
+      "date": "2016-07-14",
+      "sales": 9209.61,
+      "onpromotion": 69
+    },
+    {
+      "date": "2016-07-15",
+      "sales": 12075.52,
+      "onpromotion": 255
+    },
+    {
+      "date": "2016-07-16",
+      "sales": 11613.16,
+      "onpromotion": 78
+    },
+    {
+      "date": "2016-07-17",
+      "sales": 4815.24,
+      "onpromotion": 49
+    },
+    {
+      "date": "2016-07-18",
+      "sales": 10712.03,
+      "onpromotion": 66
+    },
+    {
+      "date": "2016-07-19",
+      "sales": 9928.27,
+      "onpromotion": 69
+    },
+    {
+      "date": "2016-07-20",
+      "sales": 12154.35,
+      "onpromotion": 295
+    },
+    {
+      "date": "2016-07-21",
+      "sales": 9637.36,
+      "onpromotion": 80
+    },
+    {
+      "date": "2016-07-22",
+      "sales": 11491.65,
+      "onpromotion": 254
+    },
+    {
+      "date": "2016-07-23",
+      "sales": 10016.81,
+      "onpromotion": 67
+    },
+    {
+      "date": "2016-07-24",
+      "sales": 4713.03,
+      "onpromotion": 55
+    },
+    {
+      "date": "2016-07-25",
+      "sales": 9436.26,
+      "onpromotion": 74
+    },
+    {
+      "date": "2016-07-26",
+      "sales": 9554.55,
+      "onpromotion": 76
+    },
+    {
+      "date": "2016-07-27",
+      "sales": 12775.54,
+      "onpromotion": 0
+    },
+    {
+      "date": "2016-07-28",
+      "sales": 9542.75,
+      "onpromotion": 76
+    },
+    {
+      "date": "2016-07-29",
+      "sales": 9758.12,
+      "onpromotion": 245
+    },
+    {
+      "date": "2016-07-30",
+      "sales": 11566.89,
+      "onpromotion": 89
+    },
+    {
+      "date": "2016-07-31",
+      "sales": 4312.0,
+      "onpromotion": 54
+    },
+    {
+      "date": "2016-08-01",
+      "sales": 12144.73,
+      "onpromotion": 77
+    },
+    {
+      "date": "2016-08-02",
+      "sales": 9494.01,
+      "onpromotion": 77
+    },
+    {
+      "date": "2016-08-03",
+      "sales": 13925.18,
+      "onpromotion": 299
+    },
+    {
+      "date": "2016-08-04",
+      "sales": 9420.41,
+      "onpromotion": 75
+    },
+    {
+      "date": "2016-08-05",
+      "sales": 12272.12,
+      "onpromotion": 267
+    },
+    {
+      "date": "2016-08-06",
+      "sales": 10434.34,
+      "onpromotion": 70
+    },
+    {
+      "date": "2016-08-07",
+      "sales": 4169.78,
+      "onpromotion": 58
+    },
+    {
+      "date": "2016-08-08",
+      "sales": 10804.05,
+      "onpromotion": 81
+    },
+    {
+      "date": "2016-08-09",
+      "sales": 10174.67,
+      "onpromotion": 98
+    },
+    {
+      "date": "2016-08-10",
+      "sales": 11856.65,
+      "onpromotion": 302
+    },
+    {
+      "date": "2016-08-11",
+      "sales": 10465.87,
+      "onpromotion": 77
+    },
+    {
+      "date": "2016-08-12",
+      "sales": 5260.09,
+      "onpromotion": 190
+    },
+    {
+      "date": "2016-08-13",
+      "sales": 7312.68,
+      "onpromotion": 73
+    },
+    {
+      "date": "2016-08-14",
+      "sales": 3548.14,
+      "onpromotion": 48
+    },
+    {
+      "date": "2016-08-15",
+      "sales": 11907.95,
+      "onpromotion": 114
+    },
+    {
+      "date": "2016-08-16",
+      "sales": 9939.01,
+      "onpromotion": 99
+    },
+    {
+      "date": "2016-08-17",
+      "sales": 12498.14,
+      "onpromotion": 322
+    },
+    {
+      "date": "2016-08-18",
+      "sales": 8957.78,
+      "onpromotion": 88
+    },
+    {
+      "date": "2016-08-19",
+      "sales": 10769.79,
+      "onpromotion": 259
+    },
+    {
+      "date": "2016-08-20",
+      "sales": 10097.73,
+      "onpromotion": 100
+    },
+    {
+      "date": "2016-08-21",
+      "sales": 4166.41,
+      "onpromotion": 66
+    },
+    {
+      "date": "2016-08-22",
+      "sales": 10244.1,
+      "onpromotion": 99
+    },
+    {
+      "date": "2016-08-23",
+      "sales": 9993.56,
+      "onpromotion": 111
+    },
+    {
+      "date": "2016-08-24",
+      "sales": 12837.78,
+      "onpromotion": 318
+    },
+    {
+      "date": "2016-08-25",
+      "sales": 8691.55,
+      "onpromotion": 67
+    },
+    {
+      "date": "2016-08-26",
+      "sales": 10805.09,
+      "onpromotion": 255
+    },
+    {
+      "date": "2016-08-27",
+      "sales": 9745.5,
+      "onpromotion": 74
+    },
+    {
+      "date": "2016-08-28",
+      "sales": 4595.42,
+      "onpromotion": 53
+    },
+    {
+      "date": "2016-08-29",
+      "sales": 9710.81,
+      "onpromotion": 74
+    },
+    {
+      "date": "2016-08-30",
+      "sales": 9319.31,
+      "onpromotion": 80
+    },
+    {
+      "date": "2016-08-31",
+      "sales": 12753.02,
+      "onpromotion": 299
+    },
+    {
+      "date": "2016-09-01",
+      "sales": 11201.88,
+      "onpromotion": 74
+    },
+    {
+      "date": "2016-09-02",
+      "sales": 11980.5,
+      "onpromotion": 227
+    },
+    {
+      "date": "2016-09-03",
+      "sales": 10913.04,
+      "onpromotion": 56
+    },
+    {
+      "date": "2016-09-04",
+      "sales": 5041.81,
+      "onpromotion": 31
+    },
+    {
+      "date": "2016-09-05",
+      "sales": 10881.01,
+      "onpromotion": 55
+    },
+    {
+      "date": "2016-09-06",
+      "sales": 11120.05,
+      "onpromotion": 56
+    },
+    {
+      "date": "2016-09-07",
+      "sales": 12384.2,
+      "onpromotion": 272
+    },
+    {
+      "date": "2016-09-08",
+      "sales": 9683.91,
+      "onpromotion": 52
+    },
+    {
+      "date": "2016-09-09",
+      "sales": 11860.67,
+      "onpromotion": 232
+    },
+    {
+      "date": "2016-09-10",
+      "sales": 10815.43,
+      "onpromotion": 53
+    },
+    {
+      "date": "2016-09-11",
+      "sales": 4392.58,
+      "onpromotion": 30
+    },
+    {
+      "date": "2016-09-12",
+      "sales": 11500.15,
+      "onpromotion": 53
+    },
+    {
+      "date": "2016-09-13",
+      "sales": 9904.76,
+      "onpromotion": 0
+    },
+    {
+      "date": "2016-09-14",
+      "sales": 12078.07,
+      "onpromotion": 269
+    },
+    {
+      "date": "2016-09-15",
+      "sales": 9122.13,
+      "onpromotion": 128
+    },
+    {
+      "date": "2016-09-16",
+      "sales": 11882.46,
+      "onpromotion": 321
+    },
+    {
+      "date": "2016-09-17",
+      "sales": 11323.48,
+      "onpromotion": 154
+    },
+    {
+      "date": "2016-09-18",
+      "sales": 5216.36,
+      "onpromotion": 104
+    },
+    {
+      "date": "2016-09-19",
+      "sales": 10883.88,
+      "onpromotion": 141
+    },
+    {
+      "date": "2016-09-20",
+      "sales": 10206.43,
+      "onpromotion": 148
+    },
+    {
+      "date": "2016-09-21",
+      "sales": 12363.74,
+      "onpromotion": 363
+    },
+    {
+      "date": "2016-09-22",
+      "sales": 9432.74,
+      "onpromotion": 134
+    },
+    {
+      "date": "2016-09-23",
+      "sales": 10815.5,
+      "onpromotion": 320
+    },
+    {
+      "date": "2016-09-24",
+      "sales": 10609.75,
+      "onpromotion": 151
+    },
+    {
+      "date": "2016-09-25",
+      "sales": 4849.33,
+      "onpromotion": 106
+    },
+    {
+      "date": "2016-09-26",
+      "sales": 9527.79,
+      "onpromotion": 145
+    },
+    {
+      "date": "2016-09-27",
+      "sales": 9061.43,
+      "onpromotion": 154
+    },
+    {
+      "date": "2016-09-28",
+      "sales": 12834.59,
+      "onpromotion": 354
+    },
+    {
+      "date": "2016-09-29",
+      "sales": 8301.98,
+      "onpromotion": 138
+    },
+    {
+      "date": "2016-09-30",
+      "sales": 10821.2,
+      "onpromotion": 315
+    },
+    {
+      "date": "2016-10-01",
+      "sales": 13471.05,
+      "onpromotion": 140
+    },
+    {
+      "date": "2016-10-02",
+      "sales": 5984.56,
+      "onpromotion": 106
+    },
+    {
+      "date": "2016-10-03",
+      "sales": 12352.34,
+      "onpromotion": 140
+    },
+    {
+      "date": "2016-10-04",
+      "sales": 11219.52,
+      "onpromotion": 152
+    },
+    {
+      "date": "2016-10-05",
+      "sales": 14663.82,
+      "onpromotion": 387
+    },
+    {
+      "date": "2016-10-06",
+      "sales": 10373.37,
+      "onpromotion": 142
+    },
+    {
+      "date": "2016-10-07",
+      "sales": 11417.0,
+      "onpromotion": 336
+    },
+    {
+      "date": "2016-10-08",
+      "sales": 11489.72,
+      "onpromotion": 157
+    },
+    {
+      "date": "2016-10-09",
+      "sales": 5817.92,
+      "onpromotion": 136
+    },
+    {
+      "date": "2016-10-10",
+      "sales": 11018.04,
+      "onpromotion": 164
+    },
+    {
+      "date": "2016-10-11",
+      "sales": 9537.57,
+      "onpromotion": 166
+    },
+    {
+      "date": "2016-10-12",
+      "sales": 13642.59,
+      "onpromotion": 337
+    },
+    {
+      "date": "2016-10-13",
+      "sales": 8896.14,
+      "onpromotion": 151
+    },
+    {
+      "date": "2016-10-14",
+      "sales": 12179.38,
+      "onpromotion": 324
+    },
+    {
+      "date": "2016-10-15",
+      "sales": 11255.32,
+      "onpromotion": 165
+    },
+    {
+      "date": "2016-10-16",
+      "sales": 6231.97,
+      "onpromotion": 133
+    },
+    {
+      "date": "2016-10-17",
+      "sales": 11523.69,
+      "onpromotion": 163
+    },
+    {
+      "date": "2016-10-18",
+      "sales": 10030.23,
+      "onpromotion": 151
+    },
+    {
+      "date": "2016-10-19",
+      "sales": 13910.23,
+      "onpromotion": 350
+    },
+    {
+      "date": "2016-10-20",
+      "sales": 9996.06,
+      "onpromotion": 149
+    },
+    {
+      "date": "2016-10-21",
+      "sales": 11863.35,
+      "onpromotion": 331
+    },
+    {
+      "date": "2016-10-22",
+      "sales": 11588.33,
+      "onpromotion": 163
+    },
+    {
+      "date": "2016-10-23",
+      "sales": 5474.4,
+      "onpromotion": 127
+    },
+    {
+      "date": "2016-10-24",
+      "sales": 9700.55,
+      "onpromotion": 152
+    },
+    {
+      "date": "2016-10-25",
+      "sales": 10842.73,
+      "onpromotion": 150
+    },
+    {
+      "date": "2016-10-26",
+      "sales": 12265.29,
+      "onpromotion": 477
+    },
+    {
+      "date": "2016-10-27",
+      "sales": 10419.9,
+      "onpromotion": 214
+    },
+    {
+      "date": "2016-10-28",
+      "sales": 12202.65,
+      "onpromotion": 381
+    },
+    {
+      "date": "2016-10-29",
+      "sales": 10820.42,
+      "onpromotion": 230
+    },
+    {
+      "date": "2016-10-30",
+      "sales": 5327.12,
+      "onpromotion": 185
+    },
+    {
+      "date": "2016-10-31",
+      "sales": 8670.59,
+      "onpromotion": 227
+    },
+    {
+      "date": "2016-11-01",
+      "sales": 13544.82,
+      "onpromotion": 215
+    },
+    {
+      "date": "2016-11-02",
+      "sales": 4795.68,
+      "onpromotion": 387
+    },
+    {
+      "date": "2016-11-03",
+      "sales": 4060.61,
+      "onpromotion": 150
+    },
+    {
+      "date": "2016-11-04",
+      "sales": 7825.1,
+      "onpromotion": 379
+    },
+    {
+      "date": "2016-11-05",
+      "sales": 7759.13,
+      "onpromotion": 205
+    },
+    {
+      "date": "2016-11-06",
+      "sales": 5002.12,
+      "onpromotion": 186
+    },
+    {
+      "date": "2016-11-07",
+      "sales": 11862.52,
+      "onpromotion": 218
+    },
+    {
+      "date": "2016-11-08",
+      "sales": 11983.03,
+      "onpromotion": 225
+    },
+    {
+      "date": "2016-11-09",
+      "sales": 18148.64,
+      "onpromotion": 491
+    },
+    {
+      "date": "2016-11-10",
+      "sales": 10272.18,
+      "onpromotion": 239
+    },
+    {
+      "date": "2016-11-11",
+      "sales": 11401.81,
+      "onpromotion": 394
+    },
+    {
+      "date": "2016-11-12",
+      "sales": 11313.1,
+      "onpromotion": 234
+    },
+    {
+      "date": "2016-11-13",
+      "sales": 5858.19,
+      "onpromotion": 188
+    },
+    {
+      "date": "2016-11-14",
+      "sales": 11653.47,
+      "onpromotion": 240
+    },
+    {
+      "date": "2016-11-15",
+      "sales": 10954.45,
+      "onpromotion": 226
+    },
+    {
+      "date": "2016-11-16",
+      "sales": 14448.01,
+      "onpromotion": 546
+    },
+    {
+      "date": "2016-11-17",
+      "sales": 10255.08,
+      "onpromotion": 219
+    },
+    {
+      "date": "2016-11-18",
+      "sales": 12403.91,
+      "onpromotion": 375
+    },
+    {
+      "date": "2016-11-19",
+      "sales": 11965.2,
+      "onpromotion": 231
+    },
+    {
+      "date": "2016-11-20",
+      "sales": 5618.85,
+      "onpromotion": 170
+    },
+    {
+      "date": "2016-11-21",
+      "sales": 12567.55,
+      "onpromotion": 236
+    },
+    {
+      "date": "2016-11-22",
+      "sales": 10341.24,
+      "onpromotion": 219
+    },
+    {
+      "date": "2016-11-23",
+      "sales": 14044.71,
+      "onpromotion": 479
+    },
+    {
+      "date": "2016-11-24",
+      "sales": 9578.26,
+      "onpromotion": 226
+    },
+    {
+      "date": "2016-11-25",
+      "sales": 12120.16,
+      "onpromotion": 406
+    },
+    {
+      "date": "2016-11-26",
+      "sales": 10752.35,
+      "onpromotion": 228
+    },
+    {
+      "date": "2016-11-27",
+      "sales": 4871.08,
+      "onpromotion": 187
+    },
+    {
+      "date": "2016-11-28",
+      "sales": 11982.59,
+      "onpromotion": 234
+    },
+    {
+      "date": "2016-11-29",
+      "sales": 10437.89,
+      "onpromotion": 207
+    },
+    {
+      "date": "2016-11-30",
+      "sales": 14347.26,
+      "onpromotion": 460
+    },
+    {
+      "date": "2016-12-01",
+      "sales": 11421.14,
+      "onpromotion": 251
+    },
+    {
+      "date": "2016-12-02",
+      "sales": 15683.89,
+      "onpromotion": 434
+    },
+    {
+      "date": "2016-12-03",
+      "sales": 11322.3,
+      "onpromotion": 240
+    },
+    {
+      "date": "2016-12-04",
+      "sales": 6015.82,
+      "onpromotion": 197
+    },
+    {
+      "date": "2016-12-05",
+      "sales": 10911.07,
+      "onpromotion": 239
+    },
+    {
+      "date": "2016-12-06",
+      "sales": 4684.18,
+      "onpromotion": 193
+    },
+    {
+      "date": "2016-12-07",
+      "sales": 15846.48,
+      "onpromotion": 598
+    },
+    {
+      "date": "2016-12-08",
+      "sales": 11358.61,
+      "onpromotion": 268
+    },
+    {
+      "date": "2016-12-09",
+      "sales": 14351.0,
+      "onpromotion": 436
+    },
+    {
+      "date": "2016-12-10",
+      "sales": 11563.0,
+      "onpromotion": 265
+    },
+    {
+      "date": "2016-12-11",
+      "sales": 5606.63,
+      "onpromotion": 211
+    },
+    {
+      "date": "2016-12-12",
+      "sales": 11609.92,
+      "onpromotion": 264
+    },
+    {
+      "date": "2016-12-13",
+      "sales": 14288.6,
+      "onpromotion": 263
+    },
+    {
+      "date": "2016-12-14",
+      "sales": 15157.96,
+      "onpromotion": 487
+    },
+    {
+      "date": "2016-12-15",
+      "sales": 12080.26,
+      "onpromotion": 273
+    },
+    {
+      "date": "2016-12-16",
+      "sales": 13946.76,
+      "onpromotion": 442
+    },
+    {
+      "date": "2016-12-17",
+      "sales": 13100.65,
+      "onpromotion": 275
+    },
+    {
+      "date": "2016-12-18",
+      "sales": 7932.71,
+      "onpromotion": 251
+    },
+    {
+      "date": "2016-12-19",
+      "sales": 14722.58,
+      "onpromotion": 276
+    },
+    {
+      "date": "2016-12-20",
+      "sales": 14684.38,
+      "onpromotion": 301
+    },
+    {
+      "date": "2016-12-21",
+      "sales": 17926.17,
+      "onpromotion": 507
+    },
+    {
+      "date": "2016-12-22",
+      "sales": 15938.7,
+      "onpromotion": 284
+    },
+    {
+      "date": "2016-12-23",
+      "sales": 18554.34,
+      "onpromotion": 477
+    },
+    {
+      "date": "2016-12-24",
+      "sales": 12963.61,
+      "onpromotion": 249
+    },
+    {
+      "date": "2016-12-26",
+      "sales": 3715.75,
+      "onpromotion": 189
+    },
+    {
+      "date": "2016-12-27",
+      "sales": 12157.82,
+      "onpromotion": 259
+    },
+    {
+      "date": "2016-12-28",
+      "sales": 12144.92,
+      "onpromotion": 502
+    },
+    {
+      "date": "2016-12-29",
+      "sales": 10244.32,
+      "onpromotion": 258
+    },
+    {
+      "date": "2016-12-30",
+      "sales": 13584.62,
+      "onpromotion": 424
+    },
+    {
+      "date": "2016-12-31",
+      "sales": 10741.06,
+      "onpromotion": 252
+    },
+    {
+      "date": "2017-01-01",
+      "sales": 0.0,
+      "onpromotion": 0
+    },
+    {
+      "date": "2017-01-02",
+      "sales": 5624.03,
+      "onpromotion": 128
+    },
+    {
+      "date": "2017-01-03",
+      "sales": 14932.34,
+      "onpromotion": 197
+    },
+    {
+      "date": "2017-01-04",
+      "sales": 16356.82,
+      "onpromotion": 479
+    },
+    {
+      "date": "2017-01-05",
+      "sales": 12789.19,
+      "onpromotion": 152
+    },
+    {
+      "date": "2017-01-06",
+      "sales": 13364.83,
+      "onpromotion": 358
+    },
+    {
+      "date": "2017-01-07",
+      "sales": 11773.94,
+      "onpromotion": 156
+    },
+    {
+      "date": "2017-01-08",
+      "sales": 6144.01,
+      "onpromotion": 134
+    },
+    {
+      "date": "2017-01-09",
+      "sales": 14312.39,
+      "onpromotion": 166
+    },
+    {
+      "date": "2017-01-10",
+      "sales": 12060.29,
+      "onpromotion": 168
+    },
+    {
+      "date": "2017-01-11",
+      "sales": 14150.7,
+      "onpromotion": 381
+    },
+    {
+      "date": "2017-01-12",
+      "sales": 10831.25,
+      "onpromotion": 159
+    },
+    {
+      "date": "2017-01-13",
+      "sales": 13469.95,
+      "onpromotion": 371
+    },
+    {
+      "date": "2017-01-14",
+      "sales": 12338.47,
+      "onpromotion": 185
+    },
+    {
+      "date": "2017-01-15",
+      "sales": 5986.06,
+      "onpromotion": 150
+    },
+    {
+      "date": "2017-01-16",
+      "sales": 11797.99,
+      "onpromotion": 169
+    },
+    {
+      "date": "2017-01-17",
+      "sales": 12942.48,
+      "onpromotion": 188
+    },
+    {
+      "date": "2017-01-18",
+      "sales": 14276.44,
+      "onpromotion": 418
+    },
+    {
+      "date": "2017-01-19",
+      "sales": 10505.9,
+      "onpromotion": 158
+    },
+    {
+      "date": "2017-01-20",
+      "sales": 10766.62,
+      "onpromotion": 323
+    },
+    {
+      "date": "2017-01-21",
+      "sales": 13271.16,
+      "onpromotion": 175
+    },
+    {
+      "date": "2017-01-22",
+      "sales": 5245.27,
+      "onpromotion": 119
+    },
+    {
+      "date": "2017-01-23",
+      "sales": 12973.75,
+      "onpromotion": 167
+    },
+    {
+      "date": "2017-01-24",
+      "sales": 11331.45,
+      "onpromotion": 173
+    },
+    {
+      "date": "2017-01-25",
+      "sales": 13740.71,
+      "onpromotion": 425
+    },
+    {
+      "date": "2017-01-26",
+      "sales": 10407.1,
+      "onpromotion": 111
+    },
+    {
+      "date": "2017-01-27",
+      "sales": 12294.12,
+      "onpromotion": 303
+    },
+    {
+      "date": "2017-01-28",
+      "sales": 11856.99,
+      "onpromotion": 121
+    },
+    {
+      "date": "2017-01-29",
+      "sales": 5238.82,
+      "onpromotion": 97
+    },
+    {
+      "date": "2017-01-30",
+      "sales": 10890.88,
+      "onpromotion": 131
+    },
+    {
+      "date": "2017-01-31",
+      "sales": 10125.05,
+      "onpromotion": 123
+    },
+    {
+      "date": "2017-02-01",
+      "sales": 14961.58,
+      "onpromotion": 385
+    },
+    {
+      "date": "2017-02-02",
+      "sales": 11341.54,
+      "onpromotion": 104
+    },
+    {
+      "date": "2017-02-03",
+      "sales": 12461.35,
+      "onpromotion": 296
+    },
+    {
+      "date": "2017-02-04",
+      "sales": 12703.63,
+      "onpromotion": 133
+    },
+    {
+      "date": "2017-02-05",
+      "sales": 5266.36,
+      "onpromotion": 119
+    },
+    {
+      "date": "2017-02-06",
+      "sales": 10858.51,
+      "onpromotion": 120
+    },
+    {
+      "date": "2017-02-07",
+      "sales": 11408.95,
+      "onpromotion": 137
+    },
+    {
+      "date": "2017-02-08",
+      "sales": 13686.23,
+      "onpromotion": 418
+    },
+    {
+      "date": "2017-02-09",
+      "sales": 10527.45,
+      "onpromotion": 117
+    },
+    {
+      "date": "2017-02-10",
+      "sales": 12853.6,
+      "onpromotion": 282
+    },
+    {
+      "date": "2017-02-11",
+      "sales": 12587.98,
+      "onpromotion": 120
+    },
+    {
+      "date": "2017-02-12",
+      "sales": 5495.09,
+      "onpromotion": 101
+    },
+    {
+      "date": "2017-02-13",
+      "sales": 12579.34,
+      "onpromotion": 129
+    },
+    {
+      "date": "2017-02-14",
+      "sales": 10865.67,
+      "onpromotion": 112
+    },
+    {
+      "date": "2017-02-15",
+      "sales": 13083.8,
+      "onpromotion": 384
+    },
+    {
+      "date": "2017-02-16",
+      "sales": 10306.52,
+      "onpromotion": 128
+    },
+    {
+      "date": "2017-02-17",
+      "sales": 12547.41,
+      "onpromotion": 304
+    },
+    {
+      "date": "2017-02-18",
+      "sales": 13379.74,
+      "onpromotion": 132
+    },
+    {
+      "date": "2017-02-19",
+      "sales": 4761.38,
+      "onpromotion": 103
+    },
+    {
+      "date": "2017-02-20",
+      "sales": 11006.96,
+      "onpromotion": 134
+    },
+    {
+      "date": "2017-02-21",
+      "sales": 11075.82,
+      "onpromotion": 142
+    },
+    {
+      "date": "2017-02-22",
+      "sales": 12969.77,
+      "onpromotion": 367
+    },
+    {
+      "date": "2017-02-23",
+      "sales": 10394.72,
+      "onpromotion": 140
+    },
+    {
+      "date": "2017-02-24",
+      "sales": 12310.24,
+      "onpromotion": 306
+    },
+    {
+      "date": "2017-02-25",
+      "sales": 10516.33,
+      "onpromotion": 137
+    },
+    {
+      "date": "2017-02-26",
+      "sales": 3475.03,
+      "onpromotion": 103
+    },
+    {
+      "date": "2017-02-27",
+      "sales": 2951.04,
+      "onpromotion": 93
+    },
+    {
+      "date": "2017-02-28",
+      "sales": 5553.76,
+      "onpromotion": 109
+    },
+    {
+      "date": "2017-03-01",
+      "sales": 16819.46,
+      "onpromotion": 410
+    },
+    {
+      "date": "2017-03-02",
+      "sales": 12781.88,
+      "onpromotion": 155
+    },
+    {
+      "date": "2017-03-03",
+      "sales": 13219.13,
+      "onpromotion": 330
+    },
+    {
+      "date": "2017-03-04",
+      "sales": 12086.53,
+      "onpromotion": 159
+    },
+    {
+      "date": "2017-03-05",
+      "sales": 5156.63,
+      "onpromotion": 114
+    },
+    {
+      "date": "2017-03-06",
+      "sales": 10819.11,
+      "onpromotion": 131
+    },
+    {
+      "date": "2017-03-07",
+      "sales": 14300.59,
+      "onpromotion": 132
+    },
+    {
+      "date": "2017-03-08",
+      "sales": 13247.73,
+      "onpromotion": 362
+    },
+    {
+      "date": "2017-03-09",
+      "sales": 10605.34,
+      "onpromotion": 100
+    },
+    {
+      "date": "2017-03-10",
+      "sales": 12329.87,
+      "onpromotion": 290
+    },
+    {
+      "date": "2017-03-11",
+      "sales": 11997.51,
+      "onpromotion": 109
+    },
+    {
+      "date": "2017-03-12",
+      "sales": 5897.18,
+      "onpromotion": 85
+    },
+    {
+      "date": "2017-03-13",
+      "sales": 11353.2,
+      "onpromotion": 109
+    },
+    {
+      "date": "2017-03-14",
+      "sales": 10622.64,
+      "onpromotion": 100
+    },
+    {
+      "date": "2017-03-15",
+      "sales": 14398.53,
+      "onpromotion": 341
+    },
+    {
+      "date": "2017-03-16",
+      "sales": 10642.39,
+      "onpromotion": 114
+    },
+    {
+      "date": "2017-03-17",
+      "sales": 15182.12,
+      "onpromotion": 309
+    },
+    {
+      "date": "2017-03-18",
+      "sales": 11699.79,
+      "onpromotion": 118
+    },
+    {
+      "date": "2017-03-19",
+      "sales": 5631.12,
+      "onpromotion": 90
+    },
+    {
+      "date": "2017-03-20",
+      "sales": 11953.7,
+      "onpromotion": 110
+    },
+    {
+      "date": "2017-03-21",
+      "sales": 12336.95,
+      "onpromotion": 119
+    },
+    {
+      "date": "2017-03-22",
+      "sales": 14122.55,
+      "onpromotion": 348
+    },
+    {
+      "date": "2017-03-23",
+      "sales": 10741.14,
+      "onpromotion": 95
+    },
+    {
+      "date": "2017-03-24",
+      "sales": 13505.04,
+      "onpromotion": 282
+    },
+    {
+      "date": "2017-03-25",
+      "sales": 11667.07,
+      "onpromotion": 114
+    },
+    {
+      "date": "2017-03-26",
+      "sales": 5306.74,
+      "onpromotion": 81
+    },
+    {
+      "date": "2017-03-27",
+      "sales": 11811.43,
+      "onpromotion": 113
+    },
+    {
+      "date": "2017-03-28",
+      "sales": 10759.36,
+      "onpromotion": 107
+    },
+    {
+      "date": "2017-03-29",
+      "sales": 14369.38,
+      "onpromotion": 342
+    },
+    {
+      "date": "2017-03-30",
+      "sales": 10265.41,
+      "onpromotion": 90
+    },
+    {
+      "date": "2017-03-31",
+      "sales": 13320.38,
+      "onpromotion": 279
+    },
+    {
+      "date": "2017-04-01",
+      "sales": 15094.34,
+      "onpromotion": 85
+    },
+    {
+      "date": "2017-04-02",
+      "sales": 5521.68,
+      "onpromotion": 53
+    },
+    {
+      "date": "2017-04-03",
+      "sales": 11166.37,
+      "onpromotion": 78
+    },
+    {
+      "date": "2017-04-04",
+      "sales": 11028.61,
+      "onpromotion": 76
+    },
+    {
+      "date": "2017-04-05",
+      "sales": 15539.17,
+      "onpromotion": 320
+    },
+    {
+      "date": "2017-04-06",
+      "sales": 10487.07,
+      "onpromotion": 92
+    },
+    {
+      "date": "2017-04-07",
+      "sales": 13014.48,
+      "onpromotion": 261
+    },
+    {
+      "date": "2017-04-08",
+      "sales": 12509.37,
+      "onpromotion": 92
+    },
+    {
+      "date": "2017-04-09",
+      "sales": 5621.15,
+      "onpromotion": 64
+    },
+    {
+      "date": "2017-04-10",
+      "sales": 10221.43,
+      "onpromotion": 74
+    },
+    {
+      "date": "2017-04-11",
+      "sales": 10463.39,
+      "onpromotion": 105
+    },
+    {
+      "date": "2017-04-12",
+      "sales": 14034.1,
+      "onpromotion": 380
+    },
+    {
+      "date": "2017-04-13",
+      "sales": 11394.88,
+      "onpromotion": 154
+    },
+    {
+      "date": "2017-04-14",
+      "sales": 4192.9,
+      "onpromotion": 201
+    },
+    {
+      "date": "2017-04-15",
+      "sales": 8229.87,
+      "onpromotion": 116
+    },
+    {
+      "date": "2017-04-16",
+      "sales": 4695.42,
+      "onpromotion": 128
+    },
+    {
+      "date": "2017-04-17",
+      "sales": 12958.25,
+      "onpromotion": 155
+    },
+    {
+      "date": "2017-04-18",
+      "sales": 10410.46,
+      "onpromotion": 142
+    },
+    {
+      "date": "2017-04-19",
+      "sales": 13399.71,
+      "onpromotion": 427
+    },
+    {
+      "date": "2017-04-20",
+      "sales": 10048.91,
+      "onpromotion": 171
+    },
+    {
+      "date": "2017-04-21",
+      "sales": 13296.02,
+      "onpromotion": 369
+    },
+    {
+      "date": "2017-04-22",
+      "sales": 11995.48,
+      "onpromotion": 190
+    },
+    {
+      "date": "2017-04-23",
+      "sales": 4800.86,
+      "onpromotion": 137
+    },
+    {
+      "date": "2017-04-24",
+      "sales": 11186.17,
+      "onpromotion": 193
+    },
+    {
+      "date": "2017-04-25",
+      "sales": 10352.57,
+      "onpromotion": 183
+    },
+    {
+      "date": "2017-04-26",
+      "sales": 13849.35,
+      "onpromotion": 411
+    },
+    {
+      "date": "2017-04-27",
+      "sales": 9760.48,
+      "onpromotion": 198
+    },
+    {
+      "date": "2017-04-28",
+      "sales": 12199.52,
+      "onpromotion": 395
+    },
+    {
+      "date": "2017-04-29",
+      "sales": 10542.02,
+      "onpromotion": 205
+    },
+    {
+      "date": "2017-04-30",
+      "sales": 4141.2,
+      "onpromotion": 148
+    },
+    {
+      "date": "2017-05-01",
+      "sales": 4031.12,
+      "onpromotion": 122
+    },
+    {
+      "date": "2017-05-02",
+      "sales": 14847.01,
+      "onpromotion": 183
+    },
+    {
+      "date": "2017-05-03",
+      "sales": 15268.65,
+      "onpromotion": 424
+    },
+    {
+      "date": "2017-05-04",
+      "sales": 11149.45,
+      "onpromotion": 155
+    },
+    {
+      "date": "2017-05-05",
+      "sales": 12701.11,
+      "onpromotion": 329
+    },
+    {
+      "date": "2017-05-06",
+      "sales": 11937.5,
+      "onpromotion": 155
+    },
+    {
+      "date": "2017-05-07",
+      "sales": 4812.54,
+      "onpromotion": 116
+    },
+    {
+      "date": "2017-05-08",
+      "sales": 11854.11,
+      "onpromotion": 134
+    },
+    {
+      "date": "2017-05-09",
+      "sales": 10843.04,
+      "onpromotion": 145
+    },
+    {
+      "date": "2017-05-10",
+      "sales": 13250.73,
+      "onpromotion": 421
+    },
+    {
+      "date": "2017-05-11",
+      "sales": 9039.18,
+      "onpromotion": 150
+    },
+    {
+      "date": "2017-05-12",
+      "sales": 13269.81,
+      "onpromotion": 321
+    },
+    {
+      "date": "2017-05-13",
+      "sales": 12306.48,
+      "onpromotion": 173
+    },
+    {
+      "date": "2017-05-14",
+      "sales": 4081.64,
+      "onpromotion": 107
+    },
+    {
+      "date": "2017-05-15",
+      "sales": 11186.27,
+      "onpromotion": 168
+    },
+    {
+      "date": "2017-05-16",
+      "sales": 11206.26,
+      "onpromotion": 175
+    },
+    {
+      "date": "2017-05-17",
+      "sales": 13594.38,
+      "onpromotion": 372
+    },
+    {
+      "date": "2017-05-18",
+      "sales": 10348.56,
+      "onpromotion": 156
+    },
+    {
+      "date": "2017-05-19",
+      "sales": 13483.66,
+      "onpromotion": 335
+    },
+    {
+      "date": "2017-05-20",
+      "sales": 10749.91,
+      "onpromotion": 172
+    },
+    {
+      "date": "2017-05-21",
+      "sales": 4885.59,
+      "onpromotion": 137
+    },
+    {
+      "date": "2017-05-22",
+      "sales": 11657.82,
+      "onpromotion": 169
+    },
+    {
+      "date": "2017-05-23",
+      "sales": 11253.75,
+      "onpromotion": 176
+    },
+    {
+      "date": "2017-05-24",
+      "sales": 14215.45,
+      "onpromotion": 380
+    },
+    {
+      "date": "2017-05-25",
+      "sales": 10587.05,
+      "onpromotion": 163
+    },
+    {
+      "date": "2017-05-26",
+      "sales": 5946.6,
+      "onpromotion": 246
+    },
+    {
+      "date": "2017-05-27",
+      "sales": 9247.77,
+      "onpromotion": 169
+    },
+    {
+      "date": "2017-05-28",
+      "sales": 4871.58,
+      "onpromotion": 125
+    },
+    {
+      "date": "2017-05-29",
+      "sales": 11704.67,
+      "onpromotion": 169
+    },
+    {
+      "date": "2017-05-30",
+      "sales": 9755.86,
+      "onpromotion": 169
+    },
+    {
+      "date": "2017-05-31",
+      "sales": 14064.38,
+      "onpromotion": 376
+    },
+    {
+      "date": "2017-06-01",
+      "sales": 11293.65,
+      "onpromotion": 19
+    },
+    {
+      "date": "2017-06-02",
+      "sales": 13122.11,
+      "onpromotion": 271
+    },
+    {
+      "date": "2017-06-03",
+      "sales": 12653.63,
+      "onpromotion": 149
+    },
+    {
+      "date": "2017-06-04",
+      "sales": 5111.88,
+      "onpromotion": 111
+    },
+    {
+      "date": "2017-06-05",
+      "sales": 12049.03,
+      "onpromotion": 137
+    },
+    {
+      "date": "2017-06-06",
+      "sales": 12775.54,
+      "onpromotion": 148
+    },
+    {
+      "date": "2017-06-07",
+      "sales": 14705.93,
+      "onpromotion": 385
+    },
+    {
+      "date": "2017-06-08",
+      "sales": 10373.04,
+      "onpromotion": 192
+    },
+    {
+      "date": "2017-06-09",
+      "sales": 13456.41,
+      "onpromotion": 331
+    },
+    {
+      "date": "2017-06-10",
+      "sales": 11449.76,
+      "onpromotion": 203
+    },
+    {
+      "date": "2017-06-11",
+      "sales": 5825.82,
+      "onpromotion": 155
+    },
+    {
+      "date": "2017-06-12",
+      "sales": 10798.44,
+      "onpromotion": 190
+    },
+    {
+      "date": "2017-06-13",
+      "sales": 10801.99,
+      "onpromotion": 183
+    },
+    {
+      "date": "2017-06-14",
+      "sales": 14891.53,
+      "onpromotion": 436
+    },
+    {
+      "date": "2017-06-15",
+      "sales": 11433.4,
+      "onpromotion": 202
+    },
+    {
+      "date": "2017-06-16",
+      "sales": 12456.53,
+      "onpromotion": 299
+    },
+    {
+      "date": "2017-06-17",
+      "sales": 12414.34,
+      "onpromotion": 185
+    },
+    {
+      "date": "2017-06-18",
+      "sales": 4957.63,
+      "onpromotion": 130
+    },
+    {
+      "date": "2017-06-19",
+      "sales": 11907.84,
+      "onpromotion": 177
+    },
+    {
+      "date": "2017-06-20",
+      "sales": 13910.83,
+      "onpromotion": 181
+    },
+    {
+      "date": "2017-06-21",
+      "sales": 13682.95,
+      "onpromotion": 477
+    },
+    {
+      "date": "2017-06-22",
+      "sales": 10069.64,
+      "onpromotion": 183
+    },
+    {
+      "date": "2017-06-23",
+      "sales": 12013.79,
+      "onpromotion": 344
+    },
+    {
+      "date": "2017-06-24",
+      "sales": 11769.44,
+      "onpromotion": 172
+    },
+    {
+      "date": "2017-06-25",
+      "sales": 5011.07,
+      "onpromotion": 138
+    },
+    {
+      "date": "2017-06-26",
+      "sales": 10722.78,
+      "onpromotion": 161
+    },
+    {
+      "date": "2017-06-27",
+      "sales": 10498.35,
+      "onpromotion": 159
+    },
+    {
+      "date": "2017-06-28",
+      "sales": 13409.58,
+      "onpromotion": 392
+    },
+    {
+      "date": "2017-06-29",
+      "sales": 10247.56,
+      "onpromotion": 191
+    },
+    {
+      "date": "2017-06-30",
+      "sales": 12272.99,
+      "onpromotion": 392
+    },
+    {
+      "date": "2017-07-01",
+      "sales": 11801.93,
+      "onpromotion": 187
+    },
+    {
+      "date": "2017-07-02",
+      "sales": 5308.3,
+      "onpromotion": 165
+    },
+    {
+      "date": "2017-07-03",
+      "sales": 12201.22,
+      "onpromotion": 182
+    },
+    {
+      "date": "2017-07-04",
+      "sales": 10951.7,
+      "onpromotion": 205
+    },
+    {
+      "date": "2017-07-05",
+      "sales": 14023.39,
+      "onpromotion": 465
+    },
+    {
+      "date": "2017-07-06",
+      "sales": 10311.75,
+      "onpromotion": 217
+    },
+    {
+      "date": "2017-07-07",
+      "sales": 12001.7,
+      "onpromotion": 374
+    },
+    {
+      "date": "2017-07-08",
+      "sales": 10995.22,
+      "onpromotion": 209
+    },
+    {
+      "date": "2017-07-09",
+      "sales": 5131.65,
+      "onpromotion": 148
+    },
+    {
+      "date": "2017-07-10",
+      "sales": 11624.98,
+      "onpromotion": 197
+    },
+    {
+      "date": "2017-07-11",
+      "sales": 10553.46,
+      "onpromotion": 192
+    },
+    {
+      "date": "2017-07-12",
+      "sales": 13726.38,
+      "onpromotion": 444
+    },
+    {
+      "date": "2017-07-13",
+      "sales": 10269.74,
+      "onpromotion": 165
+    },
+    {
+      "date": "2017-07-14",
+      "sales": 12375.27,
+      "onpromotion": 347
+    },
+    {
+      "date": "2017-07-15",
+      "sales": 9871.2,
+      "onpromotion": 158
+    },
+    {
+      "date": "2017-07-16",
+      "sales": 4629.17,
+      "onpromotion": 131
+    },
+    {
+      "date": "2017-07-17",
+      "sales": 11337.71,
+      "onpromotion": 164
+    },
+    {
+      "date": "2017-07-18",
+      "sales": 11978.15,
+      "onpromotion": 181
+    },
+    {
+      "date": "2017-07-19",
+      "sales": 12998.34,
+      "onpromotion": 399
+    },
+    {
+      "date": "2017-07-20",
+      "sales": 10448.93,
+      "onpromotion": 177
+    },
+    {
+      "date": "2017-07-21",
+      "sales": 12780.71,
+      "onpromotion": 322
+    },
+    {
+      "date": "2017-07-22",
+      "sales": 11120.52,
+      "onpromotion": 163
+    },
+    {
+      "date": "2017-07-23",
+      "sales": 5308.64,
+      "onpromotion": 120
+    },
+    {
+      "date": "2017-07-24",
+      "sales": 11094.85,
+      "onpromotion": 149
+    },
+    {
+      "date": "2017-07-25",
+      "sales": 10329.44,
+      "onpromotion": 156
+    },
+    {
+      "date": "2017-07-26",
+      "sales": 12579.23,
+      "onpromotion": 369
+    },
+    {
+      "date": "2017-07-27",
+      "sales": 10078.64,
+      "onpromotion": 145
+    },
+    {
+      "date": "2017-07-28",
+      "sales": 11361.69,
+      "onpromotion": 291
+    },
+    {
+      "date": "2017-07-29",
+      "sales": 10165.19,
+      "onpromotion": 133
+    },
+    {
+      "date": "2017-07-30",
+      "sales": 4950.22,
+      "onpromotion": 107
+    },
+    {
+      "date": "2017-07-31",
+      "sales": 11626.73,
+      "onpromotion": 143
+    },
+    {
+      "date": "2017-08-01",
+      "sales": 11829.89,
+      "onpromotion": 129
+    },
+    {
+      "date": "2017-08-02",
+      "sales": 14527.53,
+      "onpromotion": 364
+    },
+    {
+      "date": "2017-08-03",
+      "sales": 9070.62,
+      "onpromotion": 95
+    },
+    {
+      "date": "2017-08-04",
+      "sales": 12149.9,
+      "onpromotion": 290
+    },
+    {
+      "date": "2017-08-05",
+      "sales": 9387.58,
+      "onpromotion": 110
+    },
+    {
+      "date": "2017-08-06",
+      "sales": 4409.25,
+      "onpromotion": 83
+    },
+    {
+      "date": "2017-08-07",
+      "sales": 10538.14,
+      "onpromotion": 119
+    },
+    {
+      "date": "2017-08-08",
+      "sales": 11070.76,
+      "onpromotion": 113
+    },
+    {
+      "date": "2017-08-09",
+      "sales": 12583.65,
+      "onpromotion": 338
+    },
+    {
+      "date": "2017-08-10",
+      "sales": 10834.58,
+      "onpromotion": 125
+    },
+    {
+      "date": "2017-08-11",
+      "sales": 5403.74,
+      "onpromotion": 216
+    },
+    {
+      "date": "2017-08-12",
+      "sales": 7543.62,
+      "onpromotion": 103
+    },
+    {
+      "date": "2017-08-13",
+      "sales": 3902.78,
+      "onpromotion": 73
+    },
+    {
+      "date": "2017-08-14",
+      "sales": 10433.31,
+      "onpromotion": 120
+    },
+    {
+      "date": "2017-08-15",
+      "sales": 9823.55,
+      "onpromotion": 115
+    }
+  ],
+  "baseline_forecast": [
+    {
+      "ds": "2017-08-16",
+      "yhat": 9403.407222748863,
+      "yhat_lower": 4602.433403928348,
+      "yhat_upper": 18371.28463265072,
+      "trend": 8230.356270948578,
+      "weekly": 0.016898209324973854
+    },
+    {
+      "ds": "2017-08-17",
+      "yhat": 11289.981279151958,
+      "yhat_lower": 5393.691704561933,
+      "yhat_upper": 22706.94249468432,
+      "trend": 8229.551660375506,
+      "weekly": 0.008101447000127033
+    },
+    {
+      "ds": "2017-08-18",
+      "yhat": 8780.085024754837,
+      "yhat_lower": 4202.113524415778,
+      "yhat_upper": 18226.821246885247,
+      "trend": 8228.747128452691,
+      "weekly": 0.004814904351544073
+    },
+    {
+      "ds": "2017-08-19",
+      "yhat": 9660.302695569912,
+      "yhat_lower": 4871.432497904253,
+      "yhat_upper": 18956.43738510909,
+      "trend": 8227.942675172417,
+      "weekly": 0.019694304702375327
+    },
+    {
+      "ds": "2017-08-20",
+      "yhat": 4332.90011625834,
+      "yhat_lower": 2103.344795066486,
+      "yhat_upper": 8939.757267636665,
+      "trend": 8227.138300527025,
+      "weekly": -0.07562124939256762
+    },
+    {
+      "ds": "2017-08-21",
+      "yhat": 10265.324976069925,
+      "yhat_lower": 5323.403166019939,
+      "yhat_upper": 21284.851275365774,
+      "trend": 8226.334004508803,
+      "weekly": 0.01749055034299947
+    },
+    {
+      "ds": "2017-08-22",
+      "yhat": 12833.037478054266,
+      "yhat_lower": 6146.777814817182,
+      "yhat_upper": 26536.658146042384,
+      "trend": 8225.529787110088,
+      "weekly": 0.008621833670627105
+    },
+    {
+      "ds": "2017-08-23",
+      "yhat": 10301.496463976613,
+      "yhat_lower": 5063.627417524748,
+      "yhat_upper": 20218.27115226359,
+      "trend": 8224.72564832317,
+      "weekly": 0.016898209324904448
+    },
+    {
+      "ds": "2017-08-24",
+      "yhat": 10853.864913592233,
+      "yhat_lower": 5188.691140739656,
+      "yhat_upper": 20971.35187191032,
+      "trend": 8223.921588140394,
+      "weekly": 0.00810144699997281
+    },
+    {
+      "ds": "2017-08-25",
+      "yhat": 9572.605199999492,
+      "yhat_lower": 4548.485118950511,
+      "yhat_upper": 19495.978887240562,
+      "trend": 8223.117606554062,
+      "weekly": 0.004814904351320683
+    },
+    {
+      "ds": "2017-08-26",
+      "yhat": 10415.91342640589,
+      "yhat_lower": 5243.781829402337,
+      "yhat_upper": 21229.414467430383,
+      "trend": 8222.313703556474,
+      "weekly": 0.019694304702573027
+    },
+    {
+      "ds": "2017-08-27",
+      "yhat": 4751.235369528553,
+      "yhat_lower": 2368.23745802298,
+      "yhat_upper": 9745.51583983243,
+      "trend": 8221.50987913998,
+      "weekly": -0.07562124939257277
+    },
+    {
+      "ds": "2017-08-28",
+      "yhat": 11121.37107707058,
+      "yhat_lower": 5458.220784201475,
+      "yhat_upper": 22182.003356857043,
+      "trend": 8220.706133296868,
+      "weekly": 0.017490550343022295
+    },
+    {
+      "ds": "2017-08-29",
+      "yhat": 13910.954798828283,
+      "yhat_lower": 6690.202144693332,
+      "yhat_upper": 28359.20723752318,
+      "trend": 8219.902466019486,
+      "weekly": 0.008621833670502867
+    },
+    {
+      "ds": "2017-08-30",
+      "yhat": 9107.402052889074,
+      "yhat_lower": 4338.644654403134,
+      "yhat_upper": 17478.54150127299,
+      "trend": 8219.098877300128,
+      "weekly": 0.016898209325048354
+    },
+    {
+      "ds": "2017-08-31",
+      "yhat": 12121.52984068078,
+      "yhat_lower": 5653.896251588565,
+      "yhat_upper": 24449.61256805734,
+      "trend": 8218.295367131142,
+      "weekly": 0.00810144699999806
+    },
+    {
+      "ds": "2017-09-01",
+      "yhat": 9957.258184913884,
+      "yhat_lower": 4987.7186964123275,
+      "yhat_upper": 19115.74437215635,
+      "trend": 8217.49193550482,
+      "weekly": 0.004814904351461001
+    },
+    {
+      "ds": "2017-09-02",
+      "yhat": 10841.981289131401,
+      "yhat_lower": 5131.772676651103,
+      "yhat_upper": 21938.81078849363,
+      "trend": 8216.688582413515,
+      "weekly": 0.019694304702452734
+    },
+    {
+      "ds": "2017-09-03",
+      "yhat": 4781.892419493176,
+      "yhat_lower": 2385.8882017690353,
+      "yhat_upper": 10391.017191843706,
+      "trend": 8215.885307849521,
+      "weekly": -0.0756212493925779
+    },
+    {
+      "ds": "2017-09-04",
+      "yhat": 11275.35290754529,
+      "yhat_lower": 5481.685962053175,
+      "yhat_upper": 24012.69013070003,
+      "trend": 8215.082111805175,
+      "weekly": 0.01749055034313231
+    },
+    {
+      "ds": "2017-09-05",
+      "yhat": 14599.168393840508,
+      "yhat_lower": 7105.778838597362,
+      "yhat_upper": 30727.413725005074,
+      "trend": 8214.27899427282,
+      "weekly": 0.008621833670699595
+    },
+    {
+      "ds": "2017-09-06",
+      "yhat": 11972.862753745685,
+      "yhat_lower": 5995.470593336252,
+      "yhat_upper": 24253.567847091945,
+      "trend": 8213.475955244749,
+      "weekly": 0.016898209324667145
+    },
+    {
+      "ds": "2017-09-07",
+      "yhat": 13479.257929294548,
+      "yhat_lower": 6623.826571580888,
+      "yhat_upper": 28030.640336526973,
+      "trend": 8212.672994713317,
+      "weekly": 0.008101447000061443
+    },
+    {
+      "ds": "2017-09-08",
+      "yhat": 10912.067444335391,
+      "yhat_lower": 5419.860371490386,
+      "yhat_upper": 23273.992400308067,
+      "trend": 8211.870112670824,
+      "weekly": 0.004814904351422514
+    },
+    {
+      "ds": "2017-09-09",
+      "yhat": 11654.230523488048,
+      "yhat_lower": 5526.4731654050165,
+      "yhat_upper": 23969.26946304048,
+      "trend": 8211.067309109627,
+      "weekly": 0.01969430470233244
+    },
+    {
+      "ds": "2017-09-10",
+      "yhat": 5185.596607723304,
+      "yhat_lower": 2519.909393455879,
+      "yhat_upper": 11167.121940211366,
+      "trend": 8210.264584022023,
+      "weekly": -0.07562124939256529
+    },
+    {
+      "ds": "2017-09-11",
+      "yhat": 11883.239414086465,
+      "yhat_lower": 5982.15305312193,
+      "yhat_upper": 25677.568412266202,
+      "trend": 8209.461937400372,
+      "weekly": 0.017490550343037627
+    },
+    {
+      "ds": "2017-09-12",
+      "yhat": 15711.520064120334,
+      "yhat_lower": 7787.3448048734435,
+      "yhat_upper": 31463.442698046074,
+      "trend": 8208.659369236975,
+      "weekly": 0.008621833670575355
+    },
+    {
+      "ds": "2017-09-13",
+      "yhat": 12148.634764735352,
+      "yhat_lower": 5713.291589669836,
+      "yhat_upper": 25372.90503071059,
+      "trend": 8207.856879524192,
+      "weekly": 0.01689820932481105
+    },
+    {
+      "ds": "2017-09-14",
+      "yhat": 12890.000850023296,
+      "yhat_lower": 6266.8881746441175,
+      "yhat_upper": 26248.381889847315,
+      "trend": 8207.054468254324,
+      "weekly": 0.008101447000124828
+    },
+    {
+      "ds": "2017-09-15",
+      "yhat": 10658.12094546329,
+      "yhat_lower": 5011.183081395538,
+      "yhat_upper": 20957.429257367705,
+      "trend": 8206.252135419734,
+      "weekly": 0.004814904351562822
+    },
+    {
+      "ds": "2017-09-16",
+      "yhat": 11293.235386735045,
+      "yhat_lower": 5809.577567718018,
+      "yhat_upper": 22897.246525076764,
+      "trend": 8205.449881012724,
+      "weekly": 0.019694304702638946
+    },
+    {
+      "ds": "2017-09-17",
+      "yhat": 5124.951599413935,
+      "yhat_lower": 2590.0658493522405,
+      "yhat_upper": 10789.12269624664,
+      "trend": 8204.64770502566,
+      "weekly": -0.07562124939258008
+    },
+    {
+      "ds": "2017-09-18",
+      "yhat": 11964.136390997193,
+      "yhat_lower": 6017.020296735471,
+      "yhat_upper": 24980.453934281864,
+      "trend": 8203.845607450843,
+      "weekly": 0.017490550343060452
+    },
+    {
+      "ds": "2017-09-19",
+      "yhat": 16867.186596805357,
+      "yhat_lower": 8317.25083043242,
+      "yhat_upper": 34463.344301898745,
+      "trend": 8203.043588280641,
+      "weekly": 0.008621833670617873
+    },
+    {
+      "ds": "2017-09-20",
+      "yhat": 12015.445770131204,
+      "yhat_lower": 5899.364869489637,
+      "yhat_upper": 24591.741562425297,
+      "trend": 8202.24164750736,
+      "weekly": 0.016898209324741648
+    },
+    {
+      "ds": "2017-09-21",
+      "yhat": 14001.663705281528,
+      "yhat_lower": 6754.110466137328,
+      "yhat_upper": 28384.49990971101,
+      "trend": 8201.439785123366,
+      "weekly": 0.008101446999932472
+    },
+    {
+      "ds": "2017-09-22",
+      "yhat": 10688.939535390267,
+      "yhat_lower": 4995.6982564774,
+      "yhat_upper": 21850.994605475178,
+      "trend": 8200.638001120966,
+      "weekly": 0.004814904351518233
+    },
+    {
+      "ds": "2017-09-23",
+      "yhat": 11690.28332603283,
+      "yhat_lower": 5817.512737706293,
+      "yhat_upper": 23887.42258166025,
+      "trend": 8199.836295492529,
+      "weekly": 0.019694304702518654
+    },
+    {
+      "ds": "2017-09-24",
+      "yhat": 5133.403575618997,
+      "yhat_lower": 2420.1790047694876,
+      "yhat_upper": 10082.655106421533,
+      "trend": 8199.034668230377,
+      "weekly": -0.07562124939257556
+    },
+    {
+      "ds": "2017-09-25",
+      "yhat": 11884.01558278223,
+      "yhat_lower": 5767.740331386878,
+      "yhat_upper": 24803.292702577008,
+      "trend": 8198.233119326838,
+      "weekly": 0.01749055034308328
+    },
+    {
+      "ds": "2017-09-26",
+      "yhat": 15309.124146274879,
+      "yhat_lower": 7591.257068048318,
+      "yhat_upper": 31031.537706179508,
+      "trend": 8197.43164877428,
+      "weekly": 0.008621833670493632
+    },
+    {
+      "ds": "2017-09-27",
+      "yhat": 12422.6029228062,
+      "yhat_lower": 5983.590125981353,
+      "yhat_upper": 25114.494316926597,
+      "trend": 8196.630256565015,
+      "weekly": 0.016898209324942955
+    },
+    {
+      "ds": "2017-09-28",
+      "yhat": 15278.640301557836,
+      "yhat_lower": 7510.07517493946,
+      "yhat_upper": 29943.621952332778,
+      "trend": 8195.828942691416,
+      "weekly": 0.008101447000213462
+    },
+    {
+      "ds": "2017-09-29",
+      "yhat": 11088.12330843469,
+      "yhat_lower": 5378.453252012058,
+      "yhat_upper": 21983.561171746893,
+      "trend": 8195.027707145795,
+      "weekly": 0.00481490435147975
+    },
+    {
+      "ds": "2017-09-30",
+      "yhat": 12277.011860953522,
+      "yhat_lower": 5909.495020890946,
+      "yhat_upper": 25768.037168565417,
+      "trend": 8194.226549920524,
+      "weekly": 0.01969430470260753
+    },
+    {
+      "ds": "2017-10-01",
+      "yhat": 5316.214648603409,
+      "yhat_lower": 2688.339834354137,
+      "yhat_upper": 10606.198768315646,
+      "trend": 8193.42547100792,
+      "weekly": -0.07562124939258069
+    },
+    {
+      "ds": "2017-10-02",
+      "yhat": 12672.161347186056,
+      "yhat_lower": 6500.977685187929,
+      "yhat_upper": 24587.518416457355,
+      "trend": 8192.624470400357,
+      "weekly": 0.017490550343075784
+    },
+    {
+      "ds": "2017-10-03",
+      "yhat": 16848.73161127278,
+      "yhat_lower": 8133.428877157503,
+      "yhat_upper": 33747.26324651729,
+      "trend": 8191.823548090148,
+      "weekly": 0.008621833670677807
+    },
+    {
+      "ds": "2017-10-04",
+      "yhat": 12700.935784672449,
+      "yhat_lower": 5943.071750638062,
+      "yhat_upper": 27009.171239236828,
+      "trend": 8191.022704069674,
+      "weekly": 0.01689820932508686
+    },
+    {
+      "ds": "2017-10-05",
+      "yhat": 14571.792334321115,
+      "yhat_lower": 7190.834359354389,
+      "yhat_upper": 29864.27705195749,
+      "trend": 8190.221938331248,
+      "weekly": 0.00810144700005924
+    },
+    {
+      "ds": "2017-10-06",
+      "yhat": 11115.817280066452,
+      "yhat_lower": 5383.597214423837,
+      "yhat_upper": 22600.944638986737,
+      "trend": 8189.421250867251,
+      "weekly": 0.004814904351441263
+    },
+    {
+      "ds": "2017-10-07",
+      "yhat": 11568.591525006912,
+      "yhat_lower": 5324.474277046777,
+      "yhat_upper": 22257.785656826825,
+      "trend": 8188.62064167,
+      "weekly": 0.019694304702596054
+    },
+    {
+      "ds": "2017-10-08",
+      "yhat": 5211.14519582961,
+      "yhat_lower": 2517.0451363370325,
+      "yhat_upper": 10598.107094864652,
+      "trend": 8187.8201107318755,
+      "weekly": -0.07562124939256809
+    },
+    {
+      "ds": "2017-10-09",
+      "yhat": 11874.721650755057,
+      "yhat_lower": 5887.935017001854,
+      "yhat_upper": 23834.812748470416,
+      "trend": 8187.0196580451975,
+      "weekly": 0.017490550343011415
+    },
+    {
+      "ds": "2017-10-10",
+      "yhat": 15543.134448007886,
+      "yhat_lower": 7462.379712979486,
+      "yhat_upper": 29759.221310368215,
+      "trend": 8186.219283602346,
+      "weekly": 0.008621833670720322
+    },
+    {
+      "ds": "2017-10-11",
+      "yhat": 11176.933015836512,
+      "yhat_lower": 5372.489431433489,
+      "yhat_upper": 23756.06686787993,
+      "trend": 8185.418987395645,
+      "weekly": 0.01689820932480414
+    },
+    {
+      "ds": "2017-10-12",
+      "yhat": 13259.924051991744,
+      "yhat_lower": 6048.611826293427,
+      "yhat_upper": 27415.751060670067,
+      "trend": 8184.61876941746,
+      "weekly": 0.008101447000122625
+    },
+    {
+      "ds": "2017-10-13",
+      "yhat": 9769.665206336103,
+      "yhat_lower": 4777.10515940999,
+      "yhat_upper": 20319.913663597756,
+      "trend": 8183.818629660159,
+      "weekly": 0.004814904351575479
+    },
+    {
+      "ds": "2017-10-14",
+      "yhat": 10676.696251076202,
+      "yhat_lower": 5177.534517223148,
+      "yhat_upper": 20797.497700825148,
+      "trend": 8183.0185681160665,
+      "weekly": 0.019694304702580337
+    },
+    {
+      "ds": "2017-10-15",
+      "yhat": 4710.647857551086,
+      "yhat_lower": 2280.9711498338615,
+      "yhat_upper": 9417.980727213273,
+      "trend": 8182.218584777568,
+      "weekly": -0.07562124939256357
+    },
+    {
+      "ds": "2017-10-16",
+      "yhat": 11109.113753070898,
+      "yhat_lower": 5539.328381945565,
+      "yhat_upper": 23402.246907653716,
+      "trend": 8181.418679636988,
+      "weekly": 0.017490550343121435
+    },
+    {
+      "ds": "2017-10-17",
+      "yhat": 13915.67089517529,
+      "yhat_lower": 6648.8517851963,
+      "yhat_upper": 27995.45379251291,
+      "trend": 8180.618852686713,
+      "weekly": 0.00862183367076285
+    },
+    {
+      "ds": "2017-10-18",
+      "yhat": 10907.766725272486,
+      "yhat_lower": 5469.760758441456,
+      "yhat_upper": 23131.23568409706,
+      "trend": 8179.81910391907,
+      "weekly": 0.016898209325005457
+    },
+    {
+      "ds": "2017-10-19",
+      "yhat": 12354.334634964911,
+      "yhat_lower": 6038.5672743422665,
+      "yhat_upper": 24271.950980212674,
+      "trend": 8179.019433326445,
+      "weekly": 0.008101446999930269
+    },
+    {
+      "ds": "2017-10-20",
+      "yhat": 9563.163927449308,
+      "yhat_lower": 4578.130484576046,
+      "yhat_upper": 19886.53273512888,
+      "trend": 8178.219840901171,
+      "weekly": 0.004814904351352085
+    },
+    {
+      "ds": "2017-10-21",
+      "yhat": 10290.001975656649,
+      "yhat_lower": 5038.483050825627,
+      "yhat_upper": 20164.73782851651,
+      "trend": 8177.420326635632,
+      "weekly": 0.019694304702564634
+    },
+    {
+      "ds": "2017-10-22",
+      "yhat": 4547.848851939548,
+      "yhat_lower": 2152.693272105514,
+      "yhat_upper": 9757.78579899719,
+      "trend": 8176.620890522161,
+      "weekly": -0.07562124939257836
+    },
+    {
+      "ds": "2017-10-23",
+      "yhat": 10650.234317860104,
+      "yhat_lower": 5299.829406650826,
+      "yhat_upper": 22157.053782557967,
+      "trend": 8175.821532553147,
+      "weekly": 0.017490550343144267
+    },
+    {
+      "ds": "2017-10-24",
+      "yhat": 13337.833360823775,
+      "yhat_lower": 6433.206518445484,
+      "yhat_upper": 26659.483447063114,
+      "trend": 8175.022252720938,
+      "weekly": 0.00862183367062605
+    },
+    {
+      "ds": "2017-10-25",
+      "yhat": 10491.12969567661,
+      "yhat_lower": 4920.571044193494,
+      "yhat_upper": 21025.619690211268,
+      "trend": 8174.22305101788,
+      "weekly": 0.01689820932493605
+    },
+    {
+      "ds": "2017-10-26",
+      "yhat": 11964.386283419004,
+      "yhat_lower": 5483.553392610174,
+      "yhat_upper": 22798.87370070794,
+      "trend": 8173.423927436366,
+      "weekly": 0.008101446999776045
+    },
+    {
+      "ds": "2017-10-27",
+      "yhat": 9315.907177723899,
+      "yhat_lower": 4582.286752414985,
+      "yhat_upper": 19552.602916502594,
+      "trend": 8172.624881968731,
+      "weekly": 0.004814904351492403
+    },
+    {
+      "ds": "2017-10-28",
+      "yhat": 10302.070819245066,
+      "yhat_lower": 5110.991544980171,
+      "yhat_upper": 20106.716902911176,
+      "trend": 8171.825914607368,
+      "weekly": 0.01969430470254893
+    },
+    {
+      "ds": "2017-10-29",
+      "yhat": 4607.850629805761,
+      "yhat_lower": 2260.7117553321737,
+      "yhat_upper": 9380.357843842496,
+      "trend": 8171.027025344612,
+      "weekly": -0.07562124939256575
+    },
+    {
+      "ds": "2017-10-30",
+      "yhat": 10479.02936175169,
+      "yhat_lower": 5424.363377762948,
+      "yhat_upper": 20781.50338002014,
+      "trend": 8170.22821417286,
+      "weekly": 0.017490550342932062
+    },
+    {
+      "ds": "2017-10-31",
+      "yhat": 13527.540085204524,
+      "yhat_lower": 6249.068174079903,
+      "yhat_upper": 28102.612640978325,
+      "trend": 8169.4294810844485,
+      "weekly": 0.008621833670668572
+    },
+    {
+      "ds": "2017-11-01",
+      "yhat": 9959.863715988768,
+      "yhat_lower": 4892.859331234618,
+      "yhat_upper": 20904.623852517303,
+      "trend": 8168.630826071773,
+      "weekly": 0.016898209324866645
+    },
+    {
+      "ds": "2017-11-02",
+      "yhat": 12132.703412255654,
+      "yhat_lower": 5809.599840109849,
+      "yhat_upper": 24399.543924653994,
+      "trend": 8167.832249127175,
+      "weekly": 0.008101447000057035
+    },
+    {
+      "ds": "2017-11-03",
+      "yhat": 9113.346898486001,
+      "yhat_lower": 4410.387475834806,
+      "yhat_upper": 19326.045330488017,
+      "trend": 8167.03375024305,
+      "weekly": 0.004814904351269012
+    },
+    {
+      "ds": "2017-11-04",
+      "yhat": 10005.882052498522,
+      "yhat_lower": 4775.334423162945,
+      "yhat_upper": 19326.12056205377,
+      "trend": 8166.23532941174,
+      "weekly": 0.01969430470253745
+    },
+    {
+      "ds": "2017-11-05",
+      "yhat": 4446.44706351607,
+      "yhat_lower": 2156.3676362795386,
+      "yhat_upper": 9046.86525286245,
+      "trend": 8165.436986625645,
+      "weekly": -0.07562124939257087
+    },
+    {
+      "ds": "2017-11-06",
+      "yhat": 10154.88786435856,
+      "yhat_lower": 5119.550117552047,
+      "yhat_upper": 20390.58809180762,
+      "trend": 8164.638721877105,
+      "weekly": 0.017490550342954887
+    },
+    {
+      "ds": "2017-11-07",
+      "yhat": 12830.465704840703,
+      "yhat_lower": 6455.833312061428,
+      "yhat_upper": 27215.859885916812,
+      "trend": 8163.8405351585225,
+      "weekly": 0.008621833670544334
+    },
+    {
+      "ds": "2017-11-08",
+      "yhat": 10154.774582433512,
+      "yhat_lower": 4950.767618571241,
+      "yhat_upper": 20243.45857637453,
+      "trend": 8163.042426462241,
+      "weekly": 0.016898209324797242
+    },
+    {
+      "ds": "2017-11-09",
+      "yhat": 10601.146876969355,
+      "yhat_lower": 5171.661469535763,
+      "yhat_upper": 22471.703582175334,
+      "trend": 8162.244395780661,
+      "weekly": 0.00810144699986468
+    },
+    {
+      "ds": "2017-11-10",
+      "yhat": 8704.641940705378,
+      "yhat_lower": 4499.060721541959,
+      "yhat_upper": 18118.39278999036,
+      "trend": 8161.446443106131,
+      "weekly": 0.004814904351409324
+    },
+    {
+      "ds": "2017-11-11",
+      "yhat": 9469.541055546084,
+      "yhat_lower": 4485.735612435239,
+      "yhat_upper": 19064.096769074113,
+      "trend": 8160.648568431051,
+      "weekly": 0.019694304702521745
+    },
+    {
+      "ds": "2017-11-12",
+      "yhat": 4259.246256022946,
+      "yhat_lower": 2083.428845936508,
+      "yhat_upper": 8555.084041212269,
+      "trend": 8159.8507717477705,
+      "weekly": -0.07562124939257601
+    },
+    {
+      "ds": "2017-11-13",
+      "yhat": 9721.600257639753,
+      "yhat_lower": 4589.1513383017555,
+      "yhat_upper": 19325.40928875554,
+      "trend": 8159.053053048695,
+      "weekly": 0.017490550342977716
+    }
+  ],
+  "historical_tail_90": [
+    {
+      "ds": "2017-05-18",
+      "y": 10348.56302000002
+    },
+    {
+      "ds": "2017-05-19",
+      "y": 13483.656899999993
+    },
+    {
+      "ds": "2017-05-20",
+      "y": 10749.912000000006
+    },
+    {
+      "ds": "2017-05-21",
+      "y": 4885.591990000002
+    },
+    {
+      "ds": "2017-05-22",
+      "y": 11657.819899999988
+    },
+    {
+      "ds": "2017-05-23",
+      "y": 11253.752999999995
+    },
+    {
+      "ds": "2017-05-24",
+      "y": 14215.447000000004
+    },
+    {
+      "ds": "2017-05-25",
+      "y": 10587.04899999999
+    },
+    {
+      "ds": "2017-05-26",
+      "y": 5946.604996000004
+    },
+    {
+      "ds": "2017-05-27",
+      "y": 9247.768999999986
+    },
+    {
+      "ds": "2017-05-28",
+      "y": 4871.577000000001
+    },
+    {
+      "ds": "2017-05-29",
+      "y": 11704.673999999995
+    },
+    {
+      "ds": "2017-05-30",
+      "y": 9755.858999999999
+    },
+    {
+      "ds": "2017-05-31",
+      "y": 14064.383980000008
+    },
+    {
+      "ds": "2017-06-01",
+      "y": 11293.651000000007
+    },
+    {
+      "ds": "2017-06-02",
+      "y": 13122.114029999968
+    },
+    {
+      "ds": "2017-06-03",
+      "y": 12653.626999999993
+    },
+    {
+      "ds": "2017-06-04",
+      "y": 5111.884000000003
+    },
+    {
+      "ds": "2017-06-05",
+      "y": 12049.031983999976
+    },
+    {
+      "ds": "2017-06-06",
+      "y": 12775.544000000009
+    },
+    {
+      "ds": "2017-06-07",
+      "y": 14705.931030000003
+    },
+    {
+      "ds": "2017-06-08",
+      "y": 10373.042000000001
+    },
+    {
+      "ds": "2017-06-09",
+      "y": 13456.414999999986
+    },
+    {
+      "ds": "2017-06-10",
+      "y": 11449.759999999971
+    },
+    {
+      "ds": "2017-06-11",
+      "y": 5825.817998000002
+    },
+    {
+      "ds": "2017-06-12",
+      "y": 10798.441009999999
+    },
+    {
+      "ds": "2017-06-13",
+      "y": 10801.989020999976
+    },
+    {
+      "ds": "2017-06-14",
+      "y": 14891.530002999998
+    },
+    {
+      "ds": "2017-06-15",
+      "y": 11433.402999999997
+    },
+    {
+      "ds": "2017-06-16",
+      "y": 12456.525030000012
+    },
+    {
+      "ds": "2017-06-17",
+      "y": 12414.34199999999
+    },
+    {
+      "ds": "2017-06-18",
+      "y": 4957.631999999999
+    },
+    {
+      "ds": "2017-06-19",
+      "y": 11907.838999999976
+    },
+    {
+      "ds": "2017-06-20",
+      "y": 13910.83300399999
+    },
+    {
+      "ds": "2017-06-21",
+      "y": 13682.95199799997
+    },
+    {
+      "ds": "2017-06-22",
+      "y": 10069.635000000004
+    },
+    {
+      "ds": "2017-06-23",
+      "y": 12013.791020000002
+    },
+    {
+      "ds": "2017-06-24",
+      "y": 11769.443999999998
+    },
+    {
+      "ds": "2017-06-25",
+      "y": 5011.0689999999995
+    },
+    {
+      "ds": "2017-06-26",
+      "y": 10722.776999999991
+    },
+    {
+      "ds": "2017-06-27",
+      "y": 10498.349000000004
+    },
+    {
+      "ds": "2017-06-28",
+      "y": 13409.583999999995
+    },
+    {
+      "ds": "2017-06-29",
+      "y": 10247.561996
+    },
+    {
+      "ds": "2017-06-30",
+      "y": 12272.991998
+    },
+    {
+      "ds": "2017-07-01",
+      "y": 11801.934000000008
+    },
+    {
+      "ds": "2017-07-02",
+      "y": 5308.296995999998
+    },
+    {
+      "ds": "2017-07-03",
+      "y": 12201.219001
+    },
+    {
+      "ds": "2017-07-04",
+      "y": 10951.704000000016
+    },
+    {
+      "ds": "2017-07-05",
+      "y": 14023.388000000004
+    },
+    {
+      "ds": "2017-07-06",
+      "y": 10311.751005999977
+    },
+    {
+      "ds": "2017-07-07",
+      "y": 12001.70000000001
+    },
+    {
+      "ds": "2017-07-08",
+      "y": 10995.219999999992
+    },
+    {
+      "ds": "2017-07-09",
+      "y": 5131.654003999998
+    },
+    {
+      "ds": "2017-07-10",
+      "y": 11624.977999999997
+    },
+    {
+      "ds": "2017-07-11",
+      "y": 10553.459003999997
+    },
+    {
+      "ds": "2017-07-12",
+      "y": 13726.382999999993
+    },
+    {
+      "ds": "2017-07-13",
+      "y": 10269.74299000001
+    },
+    {
+      "ds": "2017-07-14",
+      "y": 12375.274004000004
+    },
+    {
+      "ds": "2017-07-15",
+      "y": 9871.204000000005
+    },
+    {
+      "ds": "2017-07-16",
+      "y": 4629.171
+    },
+    {
+      "ds": "2017-07-17",
+      "y": 11337.712992000004
+    },
+    {
+      "ds": "2017-07-18",
+      "y": 11978.14700200001
+    },
+    {
+      "ds": "2017-07-19",
+      "y": 12998.338000000022
+    },
+    {
+      "ds": "2017-07-20",
+      "y": 10448.933905000004
+    },
+    {
+      "ds": "2017-07-21",
+      "y": 12780.70999600001
+    },
+    {
+      "ds": "2017-07-22",
+      "y": 11120.524000000014
+    },
+    {
+      "ds": "2017-07-23",
+      "y": 5308.637000000004
+    },
+    {
+      "ds": "2017-07-24",
+      "y": 11094.850999999997
+    },
+    {
+      "ds": "2017-07-25",
+      "y": 10329.443030000004
+    },
+    {
+      "ds": "2017-07-26",
+      "y": 12579.233019999996
+    },
+    {
+      "ds": "2017-07-27",
+      "y": 10078.641999999996
+    },
+    {
+      "ds": "2017-07-28",
+      "y": 11361.689000000022
+    },
+    {
+      "ds": "2017-07-29",
+      "y": 10165.192000000008
+    },
+    {
+      "ds": "2017-07-30",
+      "y": 4950.215989699996
+    },
+    {
+      "ds": "2017-07-31",
+      "y": 11626.725000000006
+    },
+    {
+      "ds": "2017-08-01",
+      "y": 11829.88899800001
+    },
+    {
+      "ds": "2017-08-02",
+      "y": 14527.532220000005
+    },
+    {
+      "ds": "2017-08-03",
+      "y": 9070.620000000004
+    },
+    {
+      "ds": "2017-08-04",
+      "y": 12149.89796
+    },
+    {
+      "ds": "2017-08-05",
+      "y": 9387.578999999994
+    },
+    {
+      "ds": "2017-08-06",
+      "y": 4409.247998
+    },
+    {
+      "ds": "2017-08-07",
+      "y": 10538.136
+    },
+    {
+      "ds": "2017-08-08",
+      "y": 11070.758989999991
+    },
+    {
+      "ds": "2017-08-09",
+      "y": 12583.651999999995
+    },
+    {
+      "ds": "2017-08-10",
+      "y": 10834.579000000007
+    },
+    {
+      "ds": "2017-08-11",
+      "y": 5403.742020999996
+    },
+    {
+      "ds": "2017-08-12",
+      "y": 7543.623000000005
+    },
+    {
+      "ds": "2017-08-13",
+      "y": 3902.782000000002
+    },
+    {
+      "ds": "2017-08-14",
+      "y": 10433.313999999991
+    },
+    {
+      "ds": "2017-08-15",
+      "y": 9823.551017999998
+    }
+  ]
+}

@@ -1,6 +1,28 @@
+# Python
 venv/
 .venv/
 __pycache__/
 *.pyc
 data/raw/
 store-sales-time-series-forecasting/
+
+# Node & Next.js
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# Logs & Environment
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.env*.local
+.env
+.DS_Store
+*.pem
+
+# Vercel
+.vercel
+node_modules
