@@ -158,3 +158,15 @@ $$\text{ROP} = (d \cdot L) + SS$$
 - **Data Visualization**: Recharts
 - **Spreadsheet Generation**: SheetJS (`xlsx`)
 - **Deployment Platform**: Vercel (Edge / Serverless)
+
+---
+
+## Project Creator & Connect
+
+**Palak Harinkhede**  
+*AI & Full-Stack Systems Engineer*
+
+- **LinkedIn**: [linkedin.com/in/palakharinkhede](https://www.linkedin.com/in/palakharinkhede/)
+- **GitHub**: [github.com/palakharinkhede4](https://github.com/palakharinkhede4)
+- **Repository**: [github.com/palakharinkhede4/AI-Powered-Inventory-Demand-Forecasting-System](https://github.com/palakharinkhede4/AI-Powered-Inventory-Demand-Forecasting-System)
+- **Dedicated About Page**: Open `/about` in the application or click **"About Project"** on the top right of the dashboard.

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
+import Link from 'next/link';
 import {
   TrendingUp,
   Package,
@@ -24,6 +25,8 @@ import {
   Database,
   FileText,
   HelpCircle,
+  BookOpen,
+  Sparkles,
 } from 'lucide-react';
 import {
   ResponsiveContainer,
@@ -373,6 +376,14 @@ export default function Dashboard() {
                 <Laptop className="w-3.5 h-3.5" />
               </button>
             </div>
+
+            <Link
+              href="/about"
+              className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-700/80 text-zinc-800 dark:text-zinc-200 text-xs font-medium transition-colors shadow-xs"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+              <span>About Project</span>
+            </Link>
 
             <button
               onClick={() => setActiveTab('po')}
@@ -1049,6 +1060,25 @@ export default function Dashboard() {
                     </div>
                   </div>
                 </div>
+
+                <div className="p-4 rounded-lg bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-200/80 dark:border-indigo-900/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-4">
+                  <div className="space-y-1">
+                    <span className="font-semibold text-zinc-900 dark:text-zinc-100 flex items-center space-x-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                      <span>Comprehensive System Architecture & Documentation</span>
+                    </span>
+                    <p className="text-zinc-500 text-[11px]">
+                      Explore multi-tiered serverless diagrams, algorithmic pipelines, creator profile (Palak Harinkhede), and API schemas.
+                    </p>
+                  </div>
+                  <Link
+                    href="/about"
+                    className="shrink-0 inline-flex items-center space-x-1 px-3 py-1.5 rounded-md bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs transition-colors shadow-xs"
+                  >
+                    <span>View About Project</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
             )}
           </div>
@@ -1056,8 +1086,31 @@ export default function Dashboard() {
       </main>
 
       {/* Clean Minimalist Footer */}
-      <footer className="border-t border-zinc-200 dark:border-zinc-800 py-4 text-center text-xs text-zinc-400 dark:text-zinc-600">
-        <span>StockPulse • Demand Forecasting & Inventory Optimizer</span>
+      <footer className="border-t border-zinc-200 dark:border-zinc-800 py-4 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-zinc-900/50">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-zinc-400 dark:text-zinc-600">
+          <span>StockPulse • Demand Forecasting & Inventory Optimizer</span>
+          <div className="flex items-center space-x-4">
+            <Link href="/about" className="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">
+              About Project
+            </Link>
+            <a
+              href="https://www.linkedin.com/in/palakharinkhede/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/palakharinkhede4/AI-Powered-Inventory-Demand-Forecasting-System"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors"
+            >
+              GitHub Repo
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   );
