@@ -166,6 +166,7 @@ $$\text{ROP} = (d \cdot L) + SS$$
 **Palak Harinkhede**  
 *AI & Full-Stack Systems Engineer*
 
+- **Portfolio**: [palakharinkhede4.github.io](https://palakharinkhede4.github.io/)
 - **LinkedIn**: [linkedin.com/in/palakharinkhede](https://www.linkedin.com/in/palakharinkhede/)
 - **GitHub**: [github.com/palakharinkhede4](https://github.com/palakharinkhede4)
 - **Repository**: [github.com/palakharinkhede4/AI-Powered-Inventory-Demand-Forecasting-System](https://github.com/palakharinkhede4/AI-Powered-Inventory-Demand-Forecasting-System)

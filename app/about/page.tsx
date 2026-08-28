@@ -257,15 +257,22 @@ export default function AboutPage() {
 
           <div className="bg-white dark:bg-zinc-900/70 rounded-xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-0.5 flex-shrink-0 shadow-md">
-                  <div className="w-full h-full bg-white dark:bg-zinc-900 rounded-full flex items-center justify-center text-xl font-bold text-zinc-900 dark:text-zinc-100">
-                    PH
+              <div className="flex items-start space-x-4 sm:space-x-5">
+                <div className="relative group shrink-0">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-0.5 shadow-lg overflow-hidden">
+                    <img
+                      src="/palak.jpg"
+                      alt="Palak Harinkhede"
+                      className="w-full h-full object-cover rounded-[14px] group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="absolute -bottom-1 -right-1 p-1 bg-emerald-500 rounded-full border-2 border-white dark:border-zinc-900 shadow-sm" title="Active Project Lead">
+                    <div className="w-2 h-2 rounded-full bg-white" />
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <div className="flex items-center space-x-2.5">
-                    <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+                  <div className="flex items-center space-x-2.5 flex-wrap gap-y-1">
+                    <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">
                       Palak Harinkhede
                     </h3>
                     <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-semibold border border-emerald-200 dark:border-emerald-800/60">
@@ -284,6 +291,17 @@ export default function AboutPage() {
 
               {/* Direct Profile Action Badges */}
               <div className="flex flex-wrap md:flex-col gap-2 shrink-0">
+                <a
+                  href="https://palakharinkhede4.github.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-xs font-medium transition-all shadow-xs"
+                >
+                  <User className="w-4 h-4" />
+                  <span>Personal Portfolio</span>
+                  <ExternalLink className="w-3 h-3 opacity-70" />
+                </a>
+
                 <a
                   href="https://www.linkedin.com/in/palakharinkhede/"
                   target="_blank"
@@ -956,16 +974,16 @@ export default function AboutPage() {
                 </h3>
               </div>
               <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                Explore additional engineering projects, repositories, machine learning models, and publications.
+                Explore Palak Harinkhede's engineering portfolio, machine learning projects, systems architecture, and live applications.
               </p>
               <div className="pt-1">
                 <a
-                  href="https://github.com/palakharinkhede4"
+                  href="https://palakharinkhede4.github.io/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-1 text-xs font-medium text-purple-600 dark:text-purple-400 hover:underline"
                 >
-                  <span>github.com / palakharinkhede4</span>
+                  <span>palakharinkhede4.github.io</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
@@ -1024,6 +1042,14 @@ export default function AboutPage() {
             <Link href="/" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
               Dashboard
             </Link>
+            <a
+              href="https://palakharinkhede4.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            >
+              Portfolio
+            </a>
             <a
               href="https://www.linkedin.com/in/palakharinkhede/"
               target="_blank"
