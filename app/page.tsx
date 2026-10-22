@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect, useMemo } from 'react';
-import Link from 'next/link';
+import React, { useState, useEffect, useMemo } from "react";
+import Link from "next/link";
 import {
   TrendingUp,
+  Activity as ActivityIcon,
   Package,
   Clock,
-  Activity,
   AlertTriangle,
   CheckCircle2,
   AlertCircle,
@@ -18,16 +18,13 @@ import {
   Search,
   ChevronLeft,
   ChevronRight,
-  Sun,
-  Moon,
-  Laptop,
   ArrowUpRight,
   Database,
-  FileText,
-  HelpCircle,
   BookOpen,
-  Sparkles,
-} from 'lucide-react';
+  LayoutDashboard,
+  ArrowRight,
+  Boxes,
+} from "lucide-react";
 import {
   ResponsiveContainer,
   ComposedChart,
@@ -36,59 +33,66 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
   CartesianGrid,
-} from 'recharts';
-import * as XLSX from 'xlsx';
-import { ForecastRequest, ForecastResponse, StatusInfo } from '@/lib/types';
-import { runForecastSimulation, getHistoricalData } from '@/lib/forecastEngine';
+  ReferenceLine,
+} from "recharts";
+import ThemePicker from "./ThemePicker";
+import * as XLSX from "xlsx";
+import { ForecastRequest, ForecastResponse } from "@/lib/types";
+import { runForecastSimulation, getHistoricalData } from "@/lib/forecastEngine";
 
-type ThemeMode = 'light' | 'dark' | 'system';
+type ThemeMode = "light" | "dark" | "system";
 
 export default function Dashboard() {
   // Theme State
-  const [theme, setTheme] = useState<ThemeMode>('system');
+  const [theme, setTheme] = useState<ThemeMode>("system");
   const [isDark, setIsDark] = useState<boolean>(false);
 
   // Initialize theme from localStorage or system preference
   useEffect(() => {
     try {
-      const savedTheme = (localStorage.getItem('stockpulse_theme') as ThemeMode) || 'system';
+      const savedTheme =
+        (localStorage.getItem("stockpulse_theme") as ThemeMode) || "system";
       setTheme(savedTheme);
       applyTheme(savedTheme);
     } catch (_) {}
 
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleSystemChange = (e: MediaQueryListEvent) => {
-      const currentSaved = localStorage.getItem('stockpulse_theme') as ThemeMode;
-      if (!currentSaved || currentSaved === 'system') {
+      const currentSaved = localStorage.getItem(
+        "stockpulse_theme",
+      ) as ThemeMode;
+      if (!currentSaved || currentSaved === "system") {
         if (e.matches) {
-          document.documentElement.classList.add('dark');
+          document.documentElement.classList.add("dark");
           setIsDark(true);
         } else {
-          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.remove("dark");
           setIsDark(false);
         }
       }
     };
 
-    mediaQuery.addEventListener('change', handleSystemChange);
-    return () => mediaQuery.removeEventListener('change', handleSystemChange);
+    mediaQuery.addEventListener("change", handleSystemChange);
+    return () => mediaQuery.removeEventListener("change", handleSystemChange);
   }, []);
 
   const applyTheme = (newTheme: ThemeMode) => {
     try {
-      localStorage.setItem('stockpulse_theme', newTheme);
+      localStorage.setItem("stockpulse_theme", newTheme);
     } catch (_) {}
 
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldBeDark = newTheme === 'dark' || (newTheme === 'system' && prefersDark);
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    const shouldBeDark =
+      newTheme === "dark" || (newTheme === "system" && prefersDark);
 
     if (shouldBeDark) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
       setIsDark(true);
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
       setIsDark(false);
     }
   };
@@ -108,18 +112,24 @@ export default function Dashboard() {
   const [safetyStock, setSafetyStock] = useState<number>(500);
 
   // UI State
-  const [activeTab, setActiveTab] = useState<'forecast' | 'history' | 'po' | 'methodology'>('forecast');
+  const [activeTab, setActiveTab] = useState<
+    "forecast" | "history" | "po" | "methodology"
+  >("forecast");
   const [showAdvanced, setShowAdvanced] = useState<boolean>(false);
   const [showForecastTable, setShowForecastTable] = useState<boolean>(false);
 
   // PO Generator Form State
-  const [vendorName, setVendorName] = useState<string>('Global Logistics Supply Ltd');
-  const [itemName, setItemName] = useState<string>('Aggregated Retail SKU #1');
+  const [vendorName, setVendorName] = useState<string>(
+    "Global Logistics Supply Ltd",
+  );
+  const [itemName, setItemName] = useState<string>(
+    "Store 1 — aggregated sales (demo)",
+  );
   const [unitCost, setUnitCost] = useState<number>(25.0);
   const [isDownloadingPO, setIsDownloadingPO] = useState<boolean>(false);
 
   // Historical Data Table State
-  const [histSearch, setHistSearch] = useState<string>('');
+  const [histSearch, setHistSearch] = useState<string>("");
   const [histPage, setHistPage] = useState<number>(1);
   const rowsPerPage = 12;
 
@@ -135,7 +145,15 @@ export default function Dashboard() {
       promo_boost_pct: promoScenario,
     };
     return runForecastSimulation(params);
-  }, [days, currentStock, leadTime, promoScenario, orderingCost, holdingCost, safetyStock]);
+  }, [
+    days,
+    currentStock,
+    leadTime,
+    promoScenario,
+    orderingCost,
+    holdingCost,
+    safetyStock,
+  ]);
 
   const metrics = result.metrics;
   const statusInfo = result.status_info;
@@ -143,18 +161,24 @@ export default function Dashboard() {
   const historicalTail = result.historical;
 
   // Load complete historical data
-  const allHistorical = useMemo(() => getHistoricalData(), []);
+  const allHistorical = useMemo(
+    () => [...getHistoricalData()].sort((a, b) => b.date.localeCompare(a.date)),
+    [],
+  );
 
   // Filtered historical data
   const filteredHistorical = useMemo(() => {
     if (!histSearch.trim()) return allHistorical;
     const query = histSearch.toLowerCase();
     return allHistorical.filter(
-      (r) => r.date.includes(query) || (r.onpromotion ? 'promo promotion' : '').includes(query)
+      (r) =>
+        r.date.includes(query) ||
+        (r.onpromotion ? "promo promotion" : "").includes(query),
     );
   }, [allHistorical, histSearch]);
 
-  const totalHistPages = Math.ceil(filteredHistorical.length / rowsPerPage) || 1;
+  const totalHistPages =
+    Math.ceil(filteredHistorical.length / rowsPerPage) || 1;
   const pagedHistorical = useMemo(() => {
     const start = (histPage - 1) * rowsPerPage;
     return filteredHistorical.slice(start, start + rowsPerPage);
@@ -163,7 +187,10 @@ export default function Dashboard() {
   // Combine historical tail and forecast for Recharts
   const chartData = useMemo(() => {
     const combined: any[] = [];
-    const dailyRopBaseline = leadTime > 0 ? Math.round(metrics.rop / leadTime) : metrics.avg_daily_demand;
+    const dailyRopBaseline =
+      leadTime > 0
+        ? Math.round(metrics.rop / leadTime)
+        : metrics.avg_daily_demand;
 
     historicalTail.forEach((item) => {
       combined.push({
@@ -183,60 +210,77 @@ export default function Dashboard() {
         forecastDemand: item.yhat,
         uncertaintyUpper: item.yhat_upper,
         uncertaintyLower: item.yhat_lower,
+        uncertaintyRange: [item.yhat_lower, item.yhat_upper],
         dailyRop: dailyRopBaseline,
       });
     });
 
     return combined;
-  }, [historicalTail, forecastData, metrics.rop, leadTime, metrics.avg_daily_demand]);
+  }, [
+    historicalTail,
+    forecastData,
+    metrics.rop,
+    leadTime,
+    metrics.avg_daily_demand,
+  ]);
 
-  // Status Styling mapping (Clean, muted, non-aggressive)
-  const statusConfig = {
-    Red: {
-      border: 'border-rose-200 dark:border-rose-900/60',
-      bg: 'bg-rose-50/70 dark:bg-rose-950/20',
-      text: 'text-rose-900 dark:text-rose-200',
-      badge: 'bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-300',
-      icon: AlertCircle,
-      iconColor: 'text-rose-600 dark:text-rose-400',
-    },
-    Yellow: {
-      border: 'border-amber-200 dark:border-amber-900/60',
-      bg: 'bg-amber-50/70 dark:bg-amber-950/20',
-      text: 'text-amber-900 dark:text-amber-200',
-      badge: 'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300',
-      icon: AlertTriangle,
-      iconColor: 'text-amber-600 dark:text-amber-400',
-    },
-    Green: {
-      border: 'border-emerald-200 dark:border-emerald-900/60',
-      bg: 'bg-emerald-50/70 dark:bg-emerald-950/20',
-      text: 'text-emerald-900 dark:text-emerald-200',
-      badge: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300',
-      icon: CheckCircle2,
-      iconColor: 'text-emerald-600 dark:text-emerald-400',
-    },
-    Blue: {
-      border: 'border-sky-200 dark:border-sky-900/60',
-      bg: 'bg-sky-50/70 dark:bg-sky-950/20',
-      text: 'text-sky-900 dark:text-sky-200',
-      badge: 'bg-sky-100 text-sky-800 dark:bg-sky-900/40 dark:text-sky-300',
-      icon: Info,
-      iconColor: 'text-sky-600 dark:text-sky-400',
-    },
-  };
+  const StatusIcon = {
+    Red: AlertCircle,
+    Yellow: AlertTriangle,
+    Green: CheckCircle2,
+    Blue: Info,
+  }[statusInfo.level];
 
-  const currentStatus = statusConfig[statusInfo.level] || statusConfig.Green;
-  const StatusIcon = currentStatus.icon;
+  const statusCopy = {
+    CRITICAL_STOCKOUT: {
+      title: "Stock needs attention",
+      message:
+        "Stock may run out before your next delivery. Prepare a replenishment order.",
+    },
+    REORDER_WARNING: {
+      title: "Time to reorder",
+      message: "Stock has reached the reorder point. Plan your next delivery.",
+    },
+    OPTIMAL_HEALTHY: {
+      title: "Stock is in a healthy range",
+      message:
+        "You have enough stock to cover expected demand during the supplier lead time.",
+    },
+    OVERSTOCKED: {
+      title: "More stock than needed",
+      message:
+        "Stock is above the target range. Review demand before placing another order.",
+    },
+  }[statusInfo.status];
+  const tabs = [
+    { id: "forecast", label: "Overview", Icon: LayoutDashboard },
+    { id: "history", label: "Sales history", Icon: Database },
+    { id: "po", label: "Purchase order", Icon: FileSpreadsheet },
+    { id: "methodology", label: "How it works", Icon: BookOpen },
+  ] as const;
+  const formatDate = (date: string) =>
+    new Date(date + "T00:00:00").toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+  const historyStart = allHistorical[allHistorical.length - 1]?.date;
+  const historyEnd = allHistorical[0]?.date;
+  const statusTone = statusInfo.level.toLowerCase();
 
   // Download Historical CSV
   const handleDownloadHistoricalCSV = () => {
     const csvContent =
-      'data:text/csv;charset=utf-8,' +
-      ['date,sales,onpromotion', ...allHistorical.map((r) => `${r.date},${r.sales},${r.onpromotion || 0}`)].join('\n');
-    const link = document.createElement('a');
+      "data:text/csv;charset=utf-8," +
+      [
+        "date,sales,onpromotion",
+        ...getHistoricalData().map(
+          (r) => `${r.date},${r.sales},${r.onpromotion || 0}`,
+        ),
+      ].join("\n");
+    const link = document.createElement("a");
     link.href = encodeURI(csvContent);
-    link.download = 'historical_sales.csv';
+    link.download = "historical_sales.csv";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -245,11 +289,14 @@ export default function Dashboard() {
   // Download Forecast CSV
   const handleDownloadForecastCSV = () => {
     const csvContent =
-      'data:text/csv;charset=utf-8,' +
-      ['date,predicted_demand,lower_95,upper_95,trend',
-        ...forecastData.map((f) => `${f.ds},${f.yhat},${f.yhat_lower},${f.yhat_upper},${f.trend}`)
-      ].join('\n');
-    const link = document.createElement('a');
+      "data:text/csv;charset=utf-8," +
+      [
+        "date,predicted_demand,lower_95,upper_95,trend",
+        ...forecastData.map(
+          (f) => `${f.ds},${f.yhat},${f.yhat_lower},${f.yhat_upper},${f.trend}`,
+        ),
+      ].join("\n");
+    const link = document.createElement("a");
     link.href = encodeURI(csvContent);
     link.download = `forecast_${days}d.csv`;
     document.body.appendChild(link);
@@ -273,18 +320,18 @@ export default function Dashboard() {
         lead_time_days: leadTime,
       };
 
-      const res = await fetch('/api/po', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/po", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
       if (res.ok) {
         const blob = await res.blob();
         const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
+        const a = document.createElement("a");
         a.href = url;
-        a.download = `Purchase_Order_${vendorName.replace(/\s+/g, '_')}.xlsx`;
+        a.download = `Purchase_Order_${vendorName.replace(/\s+/g, "_")}.xlsx`;
         document.body.appendChild(a);
         a.click();
         window.URL.revokeObjectURL(url);
@@ -301,825 +348,963 @@ export default function Dashboard() {
 
   const downloadPOClientFallback = () => {
     const poNumber = `PO-${Date.now().toString().slice(-6)}`;
-    const poDate = new Date().toISOString().split('T')[0];
+    const poDate = new Date().toISOString().split("T")[0];
     const totalCost = metrics.recommended_reorder_qty * unitCost;
 
     const wb = XLSX.utils.book_new();
     const sheetData = [
-      ['PURCHASE ORDER', '', '', '', ''],
-      ['PO Number:', poNumber, '', 'Date:', poDate],
-      ['Vendor:', vendorName, '', 'Lead Time:', `${leadTime} Days`],
-      ['', '', '', '', ''],
-      ['Item Description', 'Current Stock', 'ROP', 'EOQ', 'Daily Demand', 'Order Qty', 'Unit Price', 'Total'],
-      [itemName, currentStock, metrics.rop, metrics.eoq, metrics.avg_daily_demand, metrics.recommended_reorder_qty, unitCost, totalCost],
+      ["PURCHASE ORDER", "", "", "", ""],
+      ["PO Number:", poNumber, "", "Date:", poDate],
+      ["Vendor:", vendorName, "", "Lead Time:", `${leadTime} Days`],
+      ["", "", "", "", ""],
+      [
+        "Item Description",
+        "Current Stock",
+        "ROP",
+        "EOQ",
+        "Daily Demand",
+        "Order Qty",
+        "Unit Price",
+        "Total",
+      ],
+      [
+        itemName,
+        currentStock,
+        metrics.rop,
+        metrics.eoq,
+        metrics.avg_daily_demand,
+        metrics.recommended_reorder_qty,
+        unitCost,
+        totalCost,
+      ],
     ];
 
     const ws = XLSX.utils.aoa_to_sheet(sheetData);
-    XLSX.utils.book_append_sheet(wb, ws, 'Purchase Order');
-    XLSX.writeFile(wb, `Purchase_Order_${vendorName.replace(/\s+/g, '_')}.xlsx`);
+    XLSX.utils.book_append_sheet(wb, ws, "Purchase Order");
+    XLSX.writeFile(
+      wb,
+      `Purchase_Order_${vendorName.replace(/\s+/g, "_")}.xlsx`,
+    );
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 flex flex-col font-sans transition-colors duration-150">
-      {/* Clean Minimalist Header */}
-      <header className="border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
-          <div className="flex items-center space-x-2.5">
-            <div className="p-1.5 bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 rounded-md">
-              <TrendingUp className="w-4 h-4" />
-            </div>
-            <div>
-              <span className="font-semibold text-sm tracking-tight text-zinc-900 dark:text-zinc-100">
-                StockPulse
-              </span>
-              <span className="text-zinc-400 dark:text-zinc-500 text-xs ml-2 hidden sm:inline">
-                Demand & Inventory Planning
-              </span>
-            </div>
+    <div className="dashboard-shell">
+      <a className="skip-link" href="#workspace">
+        Skip to workspace
+      </a>
+      <aside className="sidebar">
+        <Link className="brand" href="/" aria-label="StockPulse home">
+          <span className="brand-icon">
+            <Boxes size={22} />
+          </span>
+          <span>
+            StockPulse<span className="brand-caption">INVENTORY PLANNING</span>
+          </span>
+        </Link>
+        <div className="sidebar-section-label">WORKSPACE</div>
+        <nav className="workspace-nav" aria-label="Workspace">
+          {tabs.map(({ id, label, Icon }) => (
+            <button
+              key={id}
+              aria-label={label}
+              title={label}
+              onClick={() => setActiveTab(id)}
+              aria-current={activeTab === id ? "page" : undefined}
+              className={activeTab === id ? "active" : ""}
+            >
+              <Icon size={18} />
+              <span>{label}</span>
+              {activeTab === id && <span className="nav-indicator" />}
+            </button>
+          ))}
+        </nav>
+        <div className="sidebar-bottom">
+          <Link href="/about">
+            <Info size={17} />
+            About the project
+            <ArrowUpRight size={14} />
+          </Link>
+          <span>Built by Palak Harinkhede</span>
+        </div>
+      </aside>
+
+      <div className="dashboard-body">
+        <header className="topbar">
+          <div className="breadcrumb">
+            Workspace <ChevronRight size={13} />
+            <span>{tabs.find((tab) => tab.id === activeTab)?.label}</span>
           </div>
-
-          {/* Header Controls: Theme Switcher & Action */}
-          <div className="flex items-center space-x-3">
-            {/* Theme Toggle Button Group */}
-            <div className="flex items-center p-0.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200/80 dark:border-zinc-700/80 text-xs">
-              <button
-                onClick={() => handleThemeToggle('light')}
-                className={`p-1.5 rounded-md transition-all ${
-                  theme === 'light'
-                    ? 'bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-sm'
-                    : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
-                }`}
-                title="Light mode"
-              >
-                <Sun className="w-3.5 h-3.5" />
-              </button>
-              <button
-                onClick={() => handleThemeToggle('dark')}
-                className={`p-1.5 rounded-md transition-all ${
-                  theme === 'dark'
-                    ? 'bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-sm'
-                    : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
-                }`}
-                title="Dark mode"
-              >
-                <Moon className="w-3.5 h-3.5" />
-              </button>
-              <button
-                onClick={() => handleThemeToggle('system')}
-                className={`p-1.5 rounded-md transition-all ${
-                  theme === 'system'
-                    ? 'bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-sm'
-                    : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
-                }`}
-                title="System default"
-              >
-                <Laptop className="w-3.5 h-3.5" />
-              </button>
-            </div>
-
+          <div className="topbar-actions">
+            <span className="demo-badge">
+              <span />
+              Demo data
+            </span>
+            <ThemePicker theme={theme} onChange={handleThemeToggle} />
             <Link
               href="/about"
-              className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-700/80 text-zinc-800 dark:text-zinc-200 text-xs font-medium transition-colors shadow-xs"
+              className="about-mobile"
+              aria-label="About project"
             >
-              <BookOpen className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-              <span>About Project</span>
+              <Info size={18} />
             </Link>
-
-            <button
-              onClick={() => setActiveTab('po')}
-              className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-md bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-zinc-100 dark:text-zinc-900 text-xs font-medium transition-colors shadow-sm"
+          </div>
+        </header>
+        <main id="workspace" className="dashboard-main">
+          <section className="page-heading">
+            <div>
+              <h1>
+                {activeTab === "forecast"
+                  ? "Inventory overview"
+                  : activeTab === "history"
+                    ? "Sales history"
+                    : activeTab === "po"
+                      ? "Purchase order"
+                      : "How it works"}
+              </h1>
+            </div>
+            {activeTab !== "po" && (            <button
+              className="btn btn-primary"
+              onClick={() => setActiveTab("po")}
             >
-              <FileSpreadsheet className="w-3.5 h-3.5" />
-              <span>Create PO</span>
-            </button>
-          </div>
-        </div>
-      </header>
+              <FileSpreadsheet size={16} />
+              Create purchase order
+              <ArrowUpRight size={15} />
+            </button>)}
+          </section>
 
-      {/* Main Content */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
-        {/* KPI Metric Strip */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800 shadow-xs">
-            <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium block">
-              Forecasted {days}-Day Demand
-            </span>
-            <div className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mt-1 tabular-nums">
-              {metrics.total_expected_demand.toLocaleString()}
-            </div>
-            <span className="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5 block">
-              Units across planning horizon
-            </span>
-          </div>
-
-          <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800 shadow-xs">
-            <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium block">
-              Daily Sales Velocity
-            </span>
-            <div className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mt-1 tabular-nums">
-              {metrics.avg_daily_demand.toLocaleString()}
-            </div>
-            <span className="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5 block">
-              Units demanded per day
-            </span>
-          </div>
-
-          <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800 shadow-xs">
-            <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium block">
-              Stock Runway
-            </span>
-            <div className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mt-1 tabular-nums">
-              {metrics.days_remaining} Days
-            </div>
-            <span className="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5 block truncate">
-              Est. stockout {metrics.stockout_date}
-            </span>
-          </div>
-
-          <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800 shadow-xs">
-            <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium block">
-              Optimal Order Batch (EOQ)
-            </span>
-            <div className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mt-1 tabular-nums">
-              {metrics.eoq.toLocaleString()}
-            </div>
-            <span className="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5 block">
-              Units to minimize carrying cost
-            </span>
-          </div>
-        </div>
-
-        {/* Clean Status Alert Banner */}
-        <div className={`rounded-lg border p-3.5 sm:p-4 ${currentStatus.border} ${currentStatus.bg} transition-colors`}>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div className="flex items-start space-x-3">
-              <StatusIcon className={`w-5 h-5 shrink-0 mt-0.5 ${currentStatus.iconColor}`} />
+          <section className="demo-context" aria-label="Demo dataset">
+            <div className="context-store">
+              <span className="context-icon">
+                <Database size={19} />
+              </span>
               <div>
-                <div className="flex items-center space-x-2">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">
-                    {statusInfo.title}
-                  </span>
-                  <span className={`text-[10px] px-2 py-0.2 rounded font-medium ${currentStatus.badge}`}>
-                    {statusInfo.level}
-                  </span>
-                </div>
-                <p className="text-xs text-zinc-600 dark:text-zinc-300 mt-0.5">
-                  {statusInfo.message}
+                <strong>
+                  Store 1 <span> / Sample retail store</span>
+                </strong>
+                <p>
+                  Daily sales across all product families ·{" "}
+                  {allHistorical.length.toLocaleString("en-US")} records
                 </p>
-                <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-                  <span>Current: <strong>{currentStock.toLocaleString()} units</strong></span>
-                  <span>•</span>
-                  <span>Reorder Point (ROP): <strong>{metrics.rop.toLocaleString()} units</strong></span>
-                  <span>•</span>
-                  <span>Recommended Order: <strong>{metrics.recommended_reorder_qty.toLocaleString()} units</strong></span>
-                </div>
               </div>
             </div>
+            <div className="context-dates">
+              <span>
+                HISTORICAL DATA<strong>Jan 2013 – Aug 2017</strong>
+              </span>
+              <span>
+                FORECAST START<strong>{formatDate(forecastData[0].ds)}</strong>
+              </span>
+            </div>
+          </section>
 
-            {metrics.recommended_reorder_qty > 0 && (
-              <button
-                onClick={() => setActiveTab('po')}
-                className="shrink-0 text-xs font-medium text-zinc-900 dark:text-zinc-100 hover:underline flex items-center space-x-1"
-              >
-                <span>Draft Purchase Order</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </button>
-            )}
-          </div>
-        </div>
+          {activeTab === "forecast" && (
+            <section className="metric-grid" aria-label="Planning summary">
+              {[
+                {
+                  label: days + "-day demand",
+                  value: metrics.total_expected_demand.toLocaleString("en-US"),
+                  unit: "units",
+                  detail: "",
+                  Icon: TrendingUp,
+                  tone: "violet",
+                },
+                {
+                  label: "Average daily demand",
+                  value: metrics.avg_daily_demand.toLocaleString("en-US"),
+                  unit: "units / day",
+                  detail: "",
+                  Icon: ActivityIcon,
+                  tone: "mint",
+                },
+                {
+                  label: "Stock coverage",
+                  value: metrics.days_remaining,
+                  unit: "days",
+                  detail: leadTime + "-day supplier lead time",
+                  Icon: Clock,
+                  tone: "amber",
+                },
+                {
+                  label: "Optimal order size",
+                  value: metrics.eoq.toLocaleString("en-US"),
+                  unit: "units",
+                  detail: "Economic order quantity (EOQ)",
+                  Icon: Package,
+                  tone: "blue",
+                },
+              ].map(({ label, value, unit, detail, Icon, tone }) => (
+                <article className={"metric-card " + tone} key={label}>
+                  <div className="metric-top">
+                    <span>{label}</span>
+                    <span className="metric-icon">
+                      <Icon size={17} />
+                    </span>
+                  </div>
+                  <div className="metric-value">
+                    {value}
+                    <span>{unit}</span>
+                  </div>
+                  {detail && <p>{detail}</p>}
+                </article>
+              ))}
+            </section>
+          )}
 
-        {/* Two-Column Clean Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left: Operational Parameters Panel */}
-          <div className="lg:col-span-4 space-y-4">
-            <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-5 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-4">
-              <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-3">
-                <span className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wide">
-                  Parameters
-                </span>
-                <button
-                  onClick={() => {
-                    setDays(30);
-                    setCurrentStock(5000);
-                    setLeadTime(5);
-                    setPromoScenario(0);
-                    setOrderingCost(50);
-                    setHoldingCost(2);
-                    setSafetyStock(500);
-                  }}
-                  className="text-xs text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 flex items-center space-x-1"
-                  title="Reset to default values"
+          <div
+            className={
+              "workspace-grid" +
+              (activeTab === "history" || activeTab === "methodology"
+                ? " wide-workspace"
+                : "")
+            }
+          >
+            <div className="workspace-content">
+              {activeTab === "forecast" && (
+                <section
+                  className={"stock-alert " + statusTone}
+                  aria-label="Inventory status"
                 >
-                  <RotateCcw className="w-3 h-3" />
-                  <span>Reset</span>
-                </button>
-              </div>
-
-              {/* Horizon Segmented Options */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-xs">
-                  <span className="text-zinc-600 dark:text-zinc-300 font-medium">Forecast Horizon</span>
-                  <span className="font-semibold text-zinc-900 dark:text-zinc-100">{days} Days</span>
-                </div>
-                <div className="grid grid-cols-4 gap-1.5 p-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-xs text-center">
-                  {[7, 14, 30, 60].map((d) => (
+                  <div className="alert-heading">
+                    <span className="alert-icon">
+                      <StatusIcon size={20} />
+                    </span>
+                    <div>
+                      <h2>{statusCopy.title}</h2>
+                      <p>{statusCopy.message}</p>
+                    </div>
+                  </div>
+                  <div className="stock-summary">
+                    <div>
+                      <span>On hand</span>
+                      <strong>
+                        {currentStock.toLocaleString("en-US")}{" "}
+                        <small>units</small>
+                      </strong>
+                    </div>
+                    <div>
+                      <span>Reorder at</span>
+                      <strong>
+                        {metrics.rop.toLocaleString("en-US")}{" "}
+                        <small>units</small>
+                      </strong>
+                    </div>
+                    <div>
+                      <span>Suggested order</span>
+                      <strong>
+                        {metrics.recommended_reorder_qty.toLocaleString(
+                          "en-US",
+                        )}{" "}
+                        <small>units</small>
+                      </strong>
+                    </div>
+                  </div>
+                  {metrics.recommended_reorder_qty > 0 && (
                     <button
-                      key={d}
-                      onClick={() => setDays(d)}
-                      className={`py-1 rounded font-medium transition-all ${
-                        days === d
-                          ? 'bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-xs'
-                          : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
-                      }`}
+                      className="alert-action"
+                      onClick={() => setActiveTab("po")}
                     >
-                      {d}D
+                      Review order
+                      <ArrowRight size={15} />
                     </button>
-                  ))}
-                </div>
-                <input
-                  type="range"
-                  min={7}
-                  max={60}
-                  step={1}
-                  value={days}
-                  onChange={(e) => setDays(Number(e.target.value))}
-                  className="w-full h-1 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-zinc-900 dark:accent-zinc-100"
-                />
-              </div>
+                  )}
+                </section>
+              )}
 
-              {/* Current Stock Input */}
-              <div className="space-y-1">
-                <label className="text-xs text-zinc-600 dark:text-zinc-300 font-medium block">
-                  Current Stock Level (Units)
-                </label>
-                <input
-                  type="number"
-                  min={0}
-                  step={100}
-                  value={currentStock}
-                  onChange={(e) => setCurrentStock(Math.max(0, Number(e.target.value)))}
-                  className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded-md px-3 py-1.5 text-xs text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-500"
-                />
-              </div>
-
-              {/* Supplier Lead Time Input */}
-              <div className="space-y-1">
-                <label className="text-xs text-zinc-600 dark:text-zinc-300 font-medium block">
-                  Supplier Lead Time (Days)
-                </label>
-                <input
-                  type="number"
-                  min={1}
-                  max={30}
-                  step={1}
-                  value={leadTime}
-                  onChange={(e) => setLeadTime(Math.max(1, Number(e.target.value)))}
-                  className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded-md px-3 py-1.5 text-xs text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-500"
-                />
-              </div>
-
-              {/* Promotional Scenario */}
-              <div className="space-y-1">
-                <label className="text-xs text-zinc-600 dark:text-zinc-300 font-medium block">
-                  Promotional Event Scenario
-                </label>
-                <select
-                  value={promoScenario}
-                  onChange={(e) => setPromoScenario(Number(e.target.value))}
-                  className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded-md px-3 py-1.5 text-xs text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-500"
-                >
-                  <option value={0}>Baseline Demand (No Promotion)</option>
-                  <option value={15}>Seasonal Campaign (+15% Demand)</option>
-                  <option value={35}>Flash Sale (+35% Demand)</option>
-                </select>
-              </div>
-
-              {/* Advanced Parameters */}
-              <div className="border-t border-zinc-100 dark:border-zinc-800 pt-3">
-                <button
-                  type="button"
-                  onClick={() => setShowAdvanced(!showAdvanced)}
-                  className="w-full flex items-center justify-between text-xs text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
-                >
-                  <span>Advanced Parameters</span>
-                  <span>{showAdvanced ? '−' : '+'}</span>
-                </button>
-
-                {showAdvanced && (
-                  <div className="space-y-3 mt-3 pt-2">
-                    <div>
-                      <span className="text-[11px] text-zinc-500 block mb-1">Ordering Cost S (INR / order)</span>
-                      <input
-                        type="number"
-                        min={1}
-                        value={orderingCost}
-                        onChange={(e) => setOrderingCost(Math.max(1, Number(e.target.value)))}
-                        className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded px-2.5 py-1 text-xs text-zinc-900 dark:text-zinc-100"
-                      />
+              {activeTab === "forecast" && (
+                <>
+                  <section className="panel forecast-panel">
+                    <div className="panel-heading">
+                      <div>
+                        <h2>Sales & forecast</h2>
+                        <p>
+                          90 days of actual sales, followed by your {days}-day
+                          forecast.
+                        </p>
+                      </div>
+                      <button
+                        className="btn btn-secondary btn-small"
+                        onClick={handleDownloadForecastCSV}
+                      >
+                        <Download size={14} />
+                        Export CSV
+                      </button>
                     </div>
-                    <div>
-                      <span className="text-[11px] text-zinc-500 block mb-1">Holding Cost H (INR / unit / year)</span>
-                      <input
-                        type="number"
-                        min={0.1}
-                        step={0.5}
-                        value={holdingCost}
-                        onChange={(e) => setHoldingCost(Math.max(0.1, Number(e.target.value)))}
-                        className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded px-2.5 py-1 text-xs text-zinc-900 dark:text-zinc-100"
-                      />
+                    <div className="chart-legend">
+                      <span>
+                        <i className="legend-dot actual" />
+                        Actual sales
+                      </span>
+                      <span>
+                        <i className="legend-dot predicted" />
+                        Forecast
+                      </span>
+                      <span>
+                        <i className="legend-area" />
+                        95% range
+                      </span>
+                      <span>
+                        <i className="legend-line" />
+                        Daily reorder baseline
+                      </span>
                     </div>
-                    <div>
-                      <span className="text-[11px] text-zinc-500 block mb-1">Safety Stock Buffer (Units)</span>
-                      <input
-                        type="number"
-                        min={0}
-                        step={50}
-                        value={safetyStock}
-                        onChange={(e) => setSafetyStock(Math.max(0, Number(e.target.value)))}
-                        className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded px-2.5 py-1 text-xs text-zinc-900 dark:text-zinc-100"
-                      />
+                    <div className="chart-axis-label">
+                      Sales · units per day
                     </div>
+                    <div
+                      className="forecast-chart"
+                      role="img"
+                      aria-label={
+                        "Daily sales and " +
+                        days +
+                        "-day demand forecast with a 95% uncertainty range"
+                      }
+                    >
+                      <ResponsiveContainer width="100%" height="100%">
+                        <ComposedChart
+                          data={chartData}
+                          margin={{ top: 10, right: 16, left: -14, bottom: 8 }}
+                        >
+                          <CartesianGrid
+                            strokeDasharray="3 5"
+                            stroke={isDark ? "#30364b" : "#e8ebf2"}
+                            vertical={false}
+                          />
+                          <XAxis
+                            dataKey="date"
+                            stroke={isDark ? "#9ba5bc" : "#818a9e"}
+                            axisLine={false}
+                            fontSize={12}
+                            tickLine={false}
+                            minTickGap={38}
+                            tickMargin={12}
+                            tickFormatter={(v) =>
+                              new Date(v + "T00:00:00").toLocaleDateString(
+                                "en-US",
+                                { month: "short", day: "numeric" },
+                              )
+                            }
+                          />
+                          <YAxis
+                            stroke={isDark ? "#9ba5bc" : "#818a9e"}
+                            axisLine={false}
+                            fontSize={12}
+                            tickLine={false}
+                            tickFormatter={(v) => v / 1000 + "k"}
+                          />
+                          <Tooltip
+                            labelFormatter={(v) => formatDate(String(v))}
+                            contentStyle={{
+                              background: isDark ? "#20263a" : "#fff",
+                              border:
+                                "1px solid " + (isDark ? "#3b435b" : "#e5e8f0"),
+                              borderRadius: 10,
+                              fontSize: 12,
+                              color: isDark ? "#eef1fa" : "#20253d",
+                            }}
+                            formatter={(value: any, name: string) => [
+                              Array.isArray(value)
+                                ? value
+                                    .map((v) =>
+                                      Math.round(v).toLocaleString("en-US"),
+                                    )
+                                    .join(" – ") + " units"
+                                : Number(value).toLocaleString("en-US") +
+                                  " units",
+                              name,
+                            ]}
+                          />
+                          <ReferenceLine
+                            x={forecastData[0].ds}
+                            stroke={isDark ? "#8790b0" : "#adb4c9"}
+                            strokeDasharray="4 4"
+                          />
+                          <Area
+                            isAnimationActive={false}
+                            type="monotone"
+                            dataKey="uncertaintyRange"
+                            fill={isDark ? "#353d64" : "#eceafb"}
+                            fillOpacity={1}
+                            stroke="none"
+                            name="95% range"
+                          />
+                          <Line
+                            isAnimationActive={false}
+                            type="monotone"
+                            dataKey="historicalSales"
+                            stroke={isDark ? "#a69af8" : "#7763ce"}
+                            strokeWidth={2}
+                            dot={false}
+                            name="Actual sales"
+                          />
+                          <Line
+                            isAnimationActive={false}
+                            type="monotone"
+                            dataKey="forecastDemand"
+                            stroke={isDark ? "#62d2b1" : "#258b73"}
+                            strokeWidth={2.5}
+                            dot={false}
+                            name="Forecast"
+                          />
+                          <Line
+                            isAnimationActive={false}
+                            type="monotone"
+                            dataKey="dailyRop"
+                            stroke={isDark ? "#f3be71" : "#c59643"}
+                            strokeWidth={1.5}
+                            strokeDasharray="5 5"
+                            dot={false}
+                            name="Daily reorder baseline"
+                          />
+                        </ComposedChart>
+                      </ResponsiveContainer>
+                    </div>
+                    <div className="chart-footer">
+                      <span>
+                        Forecast begins{" "}
+                        <strong>{formatDate(forecastData[0].ds)}</strong>
+                      </span>
+                      <button
+                        className="text-button"
+                        aria-expanded={showForecastTable}
+                        onClick={() => setShowForecastTable(!showForecastTable)}
+                      >
+                        {showForecastTable
+                          ? "Hide daily breakdown"
+                          : "View daily breakdown"}
+                        <ChevronRight size={14} />
+                      </button>
+                    </div>
+                    {showForecastTable && (
+                      <div className="table-scroll">
+                        <table>
+                          <caption className="sr-only">
+                            Daily forecast, in units
+                          </caption>
+                          <thead>
+                            <tr>
+                              <th>Date</th>
+                              <th className="numeric">Expected units</th>
+                              <th className="numeric">Lower 95%</th>
+                              <th className="numeric">Upper 95%</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {forecastData.map((row) => (
+                              <tr key={row.ds}>
+                                <td>{formatDate(row.ds)}</td>
+                                <td className="numeric forecast-number">
+                                  {row.yhat.toLocaleString("en-US")}
+                                </td>
+                                <td className="numeric">
+                                  {row.yhat_lower.toLocaleString("en-US")}
+                                </td>
+                                <td className="numeric">
+                                  {row.yhat_upper.toLocaleString("en-US")}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    )}
+                  </section>
+                </>
+              )}
+
+              {activeTab === "history" && (
+                <section className="panel">
+                  <div className="panel-heading">
+                    <div>
+                      <h2>Daily sales</h2>
+                      <p>
+                        {formatDate(historyStart)} – {formatDate(historyEnd)} ·
+                        newest first
+                      </p>
+                    </div>
+                    <button
+                      className="btn btn-secondary btn-small"
+                      onClick={handleDownloadHistoricalCSV}
+                    >
+                      <Download size={14} />
+                      Export CSV
+                    </button>
                   </div>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Right: Tabbed Workspace */}
-          <div className="lg:col-span-8 space-y-4">
-            {/* Clean Tab Switcher */}
-            <div className="flex border-b border-zinc-200 dark:border-zinc-800 space-x-1 sm:space-x-4 overflow-x-auto text-xs font-medium">
-              <button
-                onClick={() => setActiveTab('forecast')}
-                className={`py-2.5 px-3 border-b-2 transition-all whitespace-nowrap ${
-                  activeTab === 'forecast'
-                    ? 'border-zinc-900 dark:border-zinc-100 text-zinc-900 dark:text-zinc-100'
-                    : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
-                }`}
-              >
-                Demand Forecast
-              </button>
-
-              <button
-                onClick={() => setActiveTab('po')}
-                className={`py-2.5 px-3 border-b-2 transition-all whitespace-nowrap ${
-                  activeTab === 'po'
-                    ? 'border-zinc-900 dark:border-zinc-100 text-zinc-900 dark:text-zinc-100'
-                    : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
-                }`}
-              >
-                Purchase Order
-              </button>
-
-              <button
-                onClick={() => setActiveTab('history')}
-                className={`py-2.5 px-3 border-b-2 transition-all whitespace-nowrap ${
-                  activeTab === 'history'
-                    ? 'border-zinc-900 dark:border-zinc-100 text-zinc-900 dark:text-zinc-100'
-                    : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
-                }`}
-              >
-                Historical Data
-              </button>
-
-              <button
-                onClick={() => setActiveTab('methodology')}
-                className={`py-2.5 px-3 border-b-2 transition-all whitespace-nowrap ${
-                  activeTab === 'methodology'
-                    ? 'border-zinc-900 dark:border-zinc-100 text-zinc-900 dark:text-zinc-100'
-                    : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
-                }`}
-              >
-                Model & Methodology
-              </button>
-            </div>
-
-            {/* TAB 1: DEMAND FORECAST */}
-            {activeTab === 'forecast' && (
-              <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-5 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-5">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wide">
-                      Demand Trajectory & Uncertainty
-                    </h3>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
-                      Log-transformed Prophet model with 95% confidence intervals and historical actuals.
-                    </p>
+                  <div className="history-note">
+                    Each row is one day of Store 1 sales. “On promotion” counts
+                    promoted items in the source data.
                   </div>
-                  <button
-                    onClick={handleDownloadForecastCSV}
-                    className="inline-flex items-center space-x-1 px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 text-xs font-medium transition-colors"
-                  >
-                    <Download className="w-3 h-3" />
-                    <span>Export CSV</span>
-                  </button>
-                </div>
-
-                {/* Recharts Component */}
-                <div className="h-72 w-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <ComposedChart data={chartData} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
-                      <defs>
-                        <linearGradient id="uncertaintyFill" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor={isDark ? '#6366f1' : '#818cf8'} stopOpacity={0.2} />
-                          <stop offset="95%" stopColor={isDark ? '#6366f1' : '#818cf8'} stopOpacity={0.02} />
-                        </linearGradient>
-                      </defs>
-                      <CartesianGrid
-                        strokeDasharray="3 3"
-                        stroke={isDark ? '#27272a' : '#e4e4e7'}
-                        vertical={false}
-                      />
-                      <XAxis
-                        dataKey="date"
-                        stroke={isDark ? '#71717a' : '#a1a1aa'}
-                        fontSize={11}
-                        tickLine={false}
-                        minTickGap={35}
-                      />
-                      <YAxis
-                        stroke={isDark ? '#71717a' : '#a1a1aa'}
-                        fontSize={11}
-                        tickLine={false}
-                        tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`}
-                      />
-                      <Tooltip
-                        contentStyle={{
-                          backgroundColor: isDark ? '#18181b' : '#ffffff',
-                          borderColor: isDark ? '#27272a' : '#e4e4e7',
-                          borderRadius: '6px',
-                          fontSize: '11px',
-                          color: isDark ? '#f4f4f5' : '#09090b',
-                          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-                        }}
-                        formatter={(value: any, name: string) => {
-                          if (value === null || value === undefined) return ['--', name];
-                          const num = Number(value);
-                          if (name === 'Historical Sales') return [`${num.toLocaleString()} units`, name];
-                          if (name === 'Predicted Demand') return [`${num.toLocaleString()} units`, name];
-                          if (name === 'Daily ROP Baseline') return [`${num.toLocaleString()} units/day`, name];
-                          if (name === '95% Upper Bound') return [`${num.toLocaleString()} units`, name];
-                          return [num.toLocaleString(), name];
+                  <div className="history-toolbar">
+                    <label className="search-field">
+                      <Search size={16} />
+                      <input
+                        aria-label="Search sales history"
+                        placeholder="Search date or promotion…"
+                        value={histSearch}
+                        onChange={(e) => {
+                          setHistSearch(e.target.value);
+                          setHistPage(1);
                         }}
                       />
-                      <Legend
-                        verticalAlign="top"
-                        height={32}
-                        iconType="circle"
-                        wrapperStyle={{ fontSize: '11px', color: isDark ? '#a1a1aa' : '#71717a' }}
-                      />
-
-                      <Area
-                        type="monotone"
-                        dataKey="uncertaintyUpper"
-                        stroke="none"
-                        fill="url(#uncertaintyFill)"
-                        name="95% Upper Bound"
-                        connectNulls
-                      />
-
-                      <Line
-                        type="monotone"
-                        dataKey="historicalSales"
-                        stroke="#6366f1"
-                        strokeWidth={1.8}
-                        dot={false}
-                        name="Historical Sales"
-                        connectNulls
-                      />
-
-                      <Line
-                        type="monotone"
-                        dataKey="forecastDemand"
-                        stroke="#10b981"
-                        strokeWidth={2}
-                        dot={{ r: 2, fill: '#10b981' }}
-                        name="Predicted Demand"
-                        connectNulls
-                      />
-
-                      <Line
-                        type="monotone"
-                        dataKey="dailyRop"
-                        stroke="#f43f5e"
-                        strokeWidth={1.5}
-                        strokeDasharray="3 3"
-                        dot={false}
-                        name="Daily ROP Baseline"
-                      />
-                    </ComposedChart>
-                  </ResponsiveContainer>
-                </div>
-
-                <div className="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400 pt-2 border-t border-zinc-100 dark:border-zinc-800">
-                  <span>Daily ROP: <strong>{Math.round(metrics.rop / leadTime).toLocaleString()} units/day</strong></span>
-                  <button
-                    onClick={() => setShowForecastTable(!showForecastTable)}
-                    className="text-zinc-700 dark:text-zinc-300 hover:underline"
-                  >
-                    {showForecastTable ? 'Hide Table' : 'Show Breakdown Table'}
-                  </button>
-                </div>
-
-                {showForecastTable && (
-                  <div className="overflow-x-auto rounded border border-zinc-200 dark:border-zinc-800">
-                    <table className="w-full text-left text-xs">
-                      <thead className="bg-zinc-50 dark:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800">
+                    </label>
+                    <span>
+                      {filteredHistorical.length.toLocaleString("en-US")}{" "}
+                      records
+                    </span>
+                  </div>
+                  <div className="table-scroll">
+                    <table>
+                      <thead>
                         <tr>
-                          <th className="p-2 font-medium">Date</th>
-                          <th className="p-2 font-medium">Predicted (yhat)</th>
-                          <th className="p-2 font-medium">Lower 95%</th>
-                          <th className="p-2 font-medium">Upper 95%</th>
+                          <th>Date</th>
+                          <th className="numeric">Units sold</th>
+                          <th className="numeric">Items on promotion</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800 text-zinc-700 dark:text-zinc-300 tabular-nums">
-                        {forecastData.map((row, idx) => (
-                          <tr key={idx} className="hover:bg-zinc-50 dark:hover:bg-zinc-800/40">
-                            <td className="p-2">{row.ds}</td>
-                            <td className="p-2 font-medium text-emerald-600 dark:text-emerald-400">{row.yhat.toLocaleString()}</td>
-                            <td className="p-2 text-zinc-500">{row.yhat_lower.toLocaleString()}</td>
-                            <td className="p-2 text-zinc-500">{row.yhat_upper.toLocaleString()}</td>
+                      <tbody>
+                        {pagedHistorical.map((row) => (
+                          <tr key={row.date}>
+                            <td>{formatDate(row.date)}</td>
+                            <td className="numeric strong">
+                              {row.sales.toLocaleString("en-US")}
+                            </td>
+                            <td className="numeric">
+                              <span
+                                className={
+                                  row.onpromotion ? "promo-pill" : "muted"
+                                }
+                              >
+                                {row.onpromotion
+                                  ? row.onpromotion.toLocaleString("en-US")
+                                  : "None"}
+                              </span>
+                            </td>
                           </tr>
                         ))}
                       </tbody>
                     </table>
+                    {pagedHistorical.length === 0 && (
+                      <div className="empty-state">
+                        <Search size={24} />
+                        <h3>No matching sales records</h3>
+                        <p>
+                          Try a date such as 2017-08 or the word “promotion”.
+                        </p>
+                        <button
+                          className="text-button"
+                          onClick={() => {
+                            setHistSearch("");
+                            setHistPage(1);
+                          }}
+                        >
+                          Clear search
+                        </button>
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
-            )}
-
-            {/* TAB 2: PURCHASE ORDER */}
-            {activeTab === 'po' && (
-              <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-5 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-5">
-                <div>
-                  <h3 className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wide">
-                    Supplier Purchase Order
-                  </h3>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
-                    Generate an official supplier Excel spreadsheet based on current inventory recommendations.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div>
-                    <span className="text-xs text-zinc-500 block mb-1">Supplier / Vendor</span>
-                    <input
-                      type="text"
-                      value={vendorName}
-                      onChange={(e) => setVendorName(e.target.value)}
-                      className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded px-2.5 py-1.5 text-xs text-zinc-900 dark:text-zinc-100"
-                    />
-                  </div>
-                  <div>
-                    <span className="text-xs text-zinc-500 block mb-1">Item Description</span>
-                    <input
-                      type="text"
-                      value={itemName}
-                      onChange={(e) => setItemName(e.target.value)}
-                      className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded px-2.5 py-1.5 text-xs text-zinc-900 dark:text-zinc-100"
-                    />
-                  </div>
-                  <div>
-                    <span className="text-xs text-zinc-500 block mb-1">Unit Price (INR)</span>
-                    <input
-                      type="number"
-                      min={0.1}
-                      value={unitCost}
-                      onChange={(e) => setUnitCost(Math.max(0.1, Number(e.target.value)))}
-                      className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded px-2.5 py-1.5 text-xs text-zinc-900 dark:text-zinc-100"
-                    />
-                  </div>
-                </div>
-
-                {/* PO Document Preview Box */}
-                <div className="rounded border border-zinc-200 dark:border-zinc-800 p-4 space-y-3 bg-zinc-50/50 dark:bg-zinc-950/40 text-xs">
-                  <div className="flex justify-between items-center border-b border-zinc-200 dark:border-zinc-800 pb-2">
-                    <span className="font-semibold text-zinc-900 dark:text-zinc-100">PO Document Preview</span>
-                    <span className="text-emerald-700 dark:text-emerald-400 font-medium">Ready for Transmission</span>
-                  </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-zinc-600 dark:text-zinc-300">
+                  <div className="pagination">
+                    <span>
+                      Page {histPage} of {totalHistPages}
+                    </span>
                     <div>
-                      <span className="text-zinc-400 block text-[11px]">Vendor</span>
-                      <span className="font-medium text-zinc-900 dark:text-zinc-100">{vendorName}</span>
+                      <button
+                        aria-label="Previous page"
+                        className="icon-button"
+                        disabled={histPage === 1}
+                        onClick={() => setHistPage((p) => Math.max(1, p - 1))}
+                      >
+                        <ChevronLeft size={16} />
+                      </button>
+                      <button
+                        aria-label="Next page"
+                        className="icon-button"
+                        disabled={histPage === totalHistPages}
+                        onClick={() =>
+                          setHistPage((p) => Math.min(totalHistPages, p + 1))
+                        }
+                      >
+                        <ChevronRight size={16} />
+                      </button>
                     </div>
+                  </div>
+                </section>
+              )}
+
+              {activeTab === "po" && (
+                <section className="panel">
+                  <div className="panel-heading">
                     <div>
-                      <span className="text-zinc-400 block text-[11px]">Lead Time</span>
-                      <span className="font-medium text-zinc-900 dark:text-zinc-100">{leadTime} Days</span>
+                      <h2>Order details</h2>
+                      <p>
+                        Sample supplier details. Edit them before exporting.
+                      </p>
                     </div>
-                    <div>
-                      <span className="text-zinc-400 block text-[11px]">Reorder Qty</span>
-                      <span className="font-bold text-zinc-900 dark:text-zinc-100">{metrics.recommended_reorder_qty.toLocaleString()} units</span>
-                    </div>
-                    <div>
-                      <span className="text-zinc-400 block text-[11px]">Estimated Cost</span>
-                      <span className="font-bold text-emerald-600 dark:text-emerald-400">
-                        ₹{(metrics.recommended_reorder_qty * unitCost).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                    <span className="neutral-pill">Draft preview</span>
+                  </div>
+                  <div className="po-form">
+                    <label className="field">
+                      Supplier
+                      <input
+                        value={vendorName}
+                        onChange={(e) => setVendorName(e.target.value)}
+                      />
+                    </label>
+                    <label className="field">
+                      Item description
+                      <input
+                        value={itemName}
+                        onChange={(e) => setItemName(e.target.value)}
+                      />
+                    </label>
+                    <label className="field">
+                      Unit price (₹)
+                      <input
+                        type="number"
+                        min={0.1}
+                        value={unitCost}
+                        onChange={(e) =>
+                          setUnitCost(Math.max(0.1, Number(e.target.value)))
+                        }
+                      />
+                    </label>
+                  </div>
+                  <div className="order-preview">
+                    <div className="order-preview-heading">
+                      <span className="brand-icon">
+                        <Boxes size={20} />
                       </span>
+                      <div>
+                        <strong>PURCHASE ORDER</strong>
+                        <span>Store 1 · Demo workspace</span>
+                      </div>
+                      <FileSpreadsheet size={24} />
+                    </div>
+                    <div className="order-parties">
+                      <div>
+                        <span>SUPPLIER</span>
+                        <strong>{vendorName || "Add a supplier"}</strong>
+                      </div>
+                      <div>
+                        <span>DELIVERY LEAD TIME</span>
+                        <strong>{leadTime} days</strong>
+                      </div>
+                    </div>
+                    <div className="order-line">
+                      <div>
+                        <span>ITEM</span>
+                        <strong>{itemName || "Add an item"}</strong>
+                      </div>
+                      <div>
+                        <span>QUANTITY</span>
+                        <strong>
+                          {metrics.recommended_reorder_qty.toLocaleString(
+                            "en-US",
+                          )}{" "}
+                          units
+                        </strong>
+                      </div>
+                      <div>
+                        <span>UNIT PRICE</span>
+                        <strong>₹{unitCost.toLocaleString("en-US")}</strong>
+                      </div>
+                    </div>
+                    <div className="order-total">
+                      <span>Estimated order value</span>
+                      <strong>
+                        ₹
+                        {(
+                          metrics.recommended_reorder_qty * unitCost
+                        ).toLocaleString("en-IN", { minimumFractionDigits: 2 })}
+                      </strong>
                     </div>
                   </div>
-                </div>
-
-                <button
-                  onClick={handleDownloadPO}
-                  disabled={isDownloadingPO}
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-1.5 px-4 py-2 rounded-md bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-zinc-100 dark:text-zinc-900 text-xs font-medium transition-colors shadow-sm"
-                >
-                  <FileSpreadsheet className="w-3.5 h-3.5" />
-                  <span>{isDownloadingPO ? 'Generating Excel...' : 'Download Official Purchase Order (.xlsx)'}</span>
-                </button>
-              </div>
-            )}
-
-            {/* TAB 3: HISTORICAL DATA */}
-            {activeTab === 'history' && (
-              <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-5 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wide">
-                      Historical Sales Records
-                    </h3>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
-                      1,684 daily store observations (2013–2017) used for model calibration.
+                  {metrics.recommended_reorder_qty === 0 && (
+                    <p className="history-note">
+                      No replenishment is currently recommended. The export will
+                      show an order quantity of zero.
                     </p>
+                  )}
+                  <div className="order-download">
+                    <p>Downloads an Excel file for review. No order is sent.</p>
+                    <button
+                      className="btn btn-primary"
+                      onClick={handleDownloadPO}
+                      disabled={isDownloadingPO}
+                    >
+                      <Download size={16} />
+                      {isDownloadingPO
+                        ? "Preparing file…"
+                        : "Download order (.xlsx)"}
+                    </button>
+                  </div>
+                </section>
+              )}
+
+              {activeTab === "methodology" && (
+                <section className="panel methodology-panel">
+                  <div className="panel-heading">
+                    <div>
+                      <h2>From sales to your next order</h2>
+                      <p>
+                        Three steps connect the demo data to a replenishment
+                        decision.
+                      </p>
+                    </div>
+                    <BookOpen size={22} />
+                  </div>
+                  <div className="guide-steps">
+                    {[
+                      {
+                        title: "Understand demand",
+                        text: "The demo uses historical daily sales from Store 1 and a saved forecast. Choose a planning window and promotion scenario to explore expected sales.",
+                      },
+                      {
+                        title: "Compare stock with demand",
+                        text: "Stock coverage is your current stock divided by expected daily demand. The reorder point covers supplier lead time plus your safety stock.",
+                      },
+                      {
+                        title: "Review a suggested order",
+                        text: "When stock reaches the reorder point, the recommended quantity restores stock to the reorder point plus an optimal order batch. Review the draft in Purchase order.",
+                      },
+                    ].map((step, i) => (
+                      <div key={step.title}>
+                        <span className="demo-step">0{i + 1}</span>
+                        <div>
+                          <h3>{step.title}</h3>
+                          <p>{step.text}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="formula-grid">
+                    <article>
+                      <h3>
+                        Optimal order size <span>EOQ</span>
+                      </h3>
+                      <code>√((2 × D × S) / H)</code>
+                      <p>
+                        D = demand in the selected window
+                        <br />S = cost per order · H = holding cost
+                      </p>
+                    </article>
+                    <article>
+                      <h3>
+                        Reorder point <span>ROP</span>
+                      </h3>
+                      <code>(d × L) + SS</code>
+                      <p>
+                        d = daily demand · L = lead time
+                        <br />
+                        SS = safety stock buffer
+                      </p>
+                    </article>
+                  </div>
+                  <div className="history-note">
+                    <strong>Reading the chart</strong>
+                    <p>
+                      The shaded band shows the lower and upper 95% forecast
+                      bounds. The dashed baseline is the reorder point divided
+                      by supplier lead time.
+                    </p>
+                  </div>
+                  <div className="history-note">
+                    <strong>About this demo</strong>
+                    <p>
+                      The sales and forecast dates are historical. The estimated
+                      stockout date uses today plus stock coverage:{" "}
+                      {metrics.stockout_date}. Aggregated store sales illustrate
+                      the workflow; the sample order is illustrative.
+                    </p>
+                  </div>
+                  <Link className="text-button" href="/about">
+                    Explore the project & architecture
+                    <ArrowUpRight size={15} />
+                  </Link>
+                </section>
+              )}
+            </div>
+
+            {(activeTab === "forecast" || activeTab === "po") && (
+              <aside
+                className="planning-panel panel"
+                aria-label="Planning inputs"
+              >
+                <div className="planning-heading">
+                  <span className="planning-icon">
+                    <Sliders size={18} />
+                  </span>
+                  <div>
+                    <h2>Planning inputs</h2>
+                    <span>Updates instantly</span>
                   </div>
                   <button
-                    onClick={handleDownloadHistoricalCSV}
-                    className="inline-flex items-center space-x-1 px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 text-xs font-medium transition-colors"
+                    className="icon-button"
+                    title="Reset to default values"
+                    aria-label="Reset planning inputs"
+                    onClick={() => {
+                      setDays(30);
+                      setCurrentStock(5000);
+                      setLeadTime(5);
+                      setPromoScenario(0);
+                      setOrderingCost(50);
+                      setHoldingCost(2);
+                      setSafetyStock(500);
+                    }}
                   >
-                    <Download className="w-3 h-3" />
-                    <span>Download CSV</span>
+                    <RotateCcw size={15} />
                   </button>
                 </div>
-
-                {/* Filter and Table */}
-                <div className="flex items-center justify-between gap-3">
-                  <div className="relative flex-1 max-w-xs">
-                    <Search className="w-3.5 h-3.5 text-zinc-400 absolute left-2.5 top-2" />
+                <div className="planning-fields">
+                  <div className="field">
+                    <label htmlFor="horizon">
+                      Planning window <span>{days} days</span>
+                    </label>
+                    <div className="horizon-options">
+                      {[7, 14, 30, 60].map((d) => (
+                        <button
+                          key={d}
+                          aria-pressed={days === d}
+                          onClick={() => setDays(d)}
+                        >
+                          {d}d
+                        </button>
+                      ))}
+                    </div>
                     <input
-                      type="text"
-                      placeholder="Filter by date (e.g. 2017-05)..."
-                      value={histSearch}
-                      onChange={(e) => {
-                        setHistSearch(e.target.value);
-                        setHistPage(1);
-                      }}
-                      className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80 rounded pl-8 pr-2 py-1 text-xs text-zinc-900 dark:text-zinc-100 focus:outline-none"
+                      id="horizon"
+                      aria-label="Planning window in days"
+                      type="range"
+                      min={7}
+                      max={60}
+                      step={1}
+                      value={days}
+                      onChange={(e) => setDays(Number(e.target.value))}
                     />
                   </div>
-                  <span className="text-xs text-zinc-400">
-                    {filteredHistorical.length} Records
-                  </span>
-                </div>
-
-                <div className="overflow-x-auto rounded border border-zinc-200 dark:border-zinc-800">
-                  <table className="w-full text-left text-xs">
-                    <thead className="bg-zinc-50 dark:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800">
-                      <tr>
-                        <th className="p-2 font-medium">Date</th>
-                        <th className="p-2 font-medium">Sales (Units)</th>
-                        <th className="p-2 font-medium">Promotion Status</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800 text-zinc-700 dark:text-zinc-300 tabular-nums">
-                      {pagedHistorical.map((row, idx) => (
-                        <tr key={idx} className="hover:bg-zinc-50 dark:hover:bg-zinc-800/40">
-                          <td className="p-2">{row.date}</td>
-                          <td className="p-2 font-medium text-zinc-900 dark:text-zinc-100">{row.sales.toLocaleString()}</td>
-                          <td className="p-2">
-                            {row.onpromotion && row.onpromotion > 0 ? (
-                              <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-medium">
-                                Active ({row.onpromotion})
-                              </span>
-                            ) : (
-                              <span className="text-zinc-400 text-[11px]">Normal</span>
-                            )}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-
-                {/* Pagination */}
-                <div className="flex items-center justify-between text-xs text-zinc-500 pt-1">
-                  <span>Page {histPage} of {totalHistPages}</span>
-                  <div className="flex items-center space-x-1">
-                    <button
-                      onClick={() => setHistPage((p) => Math.max(1, p - 1))}
-                      disabled={histPage === 1}
-                      className="p-1 rounded border border-zinc-200 dark:border-zinc-800 disabled:opacity-40"
+                  <label className="field">
+                    Stock on hand <span className="input-unit">units</span>
+                    <input
+                      type="number"
+                      min={0}
+                      step={100}
+                      value={currentStock}
+                      onChange={(e) =>
+                        setCurrentStock(Math.max(0, Number(e.target.value)))
+                      }
+                    />
+                  </label>
+                  <label className="field">
+                    Supplier lead time <span className="input-unit">days</span>
+                    <input
+                      type="number"
+                      min={1}
+                      max={30}
+                      step={1}
+                      value={leadTime}
+                      onChange={(e) =>
+                        setLeadTime(Math.max(1, Number(e.target.value)))
+                      }
+                    />
+                  </label>
+                  <label className="field">
+                    Promotion scenario
+                    <select
+                      value={promoScenario}
+                      onChange={(e) => setPromoScenario(Number(e.target.value))}
                     >
-                      <ChevronLeft className="w-3.5 h-3.5" />
-                    </button>
+                      <option value={0}>No promotion</option>
+                      <option value={15}>Seasonal campaign</option>
+                      <option value={35}>Flash sale</option>
+                    </select>
+                  </label>
+                  <div className="advanced-fields">
                     <button
-                      onClick={() => setHistPage((p) => Math.min(totalHistPages, p + 1))}
-                      disabled={histPage === totalHistPages}
-                      className="p-1 rounded border border-zinc-200 dark:border-zinc-800 disabled:opacity-40"
+                      className="advanced-toggle"
+                      aria-expanded={showAdvanced}
+                      aria-controls="advanced-inputs"
+                      onClick={() => setShowAdvanced(!showAdvanced)}
                     >
-                      <ChevronRight className="w-3.5 h-3.5" />
+                      Costs & safety stock
+                      <span>{showAdvanced ? "−" : "+"}</span>
                     </button>
+                    {showAdvanced && (
+                      <div id="advanced-inputs">
+                        <label className="field">
+                          Ordering cost (₹ / order)
+                          <input
+                            type="number"
+                            min={1}
+                            value={orderingCost}
+                            onChange={(e) =>
+                              setOrderingCost(
+                                Math.max(1, Number(e.target.value)),
+                              )
+                            }
+                          />
+                        </label>
+                        <label className="field">
+                          Holding cost (₹ / unit / period)
+                          <input
+                            type="number"
+                            min={0.1}
+                            step={0.5}
+                            value={holdingCost}
+                            onChange={(e) =>
+                              setHoldingCost(
+                                Math.max(0.1, Number(e.target.value)),
+                              )
+                            }
+                          />
+                        </label>
+                        <label className="field">
+                          Safety stock (units)
+                          <input
+                            type="number"
+                            min={0}
+                            step={50}
+                            value={safetyStock}
+                            onChange={(e) =>
+                              setSafetyStock(
+                                Math.max(0, Number(e.target.value)),
+                              )
+                            }
+                          />
+                        </label>
+                      </div>
+                    )}
                   </div>
                 </div>
-              </div>
-            )}
-
-            {/* TAB 4: MODEL & METHODOLOGY */}
-            {activeTab === 'methodology' && (
-              <div className="bg-white dark:bg-zinc-900/60 rounded-lg p-5 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-4 text-xs">
-                <div>
-                  <h3 className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wide">
-                    Optimization Formulations
-                  </h3>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
-                    Mathematical definitions powering replenishment and batch ordering.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                  <div className="p-3.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-950/40 space-y-1.5">
-                    <span className="font-semibold text-zinc-900 dark:text-zinc-100 block">
-                      Economic Order Quantity (EOQ)
-                    </span>
-                    <p className="text-zinc-500 text-[11px]">
-                      Minimizes the sum of fixed order placement fees and inventory holding expenses:
-                    </p>
-                    <div className="p-2 bg-white dark:bg-zinc-900 rounded font-mono text-center font-medium text-zinc-900 dark:text-zinc-100">
-                      EOQ = √ ( (2 · D · S) / H )
-                    </div>
-                  </div>
-
-                  <div className="p-3.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-950/40 space-y-1.5">
-                    <span className="font-semibold text-zinc-900 dark:text-zinc-100 block">
-                      Reorder Point (ROP)
-                    </span>
-                    <p className="text-zinc-500 text-[11px]">
-                      Establishes the minimum stock trigger level ensuring operations never breach safety buffer:
-                    </p>
-                    <div className="p-2 bg-white dark:bg-zinc-900 rounded font-mono text-center font-medium text-zinc-900 dark:text-zinc-100">
-                      ROP = (d · L) + SS
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-lg bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-200/80 dark:border-indigo-900/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-4">
-                  <div className="space-y-1">
-                    <span className="font-semibold text-zinc-900 dark:text-zinc-100 flex items-center space-x-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-                      <span>Comprehensive System Architecture & Documentation</span>
-                    </span>
-                    <p className="text-zinc-500 text-[11px]">
-                      Explore multi-tiered serverless diagrams, algorithmic pipelines, creator profile (Palak Harinkhede), and API schemas.
-                    </p>
-                  </div>
-                  <Link
-                    href="/about"
-                    className="shrink-0 inline-flex items-center space-x-1 px-3 py-1.5 rounded-md bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs transition-colors shadow-xs"
-                  >
-                    <span>View About Project</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
+              </aside>
             )}
           </div>
-        </div>
-      </main>
-
-      {/* Clean Minimalist Footer */}
-      <footer className="border-t border-zinc-200 dark:border-zinc-800 py-4 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-zinc-900/50">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-zinc-400 dark:text-zinc-600">
-          <span>StockPulse • Demand Forecasting & Inventory Optimizer</span>
-          <div className="flex items-center space-x-4">
-            <Link href="/about" className="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">
-              About Project
-            </Link>
-            <a
-              href="https://palakharinkhede4.github.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors"
-            >
-              Portfolio
-            </a>
-            <a
-              href="https://www.linkedin.com/in/palakharinkhede/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/palakharinkhede4/AI-Powered-Inventory-Demand-Forecasting-System"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors"
-            >
-              GitHub Repo
-            </a>
-          </div>
-        </div>
-      </footer>
+          <footer className="dashboard-footer">
+            <span>StockPulse</span>
+            <div>
+              <Link href="/about">About</Link>
+              <a
+                href="https://palakharinkhede4.github.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Portfolio
+              </a>
+              <a
+                href="https://www.linkedin.com/in/palakharinkhede/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/palakharinkhede4/AI-Powered-Inventory-Demand-Forecasting-System"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </div>
+          </footer>
+        </main>
+      </div>
     </div>
   );
 }
